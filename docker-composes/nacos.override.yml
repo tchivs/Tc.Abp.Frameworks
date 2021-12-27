@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  mysql5.7:
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1q2w3E*
+  nacos:
+    restart: always
+    depends_on:
+      - mysql5.7
+    environment:
+      PREFER_HOST_MODE: hostname #如果支持主机名可以使用hostname,否则使用ip，默认也是ip
+      MODE: standalone
+      MYSQL_MASTER_SERVICE_USER: root
+      MYSQL_MASTER_SERVICE_PASSWORD: 1q2w3E*
+      JVM_XMS: 512m
+      JVM_MMS: 320m
+    ports:
+      - "9999:8848"

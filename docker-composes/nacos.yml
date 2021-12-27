@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  mysql5.7:
+    image: mysql:5.7
+    container_name: mysql57
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nacos
+    ports:
+      - 3306:3306
+    volumes: # 挂载持久化地址
+      - dbdata:/var/lib/mysql/
+      - dbconf:/etc/mysql/
+  nacos:
+    image: nacos/nacos-server
+    container_name: nacos
+    restart: on-failure
+    depends_on:
+      - mysql5.7
+    environment:
+      PREFER_HOST_MODE: hostname #如果支持主机名可以使用hostname,否则使用ip，默认也是ip
+      MODE: standalone
+      MYSQL_MASTER_SERVICE_HOST: mysql5.7
+      MYSQL_MASTER_SERVICE_DB_NAME: nacos
+      MYSQL_MASTER_SERVICE_PORT: 3306
+      MYSQL_MASTER_SERVICE_USER: root
+      MYSQL_MASTER_SERVICE_PASSWORD: root
+      JVM_XMS: 512m
+      JVM_MMS: 320m
+    volumes:
+      - nacoslogsdata:/home/nacos/logs
+      - nacospluginsdata:/home/nacos/plugins
+      - nacosproperties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+volumes:
+  dbdata:
+  dbconf:
+  nacoslogsdata:
+  nacospluginsdata:
+  nacosproperties:

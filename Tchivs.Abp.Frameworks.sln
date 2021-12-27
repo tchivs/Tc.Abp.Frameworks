@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Nacos", "framework\Tchivs.Abp.Nacos\Tchivs.Abp.Nacos.csproj", "{183474B1-6776-4BBF-A6D7-34BA39F996B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Nacos", "framework\Tchivs.Abp.AspNetCore.Nacos\Tchivs.Abp.AspNetCore.Nacos.csproj", "{C2FDD65D-3D6B-4F23-B52D-651D0FF28BCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{183474B1-6776-4BBF-A6D7-34BA39F996B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183474B1-6776-4BBF-A6D7-34BA39F996B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183474B1-6776-4BBF-A6D7-34BA39F996B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183474B1-6776-4BBF-A6D7-34BA39F996B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FDD65D-3D6B-4F23-B52D-651D0FF28BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FDD65D-3D6B-4F23-B52D-651D0FF28BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FDD65D-3D6B-4F23-B52D-651D0FF28BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FDD65D-3D6B-4F23-B52D-651D0FF28BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}
+	EndGlobalSection
+EndGlobal
