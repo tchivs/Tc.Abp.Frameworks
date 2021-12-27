@@ -1,9 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Nacos", "framework\Tchivs.Abp.Nacos\Tchivs.Abp.Nacos.csproj", "{183474B1-6776-4BBF-A6D7-34BA39F996B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Nacos", "..\framework\Tchivs.Abp.Nacos\Tchivs.Abp.Nacos.csproj", "{183474B1-6776-4BBF-A6D7-34BA39F996B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D3E8A34C-60F0-4201-AE74-F568984B1825}"
 EndProject
@@ -11,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{C59C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.nacos with console", "01.nacos with console", "{481D1AB6-2298-40FA-9F9B-3F9420CF507C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NacosConsoleApp", "samples\01.nacos with console\NacosConsoleApp\NacosConsoleApp.csproj", "{4548D1A5-4852-4F82-897F-9869F2437AB7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.AspNetCore.Nacos", "framework\Tchivs.Abp.AspNetCore.Nacos\Tchivs.Abp.AspNetCore.Nacos.csproj", "{B19E473E-0EDB-45DC-9955-6ECE50A74AF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Nacos", "..\framework\Tchivs.Abp.AspNetCore.Nacos\Tchivs.Abp.AspNetCore.Nacos.csproj", "{B19E473E-0EDB-45DC-9955-6ECE50A74AF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.nacos with aspnetcore", "02.nacos with aspnetcore", "{795BFAB1-5AAE-4E33-9BAC-878974A50583}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NacosWebApplication", "samples\02.nacos with aspnetcore\NacosWebApplication\NacosWebApplication.csproj", "{7A65E449-AE48-4FA7-885B-F07AE0029791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NacosConsoleApp", "01.nacos with console\NacosConsoleApp\NacosConsoleApp.csproj", "{A7BDF3B2-A210-4A31-98E0-840714B99D7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NacosWebApplication", "02.nacos with aspnetcore\NacosWebApplication\NacosWebApplication.csproj", "{46E6683D-72EC-4A2F-87FB-D7AFE27685D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,18 +28,18 @@ Global
 		{183474B1-6776-4BBF-A6D7-34BA39F996B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{183474B1-6776-4BBF-A6D7-34BA39F996B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{183474B1-6776-4BBF-A6D7-34BA39F996B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4548D1A5-4852-4F82-897F-9869F2437AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4548D1A5-4852-4F82-897F-9869F2437AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4548D1A5-4852-4F82-897F-9869F2437AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4548D1A5-4852-4F82-897F-9869F2437AB7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B19E473E-0EDB-45DC-9955-6ECE50A74AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B19E473E-0EDB-45DC-9955-6ECE50A74AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19E473E-0EDB-45DC-9955-6ECE50A74AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19E473E-0EDB-45DC-9955-6ECE50A74AF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A65E449-AE48-4FA7-885B-F07AE0029791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A65E449-AE48-4FA7-885B-F07AE0029791}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A65E449-AE48-4FA7-885B-F07AE0029791}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A65E449-AE48-4FA7-885B-F07AE0029791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7BDF3B2-A210-4A31-98E0-840714B99D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BDF3B2-A210-4A31-98E0-840714B99D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BDF3B2-A210-4A31-98E0-840714B99D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BDF3B2-A210-4A31-98E0-840714B99D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46E6683D-72EC-4A2F-87FB-D7AFE27685D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E6683D-72EC-4A2F-87FB-D7AFE27685D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E6683D-72EC-4A2F-87FB-D7AFE27685D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E6683D-72EC-4A2F-87FB-D7AFE27685D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,10 +47,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{183474B1-6776-4BBF-A6D7-34BA39F996B0} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{481D1AB6-2298-40FA-9F9B-3F9420CF507C} = {C59CD7D2-8E53-449D-91F1-3BDC14BAD1C0}
-		{4548D1A5-4852-4F82-897F-9869F2437AB7} = {481D1AB6-2298-40FA-9F9B-3F9420CF507C}
 		{B19E473E-0EDB-45DC-9955-6ECE50A74AF2} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{795BFAB1-5AAE-4E33-9BAC-878974A50583} = {C59CD7D2-8E53-449D-91F1-3BDC14BAD1C0}
-		{7A65E449-AE48-4FA7-885B-F07AE0029791} = {795BFAB1-5AAE-4E33-9BAC-878974A50583}
+		{A7BDF3B2-A210-4A31-98E0-840714B99D7A} = {481D1AB6-2298-40FA-9F9B-3F9420CF507C}
+		{46E6683D-72EC-4A2F-87FB-D7AFE27685D2} = {795BFAB1-5AAE-4E33-9BAC-878974A50583}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}
