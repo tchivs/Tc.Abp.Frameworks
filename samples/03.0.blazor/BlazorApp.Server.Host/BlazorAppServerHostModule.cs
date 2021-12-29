@@ -1,4 +1,5 @@
 using BlazorApp.Server.Host.Data;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Tchivs.Abp.AspNetCore;
@@ -76,7 +77,24 @@ public class BlazorAppServerHostModule : AbpModule
         {
             BaseAddress = new Uri("/")
         });
-
+        context.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(builder =>
+            {
+                builder
+                    .WithOrigins(
+                        configuration["App:CorsOrigins"]
+                            .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                            .Select(o => o.RemovePostFix("/"))
+                            .ToArray()
+                    )
+                    .WithAbpExposedHeaders()
+                    .SetIsOriginAllowedToAllowWildcardSubdomains()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+            });
+        });
 
     }
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -99,6 +117,7 @@ public class BlazorAppServerHostModule : AbpModule
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
+        app.UseCors();
         app.UseAuthentication();
         //app.UseJwtTokenMiddleware();
         //if (MultiTenancyConsts.IsEnabled)

@@ -22,8 +22,8 @@ public class TchivsAbpAspNetCoreBlazorModule : AbpModule
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         context.Services.AddSingleton(typeof(AbpBlazorMessageLocalizerHelper<>));
-        context.Services.AddAuthorizationCore();
         context.Services.AddBootstrapBlazor();
+
         ConfigureRouter(context);
     }
 
