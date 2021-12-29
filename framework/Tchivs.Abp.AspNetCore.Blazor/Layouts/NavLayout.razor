@@ -1,0 +1,21 @@
+﻿@using Microsoft.Extensions.Localization
+@using Volo.Abp.Ui.Branding
+@inherits LayoutComponentBase
+@inject IBrandingProvider _brandingProvider
+@*@inject IStringLocalizer<BlazorUIResource> Localizer*@
+<CascadingValue Value="this" IsFixed="true">
+    <Layout>
+        <Header>header</Header>
+        <Side>side</Side>
+        <Main>
+            <CascadingValue Value="this" IsFixed="true">
+                @Body
+            </CascadingValue>
+        </Main>
+        <Footer>
+            <div class="text-center flex-fill">
+                <a class="link-info" href="https://gitee.com/LongbowEnterprise/BootstrapAdmin" target="_blank">@this._brandingProvider.AppName</a>
+            </div>
+        </Footer>
+    </Layout>
+</CascadingValue>
