@@ -22,6 +22,7 @@ namespace Tchivs.Abp.AspNetCore.Blazor.WebAssembly
              
             Configure<AbpRouterOptions>(options =>
             {
+                options.AppAssembly = typeof(TchivsAbpAspNetCoreBlazorModule).Assembly;
                 options.AdditionalAssemblies.Add(this.GetType().Assembly);
             });
 

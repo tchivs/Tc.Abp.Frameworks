@@ -37,7 +37,8 @@ public class BlazorAppWebAssemblyHostModule : AbpModule
     {
         Configure<AbpRouterOptions>(options =>
         {
-            options.AppAssembly = this.GetType().Assembly;
+            
+            options.AdditionalAssemblies.Add(this.GetType().Assembly);
         });
     }
     private void ConfigureMenu(ServiceConfigurationContext context)
