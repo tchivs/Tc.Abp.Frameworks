@@ -2,14 +2,16 @@
   <!-- <Import Project="build\Version.props" /> -->
   <PropertyGroup>
 	  <!-- All Microsoft packages -->
-	  <MicrosoftPackageVersion>6.0.0</MicrosoftPackageVersion>
+	  <MicrosoftPackageVersion>6.0.1</MicrosoftPackageVersion>
+	  
+	  <!-- All Abp packages -->
+	  <AbpVersion>5.0.1</AbpVersion>
 
 	  <PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
-    <Authors>tchivs</Authors>
-    <Company>tchivs</Company>
-    <LangVersion>latest</LangVersion>
-	  <AbpVersion>5.0.0</AbpVersion>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	  <Authors>tchivs</Authors>
+	  <Company>tchivs</Company>
+	  <LangVersion>latest</LangVersion>
+	  <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright (c) 2020 tchivs</Copyright>
     <PackageProjectUrl>https://github.com/tchivs/Tchivs.Abp.Frameworks</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tchivs/Tchivs.Abp.Frameworks</RepositoryUrl>

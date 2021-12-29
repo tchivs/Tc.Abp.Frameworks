@@ -52,7 +52,7 @@ public class BlazorAppServerHostModule : AbpModule
         });
         Configure<AbpRouterOptions>(options =>
         {
-            options.AppAssembly = this.GetType().Assembly;
+            options.AdditionalAssemblies.Add(this.GetType().Assembly);
         });
         Configure<AppUrlOptions>(options =>
         {

@@ -23,7 +23,6 @@ public class TchivsAbpAspNetCoreBlazorModule : AbpModule
     {
         context.Services.AddSingleton(typeof(AbpBlazorMessageLocalizerHelper<>));
         context.Services.AddBootstrapBlazor();
-
         ConfigureRouter(context);
     }
 
@@ -31,7 +30,8 @@ public class TchivsAbpAspNetCoreBlazorModule : AbpModule
     {
         Configure<AbpRouterOptions>(options =>
         {
-            options.AdditionalAssemblies.Add(typeof(TchivsAbpAspNetCoreBlazorModule).Assembly);
+            options.AppAssembly = typeof(TchivsAbpAspNetCoreBlazorModule).Assembly;
+            //  options.AdditionalAssemblies.Add(typeof(TchivsAbpAspNetCoreBlazorModule).Assembly);
         });
         // Configure<AbpRouterOptions>(options => { options.AppAssembly = typeof(TchivsAbpAspNetCoreBlazorModule).Assembly; });
     }

@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+
+  elasticsearch:
+    volumes:
+      - ../elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+
+  logstash:
+    volumes:
+      - ../elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ../elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
+    environment:
+      - "LS_JAVA_OPTS=-Xmx256m -Xms256m"
+    ports:
+      - "9600"
+      - "5000"
+
+  kibana:
+    volumes:
+      - ../elk/kibana/config/:/usr/share/kibana/config:ro
+    ports:
+      - 5601:5601
