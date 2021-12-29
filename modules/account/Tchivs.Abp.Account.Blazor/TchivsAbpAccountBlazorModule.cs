@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.JSInterop;
 using Tchivs.Abp.Account.Blazor.ProfileManagement;
+using Tchivs.Abp.AspNetCore.Blazor;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Localization;
 using Volo.Abp.AspNetCore.Mvc.Localization;
@@ -69,6 +70,11 @@ namespace Tchivs.Abp.Account.Blazor
             Configure<DynamicJavaScriptProxyOptions>(options =>
             {
                 options.DisableModule(AccountRemoteServiceConsts.ModuleName);
+            });
+
+            Configure<AbpRouterOptions>(options =>
+            {
+                options.AdditionalAssemblies.Add(this.GetType().Assembly);
             });
         }
 

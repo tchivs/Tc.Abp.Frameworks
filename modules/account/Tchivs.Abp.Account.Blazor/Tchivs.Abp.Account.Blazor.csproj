@@ -16,6 +16,5 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor\Tchivs.Abp.AspNetCore.Blazor.csproj" />
-	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore\Tchivs.Abp.AspNetCore.csproj" />
 	</ItemGroup>
 </Project>

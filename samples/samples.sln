@@ -36,7 +36,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Blazo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Blazor.WebAssembly", "..\framework\Tchivs.Abp.AspNetCore.Blazor.WebAssembly\Tchivs.Abp.AspNetCore.Blazor.WebAssembly.csproj", "{92BD5D9E-FCF8-4FDD-9451-23AAF71457D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.WebAssembly.Host", "03.0.blazor\BlazorApp.WebAssembly.Host\BlazorApp.WebAssembly.Host.csproj", "{C86F8F4A-452F-4EB6-A0B7-B75B9CC86481}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.WebAssembly.Host", "03.0.blazor\BlazorApp.WebAssembly.Host\BlazorApp.WebAssembly.Host.csproj", "{C86F8F4A-452F-4EB6-A0B7-B75B9CC86481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.Account.Blazor.IdentityServer", "..\modules\account\Tchivs.Abp.Account.Blazor.IdentityServer\Tchivs.Abp.Account.Blazor.IdentityServer.csproj", "{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,6 +90,10 @@ Global
 		{C86F8F4A-452F-4EB6-A0B7-B75B9CC86481}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C86F8F4A-452F-4EB6-A0B7-B75B9CC86481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C86F8F4A-452F-4EB6-A0B7-B75B9CC86481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{23C54B4D-39BC-4E22-8993-545C7B989D4A} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{92BD5D9E-FCF8-4FDD-9451-23AAF71457D7} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{C86F8F4A-452F-4EB6-A0B7-B75B9CC86481} = {4821AFD5-FA9D-4E97-93D1-1B4BD8F717CC}
+		{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}
