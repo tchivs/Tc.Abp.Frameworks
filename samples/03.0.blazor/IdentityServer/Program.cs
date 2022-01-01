@@ -1,9 +1,9 @@
-using BlazorApp.Server.Host.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.Elasticsearch;
+
 var configuration = new ConfigurationBuilder()
               .SetBasePath(Directory.GetCurrentDirectory())
               .AddJsonFile("appsettings.json")
@@ -62,7 +62,7 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddApplication<BlazorAppServerHostModule>();
+        services.AddApplication<IdentityServerHostModule>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
