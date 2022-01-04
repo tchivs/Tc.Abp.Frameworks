@@ -22,7 +22,6 @@ namespace Tchivs.Abp.Account.Blazor.IdentityServer
             {
                 options.ConfigureAuthentication = false;
             });
-
             PreConfigure<IMvcBuilder>(mvcBuilder =>
             {
                 mvcBuilder.AddApplicationPartIfNotExists(typeof(AbpAccountBlazorIdentityServerModule).Assembly);

@@ -2,10 +2,16 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
+using Tchivs.Abp.Account.Blazor.IdentityServer;
+using Tchivs.Abp.AspNetCore.Blazor;
+using Tchivs.Abp.AspNetCore.Blazor.Server;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Auditing;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -14,44 +20,54 @@ using Volo.Abp.Caching;
 using Volo.Abp.Data;
 using Volo.Abp.Emailing;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Sqlite;
+using Volo.Abp.FeatureManagement.EntityFrameworkCore;
+using Volo.Abp.Identity.EntityFrameworkCore;
+using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
+using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.Swashbuckle;
+using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.Threading;
-using Volo.Abp.UI.Navigation.Urls;
+
+namespace IdentityServer;
 
 [DependsOn(
     //typeof(AbpAccountWebIdentityServerModule),
     typeof(AbpAccountApplicationModule),
     typeof(AbpAccountHttpApiModule),
-    //typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
+    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
     typeof(AbpAspNetCoreMvcModule),
-    //typeof(AbpAspNetCoreMvcUiBasicThemeModule),
+    typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),
     typeof(AbpAutofacModule),
     //typeof(AbpCachingStackExchangeRedisModule),
-    //typeof(AbpEntityFrameworkCoreSqlServerModule),
-    //typeof(AbpIdentityEntityFrameworkCoreModule),
+    typeof(AbpEntityFrameworkCoreSqliteModule),
+    typeof(AbpIdentityEntityFrameworkCoreModule),
     //typeof(AbpIdentityApplicationModule),
     //typeof(AbpIdentityHttpApiModule),
-    //typeof(AbpIdentityServerEntityFrameworkCoreModule),
-    //typeof(AbpPermissionManagementDomainIdentityModule),
-    //typeof(AbpPermissionManagementEntityFrameworkCoreModule),
+    typeof(AbpIdentityServerEntityFrameworkCoreModule),
+    //  typeof(AbpPermissionManagementDomainIdentityModule),
+    typeof(AbpPermissionManagementEntityFrameworkCoreModule),
     //typeof(AbpPermissionManagementApplicationModule),
     //typeof(AbpPermissionManagementHttpApiModule),
-    //typeof(AbpSettingManagementEntityFrameworkCoreModule),
+    typeof(AbpSettingManagementEntityFrameworkCoreModule),
     //typeof(AbpSettingManagementApplicationModule),
     //typeof(AbpSettingManagementHttpApiModule),
-    //typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+    typeof(AbpFeatureManagementEntityFrameworkCoreModule),
     //typeof(AbpFeatureManagementApplicationModule),
     //typeof(AbpFeatureManagementHttpApiModule),
-    //typeof(AbpTenantManagementEntityFrameworkCoreModule),
+    typeof(AbpTenantManagementEntityFrameworkCoreModule),
     //typeof(AbpTenantManagementApplicationModule),
     //typeof(AbpTenantManagementHttpApiModule),
     typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(AbpAccountBlazorIdentityServerModule),
+    typeof(TchivsAbpAspNetCoreBlazorServerModule)
 )]
 public class IdentityServerHostModule : AbpModule
 {
@@ -61,9 +77,21 @@ public class IdentityServerHostModule : AbpModule
         var configuration = context.Services.GetConfiguration();
         Configure<AbpDbContextOptions>(options =>
         {
-            // options.UseSqlServer();
+            options.UseSqlite();
         });
-
+        Configure<AbpBundlingOptions>(options =>
+        {
+            //BLAZOR UI
+            options.StyleBundles.Configure(
+                BlazorThemeBundles.Styles.Global,
+                bundle =>
+                {
+                    bundle.AddFiles("/css/site.css");
+                    //You can remove the following line if you don't use Blazor CSS isolation for components
+                    bundle.AddFiles("/IdentityServer.styles.css");
+                }
+            );
+        });
         context.Services.AddAbpSwaggerGen(
             options =>
             {
@@ -71,7 +99,10 @@ public class IdentityServerHostModule : AbpModule
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
-
+        Configure<AbpRouterOptions>(options =>
+        {
+            options.AdditionalAssemblies.Add(this.GetType().Assembly);
+        });
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
@@ -83,10 +114,16 @@ public class IdentityServerHostModule : AbpModule
             //options.IsEnabledForGetRequests = true;
             options.ApplicationName = "AuthServer";
         });
-        Configure<AppUrlOptions>(options =>
-        {
-            options.Applications["MVC"].RootUrl = configuration["App:SelfUrl"];
-        });
+
+        //Configure<AppUrlOptions>(options =>
+        //{
+        //    options.Applications["MVC"].RootUrl = configuration["App:SelfUrl"];
+        //    options.RedirectAllowedUrls.AddRange(configuration["App:RedirectAllowedUrls"].Split(','));
+        //});
+        //context.Services.AddTransient(sp => new HttpClient
+        //{
+        //    BaseAddress = new Uri("/")
+        //});
         context.Services.AddAuthentication()
             .AddJwtBearer(options =>
             {
@@ -151,7 +188,6 @@ public class IdentityServerHostModule : AbpModule
         app.UseCorrelationId();
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseCors();
         app.UseAuthentication();
         app.UseJwtTokenMiddleware();
 
@@ -161,12 +197,13 @@ public class IdentityServerHostModule : AbpModule
         //}
 
         app.UseAbpRequestLocalization();
+        app.UseUnitOfWork();
         app.UseIdentityServer();
         app.UseAuthorization();
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support APP API");
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "MyProjectName API");
         });
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
@@ -187,4 +224,6 @@ public class IdentityServerHostModule : AbpModule
             }
         });
     }
+
+
 }

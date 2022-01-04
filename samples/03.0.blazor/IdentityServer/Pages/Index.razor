@@ -1,9 +1,17 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@inherits TchivsBaseComponent
+@if (CurrentUser.IsAuthenticated)
+{
+    <Card>
+        <CardHeader>@CurrentUser.UserName</CardHeader>
+    </Card>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+}
+else
+{
+    <div class="text-center">
+        <i class="fa fa-user d-block" style="font-size: 10em; color: #aaa"></i><br /><br />
+        <a class="accordion-button-info"  href="/Account/Login">Login</a>
+    </div>
+}

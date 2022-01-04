@@ -40,7 +40,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.WebAssembly.Host"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Blazor.IdentityServer", "..\modules\account\Tchivs.Abp.Account.Blazor.IdentityServer\Tchivs.Abp.Account.Blazor.IdentityServer.csproj", "{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "03.0.blazor\IdentityServer\IdentityServer.csproj", "{B30E5CCB-9A1C-4FB5-A578-503D76AAEBD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "03.0.blazor\IdentityServer\IdentityServer.csproj", "{B30E5CCB-9A1C-4FB5-A578-503D76AAEBD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
