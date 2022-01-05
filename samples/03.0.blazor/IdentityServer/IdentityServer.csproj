@@ -53,7 +53,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor.Server\Tchivs.Abp.AspNetCore.Blazor.Server.csproj" />
-		<ProjectReference Include="..\..\..\modules\account\Tchivs.Abp.Account.Blazor.IdentityServer\Tchivs.Abp.Account.Blazor.IdentityServer.csproj" />
+		<ProjectReference Include="..\..\..\modules\account\src\Tchivs.Abp.Account.Blazor.IdentityServer\Tchivs.Abp.Account.Blazor.IdentityServer.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Shared\" />

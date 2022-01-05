@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Tchivs.Abp.Account</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.Application" Version="$(AbpVersion)" />
+    <ProjectReference Include="..\Tchivs.Abp.Account.Application.Contracts\Tchivs.Abp.Account.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Tchivs.Abp.Account.Domain\Tchivs.Abp.Account.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

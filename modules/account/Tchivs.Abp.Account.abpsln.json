@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Tchivs.Abp.Account": {
+      "path": "Tchivs.Abp.Account.abpmdl.json"
+    }
+  }
+}

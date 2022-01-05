@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="..\..\..\..\common.props" />
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+	  <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(AbpVersion)"></PackageReference>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AutoMapper" Version="$(AbpVersion)"></PackageReference>
+		<PackageReference Include="Volo.Abp.Identity.AspNetCore" Version="$(AbpVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="$(MicrosoftPackageVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor\Tchivs.Abp.AspNetCore.Blazor.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="wwwroot\Images\" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="wwwroot\**\*.*" />
+		<Compile Remove="wwwroot\libs\**" />
+		<Content Remove="wwwroot\**\*.*" />
+		<Content Remove="wwwroot\libs\**" />
+		<EmbeddedResource Remove="wwwroot\libs\**" />
+		<None Remove="wwwroot\libs\**" />
+	</ItemGroup>
+
+</Project>

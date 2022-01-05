@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Tchivs.Abp.Account</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <ProjectReference Include="..\Tchivs.Abp.Account.EntityFrameworkCore.Tests\Tchivs.Abp.Account.EntityFrameworkCore.Tests.csproj" />
+  </ItemGroup>
+
+</Project>

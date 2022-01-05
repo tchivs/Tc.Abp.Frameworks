@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{4FB9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "account", "account", "{83214235-C3B8-4AD9-8F22-28BF2A0E48E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Blazor", "..\modules\account\Tchivs.Abp.Account.Blazor\Tchivs.Abp.Account.Blazor.csproj", "{54D3CD24-F026-4E69-ABCE-B26AA5D6B7C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Blazor", "..\modules\account\src\Tchivs.Abp.Account.Blazor\Tchivs.Abp.Account.Blazor.csproj", "{54D3CD24-F026-4E69-ABCE-B26AA5D6B7C3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Blazor", "..\framework\Tchivs.Abp.AspNetCore.Blazor\Tchivs.Abp.AspNetCore.Blazor.csproj", "{F60CDBF4-0E27-4461-8B72-E16CAADFD3AE}"
 EndProject
@@ -38,15 +38,33 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Blazo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.WebAssembly.Host", "03.0.blazor\BlazorApp.WebAssembly.Host\BlazorApp.WebAssembly.Host.csproj", "{C86F8F4A-452F-4EB6-A0B7-B75B9CC86481}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Blazor.IdentityServer", "..\modules\account\Tchivs.Abp.Account.Blazor.IdentityServer\Tchivs.Abp.Account.Blazor.IdentityServer.csproj", "{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Blazor.IdentityServer", "..\modules\account\src\Tchivs.Abp.Account.Blazor.IdentityServer\Tchivs.Abp.Account.Blazor.IdentityServer.csproj", "{FC6D7571-D8AD-42C1-8C8C-D8F7B5D65C7B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "03.0.blazor\IdentityServer\IdentityServer.csproj", "{B30E5CCB-9A1C-4FB5-A578-503D76AAEBD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.Dapr", "..\framework\Tchivs.Abp.Dapr\Tchivs.Abp.Dapr.csproj", "{BE50EE13-5011-4830-966D-D1F6D21DCC15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Dapr", "..\framework\Tchivs.Abp.Dapr\Tchivs.Abp.Dapr.csproj", "{BE50EE13-5011-4830-966D-D1F6D21DCC15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.AspNetCore.Dapr", "..\framework\Tchivs.Abp.AspNetCore.Dapr\Tchivs.Abp.AspNetCore.Dapr.csproj", "{058C8BCC-0902-4087-AC00-42199FBEFDD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Dapr", "..\framework\Tchivs.Abp.AspNetCore.Dapr\Tchivs.Abp.AspNetCore.Dapr.csproj", "{058C8BCC-0902-4087-AC00-42199FBEFDD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.AspNetCore.Blazor.Abstractions", "..\framework\Tchivs.Abp.AspNetCore.Blazor.Abstractions\Tchivs.Abp.AspNetCore.Blazor.Abstractions.csproj", "{E56526EF-A556-4006-9F0C-F56EEE9CFB54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Blazor.Abstractions", "..\framework\Tchivs.Abp.AspNetCore.Blazor.Abstractions\Tchivs.Abp.AspNetCore.Blazor.Abstractions.csproj", "{E56526EF-A556-4006-9F0C-F56EEE9CFB54}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Application", "..\modules\account\src\Tchivs.Abp.Account.Application\Tchivs.Abp.Account.Application.csproj", "{F072B3F1-5C33-49DD-AC1E-A0310D930925}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Application.Contracts", "..\modules\account\src\Tchivs.Abp.Account.Application.Contracts\Tchivs.Abp.Account.Application.Contracts.csproj", "{9B6D656E-0D7C-4794-9F56-9021960CC9B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Domain", "..\modules\account\src\Tchivs.Abp.Account.Domain\Tchivs.Abp.Account.Domain.csproj", "{B25C74F1-6F27-44A3-A10F-08CE700A7DAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.EntityFrameworkCore", "..\modules\account\src\Tchivs.Abp.Account.EntityFrameworkCore\Tchivs.Abp.Account.EntityFrameworkCore.csproj", "{1E3222AB-D0C2-4CFF-9F28-417E5B62FAC9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.HttpApi", "..\modules\account\src\Tchivs.Abp.Account.HttpApi\Tchivs.Abp.Account.HttpApi.csproj", "{9C659A08-BEE6-4153-9094-265CAEA48B05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.HttpApi.Client", "..\modules\account\src\Tchivs.Abp.Account.HttpApi.Client\Tchivs.Abp.Account.HttpApi.Client.csproj", "{A814AA5A-9618-4CCD-9228-DA3B0DDF1269}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Installer", "..\modules\account\src\Tchivs.Abp.Account.Installer\Tchivs.Abp.Account.Installer.csproj", "{8AD72120-602D-41C1-8AD2-CD8DB499CBDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.MongoDB", "..\modules\account\src\Tchivs.Abp.Account.MongoDB\Tchivs.Abp.Account.MongoDB.csproj", "{292E6CAF-84F8-47C7-9C79-48C2052E1E5A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Account.Domain.Shared", "..\modules\account\src\Tchivs.Abp.Account.Domain.Shared\Tchivs.Abp.Account.Domain.Shared.csproj", "{CBC678B6-B37B-41B1-B122-C13D72F5AA8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -118,6 +136,42 @@ Global
 		{E56526EF-A556-4006-9F0C-F56EEE9CFB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E56526EF-A556-4006-9F0C-F56EEE9CFB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E56526EF-A556-4006-9F0C-F56EEE9CFB54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F072B3F1-5C33-49DD-AC1E-A0310D930925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F072B3F1-5C33-49DD-AC1E-A0310D930925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F072B3F1-5C33-49DD-AC1E-A0310D930925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F072B3F1-5C33-49DD-AC1E-A0310D930925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6D656E-0D7C-4794-9F56-9021960CC9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6D656E-0D7C-4794-9F56-9021960CC9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6D656E-0D7C-4794-9F56-9021960CC9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6D656E-0D7C-4794-9F56-9021960CC9B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25C74F1-6F27-44A3-A10F-08CE700A7DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25C74F1-6F27-44A3-A10F-08CE700A7DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25C74F1-6F27-44A3-A10F-08CE700A7DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25C74F1-6F27-44A3-A10F-08CE700A7DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E3222AB-D0C2-4CFF-9F28-417E5B62FAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E3222AB-D0C2-4CFF-9F28-417E5B62FAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E3222AB-D0C2-4CFF-9F28-417E5B62FAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E3222AB-D0C2-4CFF-9F28-417E5B62FAC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C659A08-BEE6-4153-9094-265CAEA48B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C659A08-BEE6-4153-9094-265CAEA48B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C659A08-BEE6-4153-9094-265CAEA48B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C659A08-BEE6-4153-9094-265CAEA48B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A814AA5A-9618-4CCD-9228-DA3B0DDF1269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A814AA5A-9618-4CCD-9228-DA3B0DDF1269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A814AA5A-9618-4CCD-9228-DA3B0DDF1269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A814AA5A-9618-4CCD-9228-DA3B0DDF1269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD72120-602D-41C1-8AD2-CD8DB499CBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD72120-602D-41C1-8AD2-CD8DB499CBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD72120-602D-41C1-8AD2-CD8DB499CBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD72120-602D-41C1-8AD2-CD8DB499CBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{292E6CAF-84F8-47C7-9C79-48C2052E1E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{292E6CAF-84F8-47C7-9C79-48C2052E1E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{292E6CAF-84F8-47C7-9C79-48C2052E1E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{292E6CAF-84F8-47C7-9C79-48C2052E1E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBC678B6-B37B-41B1-B122-C13D72F5AA8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBC678B6-B37B-41B1-B122-C13D72F5AA8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBC678B6-B37B-41B1-B122-C13D72F5AA8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBC678B6-B37B-41B1-B122-C13D72F5AA8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,6 +197,15 @@ Global
 		{BE50EE13-5011-4830-966D-D1F6D21DCC15} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{058C8BCC-0902-4087-AC00-42199FBEFDD1} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{E56526EF-A556-4006-9F0C-F56EEE9CFB54} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
+		{F072B3F1-5C33-49DD-AC1E-A0310D930925} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{9B6D656E-0D7C-4794-9F56-9021960CC9B5} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{B25C74F1-6F27-44A3-A10F-08CE700A7DAB} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{1E3222AB-D0C2-4CFF-9F28-417E5B62FAC9} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{9C659A08-BEE6-4153-9094-265CAEA48B05} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{A814AA5A-9618-4CCD-9228-DA3B0DDF1269} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{8AD72120-602D-41C1-8AD2-CD8DB499CBDB} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{292E6CAF-84F8-47C7-9C79-48C2052E1E5A} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
+		{CBC678B6-B37B-41B1-B122-C13D72F5AA8C} = {83214235-C3B8-4AD9-8F22-28BF2A0E48E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
+using Tchivs.Abp.AspNetCore.Blazor.Components;
 using Volo.Abp.AspNetCore.Components.WebAssembly;
 using Volo.Abp.Http.Client.IdentityModel.WebAssembly;
 using Volo.Abp.Modularity;
@@ -20,7 +21,10 @@ namespace Tchivs.Abp.AspNetCore.Blazor.WebAssembly
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-             
+            Configure<BlazorComponentOption>(options =>
+            {
+                options.AddComponent(BlazorComponentType.LanguageSwitch, typeof(LanguageSwitch));
+            });
             Configure<AbpRouterOptions>(options =>
             {
                 options.AdditionalAssemblies.Add(this.GetType().Assembly);

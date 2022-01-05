@@ -1,0 +1,85 @@
+﻿@page "/Account/Login"
+@using System.Diagnostics.CodeAnalysis
+@using Microsoft.Extensions.Options
+@layout MainLayout
+@inherits AccountComponentBase
+@inject ComponentCenter ComponentCenter
+<section class="login-container">
+    <div class="login-weaper d-flex align-items-center">
+        <div class="row">
+            <div class="col mx-auto" style="max-width: 400px;">
+
+                <div class="d-flex  justify-content-between">
+                    <h3>Login</h3>
+                        <ul class="navbar-nav">
+                            @ComponentCenter.Render(BlazorComponentType.LanguageSwitch)
+                        </ul>
+                </div>
+                <ValidateForm Model=@Model OnInvalidSubmit="@OnInvalidSubmit"
+                              OnValidSubmit="@OnValidSubmit">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <BootstrapInput @bind-Value="@Model.UserNameOrEmailAddress" DisplayText="@L["UserNameOrEmailAddress"]" />
+                        </div>
+                        <div class="col-12">
+                            <BootstrapInput @bind-Value="@Model.Password" type="password" DisplayText="@L["Password"]" />
+                        </div>
+                        <div class="col-12">
+                            <Checkbox DisplayText="@L["RememberMe"]" ShowLabel=false ShowAfterLabel=true @bind-Value="@Model.RememberMe" />
+                        </div>
+                        <div class="col-12">
+                            <Button style="width: 100%;" ButtonType="ButtonType.Submit" ButtonStyle=ButtonStyle.Round
+                                    Color="Color.Primary" Text="@L["Login"]" IsAsync="true" />
+                        </div>
+                    </div>
+                </ValidateForm>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<style>
+    .login-container {
+        background-image: url(/images/login.png);
+        background-color: #f0f2f5;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        min-height: 100vh;
+        -webkit-animation: animate-cloud 20s linear infinite;
+        animation: animate-cloud 20s linear infinite;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    @@-webkit-keyframes animate-cloud {
+        0% {
+            background-position: 600px 100%
+        }
+
+        to {
+            background-position: 0 100%
+        }
+    }
+
+    .login-weaper {
+        position: relative;
+        margin: 0 auto;
+        padding: 30px 40px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+        box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+        background-color: #fff;
+        border-radius: 3px;
+    }
+</style>
+@code {
+
+
+}

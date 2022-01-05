@@ -14,6 +14,7 @@ using Volo.Abp.ExceptionHandling;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using System.Linq;
+
 namespace Tchivs.Abp.AspNetCore.Blazor;
 [DependsOn(
         typeof(TchivsAbpAspNetCoreBlazorAbstractionsModule))]
@@ -31,6 +32,25 @@ public class TchivsAbpAspNetCoreBlazorModule : AbpModule
             options.AppAssembly = typeof(TchivsAbpAspNetCoreBlazorModule).Assembly;
             //  options.AdditionalAssemblies.Add(typeof(TchivsAbpAspNetCoreBlazorModule).Assembly);
         });
+    }
+}
+public enum BlazorComponentType
+{
+    LanguageSwitch
+}
+public class BlazorComponentOption
+{
+    public Dictionary<BlazorComponentType, Type> Components { get; } = new Dictionary<BlazorComponentType, Type>();
+    public void AddComponent(BlazorComponentType componentType, Type type)
+    {
+        if (Components.ContainsKey(componentType))
+        {
+            Components[componentType] = type;
+        }
+        else
+        {
+            Components.Add(componentType, type);
+        }
     }
 }
 [Dependency(ReplaceServices = true)]

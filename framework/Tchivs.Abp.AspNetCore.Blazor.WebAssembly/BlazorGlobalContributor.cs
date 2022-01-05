@@ -4,7 +4,6 @@ namespace Tchivs.Abp.AspNetCore.Blazor.WebAssembly;
 
 public class BlazorGlobalContributor : IBundleContributor
 {
-    public string? BasicNameSpace = typeof(TchivsAbpAspNetCoreBlazorModule).Namespace;
     public void AddScripts(BundleContext context)
     {
         foreach (var js in Blazor.Abstractions.ResourceConst.Js)

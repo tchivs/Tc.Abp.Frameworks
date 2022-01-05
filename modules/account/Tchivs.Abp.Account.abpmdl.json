@@ -1,0 +1,79 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "Tchivs.Abp.Account.Domain.Shared": {
+      "path": "src/Tchivs.Abp.Account.Domain.Shared/Tchivs.Abp.Account.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.Domain": {
+      "path": "src/Tchivs.Abp.Account.Domain/Tchivs.Abp.Account.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.Application.Contracts": {
+      "path": "src/Tchivs.Abp.Account.Application.Contracts/Tchivs.Abp.Account.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.Application": {
+      "path": "src/Tchivs.Abp.Account.Application/Tchivs.Abp.Account.Application.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.EntityFrameworkCore": {
+      "path": "src/Tchivs.Abp.Account.EntityFrameworkCore/Tchivs.Abp.Account.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.MongoDB": {
+      "path": "src/Tchivs.Abp.Account.MongoDB/Tchivs.Abp.Account.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.HttpApi": {
+      "path": "src/Tchivs.Abp.Account.HttpApi/Tchivs.Abp.Account.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.HttpApi.Client": {
+      "path": "src/Tchivs.Abp.Account.HttpApi.Client/Tchivs.Abp.Account.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "Tchivs.Abp.Account.TestBase": {
+      "path": "test/Tchivs.Abp.Account.TestBase/Tchivs.Abp.Account.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "Tchivs.Abp.Account.EntityFrameworkCore.Tests": {
+      "path": "test/Tchivs.Abp.Account.EntityFrameworkCore.Tests/Tchivs.Abp.Account.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Tchivs.Abp.Account.MongoDB.Tests": {
+      "path": "test/Tchivs.Abp.Account.MongoDB.Tests/Tchivs.Abp.Account.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Tchivs.Abp.Account.Domain.Tests": {
+      "path": "test/Tchivs.Abp.Account.Domain.Tests/Tchivs.Abp.Account.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Tchivs.Abp.Account.Application.Tests": {
+      "path": "test/Tchivs.Abp.Account.Application.Tests/Tchivs.Abp.Account.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "Tchivs.Abp.Account.HttpApi.Host": {
+      "path": "host/Tchivs.Abp.Account.HttpApi.Host/Tchivs.Abp.Account.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "Tchivs.Abp.Account.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/Tchivs.Abp.Account.HttpApi.Client.ConsoleTestApp/Tchivs.Abp.Account.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "Tchivs.Abp.Account.IdentityServer": {
+      "path": "host/Tchivs.Abp.Account.IdentityServer/Tchivs.Abp.Account.IdentityServer.abppkg.json",
+      "folder": "host"
+    },
+    "Tchivs.Abp.Account.Host.Shared": {
+      "path": "host/Tchivs.Abp.Account.Host.Shared/Tchivs.Abp.Account.Host.Shared.abppkg.json",
+      "folder": "host"
+    }
+  }
+}

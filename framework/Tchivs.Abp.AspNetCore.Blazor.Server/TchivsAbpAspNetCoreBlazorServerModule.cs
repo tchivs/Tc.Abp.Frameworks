@@ -1,5 +1,6 @@
 
 using Tchivs.Abp.AspNetCore.Blazor;
+using Tchivs.Abp.AspNetCore.Blazor.Components;
 using Volo.Abp.AspNetCore;
 using Volo.Abp.AspNetCore.Components.Server;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
@@ -19,6 +20,10 @@ namespace Tchivs.Abp.AspNetCore.Blazor.Server
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
 
+            Configure<BlazorComponentOption>(options =>
+            {
+                options.AddComponent( BlazorComponentType.LanguageSwitch,typeof(LanguageSwitch));
+            });
             Configure<AbpBundlingOptions>(options =>
             {
                 options
