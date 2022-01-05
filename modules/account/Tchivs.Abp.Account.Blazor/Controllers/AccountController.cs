@@ -63,7 +63,6 @@ namespace Tchivs.Abp.Account.Blazor.Controllers
                 login.RememberMe,
                 true
             );
-
             await IdentitySecurityLogManager.SaveAsync(new IdentitySecurityLogContext()
             {
                 Identity = IdentitySecurityLogIdentityConsts.Identity,

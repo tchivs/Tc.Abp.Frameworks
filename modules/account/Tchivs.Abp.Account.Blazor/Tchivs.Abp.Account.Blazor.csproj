@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(AbpVersion)"></PackageReference>
@@ -17,4 +18,13 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor\Tchivs.Abp.AspNetCore.Blazor.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="wwwroot\Images\" />
+	  <Folder Include="wwwroot\libs\css\" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="wwwroot\**\*.*" />
+		<Content Remove="wwwroot\**\*.*" />
+	</ItemGroup>
+
 </Project>

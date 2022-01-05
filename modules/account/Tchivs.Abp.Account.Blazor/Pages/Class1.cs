@@ -28,6 +28,7 @@ using Volo.Abp;
 
 namespace Tchivs.Abp.Account.Blazor.Pages
 {
+
     public abstract class AccountPageModel : AbpPageModel
     {
         public IAccountAppService AccountAppService { get; set; }
@@ -362,25 +363,26 @@ namespace Tchivs.Abp.Account.Blazor.Pages
             }
         }
 
-        public class LoginInputModel
-        {
-            [Required]
-            [DynamicStringLength(typeof(IdentityUserConsts), nameof(IdentityUserConsts.MaxEmailLength))]
-            public string UserNameOrEmailAddress { get; set; }
 
-            [Required]
-            [DynamicStringLength(typeof(IdentityUserConsts), nameof(IdentityUserConsts.MaxPasswordLength))]
-            [DataType(DataType.Password)]
-            [DisableAuditing]
-            public string Password { get; set; }
-
-            public bool RememberMe { get; set; }
-        }
 
         public class ExternalProviderModel
         {
-            public string DisplayName { get; set; }
-            public string AuthenticationScheme { get; set; }
+            public string? DisplayName { get; set; }
+            public string? AuthenticationScheme { get; set; }
         }
+    }
+    public class LoginInputModel
+    {
+        [Required]
+        [DynamicStringLength(typeof(IdentityUserConsts), nameof(IdentityUserConsts.MaxEmailLength))]
+        public string UserNameOrEmailAddress { get; set; }
+
+        [Required]
+        [DynamicStringLength(typeof(IdentityUserConsts), nameof(IdentityUserConsts.MaxPasswordLength))]
+        [DataType(DataType.Password)]
+        [DisableAuditing]
+        public string Password { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 }

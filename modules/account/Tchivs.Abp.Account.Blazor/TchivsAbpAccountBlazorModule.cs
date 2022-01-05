@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.JSInterop;
 using Tchivs.Abp.Account.Blazor.ProfileManagement;
 using Tchivs.Abp.AspNetCore.Blazor;
+using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Localization;
 using Volo.Abp.AspNetCore.Mvc.Localization;
@@ -44,6 +45,9 @@ namespace Tchivs.Abp.Account.Blazor
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+            Configure<AbpAccountOptions>(options => { 
+            });
+            
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
                 options.FileSets.AddEmbedded<TchivsAbpAccountBlazorModule>();

@@ -2,6 +2,7 @@ using IdentityServer4.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Tchivs.Abp.AspNetCore.Blazor;
+using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
 using Volo.Abp.Identity.AspNetCore;
 using Volo.Abp.IdentityServer;
 using Volo.Abp.Modularity;

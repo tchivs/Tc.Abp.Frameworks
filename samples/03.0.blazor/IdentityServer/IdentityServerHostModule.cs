@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.OpenApi.Models;
 using Tchivs.Abp.Account.Blazor.IdentityServer;
 using Tchivs.Abp.AspNetCore.Blazor;
+using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
 using Tchivs.Abp.AspNetCore.Blazor.Server;
 using Volo.Abp;
 using Volo.Abp.Account;

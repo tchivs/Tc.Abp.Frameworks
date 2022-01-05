@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Tchivs.Abp.AspNetCore.Blazor;
+using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
 using Tchivs.Abp.AspNetCore.Blazor.Components;
 using Tchivs.Abp.AspNetCore.Blazor.WebAssembly;
 using Volo.Abp.Account;

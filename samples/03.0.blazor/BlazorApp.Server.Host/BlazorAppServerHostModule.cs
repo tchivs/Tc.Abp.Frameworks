@@ -17,6 +17,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
+using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
 
 [DependsOn(typeof(TchivsAbpAspNetCoreBlazorServerModule),
 typeof(AbpAutofacModule),

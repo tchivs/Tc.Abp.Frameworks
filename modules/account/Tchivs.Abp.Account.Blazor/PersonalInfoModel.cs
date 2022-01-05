@@ -5,7 +5,6 @@ using Volo.Abp.Identity;
 using Volo.Abp.Validation;
 
 namespace Tchivs.Abp.Account.Blazor;
-
 public class PersonalInfoModel : IHasConcurrencyStamp
 {
     [Required]
