@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="BootstrapBlazor" Version="6.1.1" />
+		<PackageReference Include="BootstrapBlazor" Version="6.2.6" />
 		<ProjectReference Include="..\Tchivs.Abp.AspNetCore.Blazor.Abstractions\Tchivs.Abp.AspNetCore.Blazor.Abstractions.csproj" />
 		<ProjectReference Include="..\Tchivs.Abp.Core\Tchivs.Abp.Core.csproj" />
 	</ItemGroup>
