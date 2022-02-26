@@ -18,10 +18,11 @@ namespace Tchivs.Abp.FreeSql
         /// </summary>
         public Action<DbCommand, string> Executed { get; set; }
         public ConnectionData Default { get; set; } = new ConnectionData();
+        public string DefaultName { get; set; } = nameof(Default);
         public Dictionary<string, ConnectionData> Connections { get; set; }
         public ConnectionOptions()
         {
-            Connections = new Dictionary<string, ConnectionData>() { { nameof(Default), Default } };
+            Connections = new Dictionary<string, ConnectionData>() { { DefaultName, Default } };
         }
         public void AddConnection(string name, ConnectionData connection)
         {

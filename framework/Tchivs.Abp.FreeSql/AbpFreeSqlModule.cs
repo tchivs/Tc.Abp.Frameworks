@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 namespace Tchivs.Abp.FreeSql
 {
     [DependsOn(typeof(TchivsAbpCoreModule))]
-    public class TchivsAbpFreeSqlModule : AbpModule
+    public class AbpFreeSqlModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
