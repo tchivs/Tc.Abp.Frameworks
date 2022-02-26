@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 	<Import Project="..\..\common.props" />
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,14 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="BrowserInterop" Version="1.1.2" />
 		<PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.Authorization" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.UI.Navigation" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.AutoMapper" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="$(AbpVersion)" />
-		<PackageReference Include="Volo.Abp.Validation" Version="$(AbpVersion)" />
 	</ItemGroup>
+ 
 	<ItemGroup>
+	  <ProjectReference Include="..\Tchivs.Abp.AspNetCore.Blazor.Localization\Tchivs.Abp.AspNetCore.Blazor.Localization.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.Core\Tchivs.Abp.Core.csproj" />
 	</ItemGroup>
 </Project>

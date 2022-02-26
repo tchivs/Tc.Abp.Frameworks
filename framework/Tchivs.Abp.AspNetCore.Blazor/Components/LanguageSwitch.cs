@@ -10,7 +10,7 @@ using Volo.Abp.Localization;
 
 namespace Tchivs.Abp.AspNetCore.Blazor.Components
 {
-    public abstract class BaseLanguageSwitch : Abstractions.TchivsBaseComponent
+    public abstract class BaseLanguageSwitch : BlazorComponent
     {
         [NotNull, Inject] protected ILanguageProvider? LanguageProvider { get; set; }
         protected IReadOnlyList<LanguageInfo>? Languages { get; set; }
