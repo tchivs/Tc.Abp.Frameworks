@@ -10,7 +10,7 @@ using FreeSql.DataAnnotations;
 
 namespace FreesqlConsoleApp;
 
-[DependsOn(typeof(AbpAutofacModule), typeof(Tchivs.Abp.FreeSql.TchivsAbpFreeSqlModule))]
+[DependsOn(typeof(AbpAutofacModule), typeof(Tchivs.Abp.FreeSql.AbpFreeSqlModule))]
 public class FreesqlConsoleAppModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
