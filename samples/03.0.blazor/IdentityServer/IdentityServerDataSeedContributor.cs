@@ -62,7 +62,7 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
 
     private async Task CreateApiScopesAsync()
     {
-        await CreateApiScopeAsync("MyProjectName");
+        await CreateApiScopeAsync("BlazorApp");
     }
 
     private async Task CreateApiResourcesAsync()
@@ -77,7 +77,7 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
             "role"
         };
 
-        await CreateApiResourceAsync("MyProjectName", commonApiUserClaims);
+        await CreateApiResourceAsync("BlazorApp", commonApiUserClaims);
     }
 
     private async Task<ApiResource> CreateApiResourceAsync(string name, IEnumerable<string> claims)
@@ -134,61 +134,61 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
             "role",
             "phone",
             "address",
-            "MyProjectName"
+            "BlazorApp"
         };
 
         var configurationSection = _configuration.GetSection("IdentityServer:Clients");
 
         //Web Client
-        var webClientId = configurationSection["MyProjectName_Web:ClientId"];
-        if (!webClientId.IsNullOrWhiteSpace())
-        {
-            var webClientRootUrl = configurationSection["MyProjectName_Web:RootUrl"].EnsureEndsWith('/');
+        //var webClientId = configurationSection["BlazorApp_Web:ClientId"];
+        //if (!webClientId.IsNullOrWhiteSpace())
+        //{
+        //    var webClientRootUrl = configurationSection["BlazorApp_Web:RootUrl"].EnsureEndsWith('/');
 
-            /* MyProjectName_Web client is only needed if you created a tiered
-             * solution. Otherwise, you can delete this client. */
+        //    /* BlazorApp_Web client is only needed if you created a tiered
+        //     * solution. Otherwise, you can delete this client. */
 
-            await CreateClientAsync(
-                name: webClientId,
-                scopes: commonScopes,
-                grantTypes: new[] { "hybrid" },
-                secret: (configurationSection["MyProjectName_Web:ClientSecret"] ?? "1q2w3e*").Sha256(),
-                redirectUri: $"{webClientRootUrl}signin-oidc",
-                postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc",
-                frontChannelLogoutUri: $"{webClientRootUrl}Account/FrontChannelLogout",
-                corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
-            );
-        }
+        //    await CreateClientAsync(
+        //        name: webClientId,
+        //        scopes: commonScopes,
+        //        grantTypes: new[] { "hybrid" },
+        //        secret: (configurationSection["BlazorApp_Web:ClientSecret"] ?? "1q2w3e*").Sha256(),
+        //        redirectUri: $"{webClientRootUrl}signin-oidc",
+        //        postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc",
+        //        frontChannelLogoutUri: $"{webClientRootUrl}Account/FrontChannelLogout",
+        //        corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
+        //    );
+        //}
 
         //Console Test / Angular Client
-        var consoleAndAngularClientId = configurationSection["MyProjectName_App:ClientId"];
-        if (!consoleAndAngularClientId.IsNullOrWhiteSpace())
-        {
-            var webClientRootUrl = configurationSection["MyProjectName_App:RootUrl"]?.TrimEnd('/');
+        //var consoleAndAngularClientId = configurationSection["BlazorApp_App:ClientId"];
+        //if (!consoleAndAngularClientId.IsNullOrWhiteSpace())
+        //{
+        //    var webClientRootUrl = configurationSection["BlazorApp_App:RootUrl"]?.TrimEnd('/');
 
-            await CreateClientAsync(
-                name: consoleAndAngularClientId,
-                scopes: commonScopes,
-                grantTypes: new[] { "password", "client_credentials", "authorization_code" },
-                secret: (configurationSection["MyProjectName_App:ClientSecret"] ?? "1q2w3e*").Sha256(),
-                requireClientSecret: false,
-                redirectUri: webClientRootUrl,
-                postLogoutRedirectUri: webClientRootUrl,
-                corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
-            );
-        }
+        //    await CreateClientAsync(
+        //        name: consoleAndAngularClientId,
+        //        scopes: commonScopes,
+        //        grantTypes: new[] { "password", "client_credentials", "authorization_code" },
+        //        secret: (configurationSection["BlazorApp_App:ClientSecret"] ?? "1q2w3e*").Sha256(),
+        //        requireClientSecret: false,
+        //        redirectUri: webClientRootUrl,
+        //        postLogoutRedirectUri: webClientRootUrl,
+        //        corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
+        //    );
+        //}
 
         // Blazor Client
-        var blazorClientId = configurationSection["MyProjectName_Blazor:ClientId"];
+        var blazorClientId = configurationSection["BlazorApp_Blazor:ClientId"];
         if (!blazorClientId.IsNullOrWhiteSpace())
         {
-            var blazorRootUrl = configurationSection["MyProjectName_Blazor:RootUrl"].TrimEnd('/');
+            var blazorRootUrl = configurationSection["BlazorApp_Blazor:RootUrl"].TrimEnd('/');
 
             await CreateClientAsync(
                 name: blazorClientId,
                 scopes: commonScopes,
                 grantTypes: new[] { "authorization_code" },
-                secret: configurationSection["MyProjectName_Blazor:ClientSecret"]?.Sha256(),
+                secret: configurationSection["BlazorApp_Blazor:ClientSecret"]?.Sha256(),
                 requireClientSecret: false,
                 redirectUri: $"{blazorRootUrl}/authentication/login-callback",
                 postLogoutRedirectUri: $"{blazorRootUrl}/authentication/logout-callback",
@@ -196,17 +196,38 @@ public class IdentityServerDataSeedContributor : IDataSeedContributor, ITransien
             );
         }
 
+        //Blazor Server Tiered Client
+        var blazorServerTieredClientId = configurationSection["BlazorApp_Server:ClientId"];
+        if (!blazorServerTieredClientId.IsNullOrWhiteSpace())
+        {
+            var blazorServerTieredClientRootUrl = configurationSection["BlazorApp_Server:RootUrl"].EnsureEndsWith('/');
+
+            /* BlazorApp_BlazorServerTiered client is only needed if you created a tiered blazor server
+             * solution. Otherwise, you can delete this client. */
+
+            await CreateClientAsync(
+                name: blazorServerTieredClientId,
+                scopes: commonScopes,
+                grantTypes: new[] { "hybrid" },
+                secret: (configurationSection["BlazorApp_Server:ClientSecret"] ?? "1q2w3e*").Sha256(),
+                redirectUri: $"{blazorServerTieredClientRootUrl}signin-oidc",
+                postLogoutRedirectUri: $"{blazorServerTieredClientRootUrl}signout-callback-oidc",
+                frontChannelLogoutUri: $"{blazorServerTieredClientRootUrl}Account/FrontChannelLogout",
+                corsOrigins: new[] { blazorServerTieredClientRootUrl.RemovePostFix("/") }
+            );
+        }
+
         // Swagger Client
-        var swaggerClientId = configurationSection["MyProjectName_Swagger:ClientId"];
+        var swaggerClientId = configurationSection["BlazorApp_Swagger:ClientId"];
         if (!swaggerClientId.IsNullOrWhiteSpace())
         {
-            var swaggerRootUrl = configurationSection["MyProjectName_Swagger:RootUrl"].TrimEnd('/');
+            var swaggerRootUrl = configurationSection["BlazorApp_Swagger:RootUrl"].TrimEnd('/');
 
             await CreateClientAsync(
                 name: swaggerClientId,
                 scopes: commonScopes,
                 grantTypes: new[] { "authorization_code" },
-                secret: configurationSection["MyProjectName_Swagger:ClientSecret"]?.Sha256(),
+                secret: configurationSection["BlazorApp_Swagger:ClientSecret"]?.Sha256(),
                 requireClientSecret: false,
                 redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
                 corsOrigins: new[] { swaggerRootUrl.RemovePostFix("/") }

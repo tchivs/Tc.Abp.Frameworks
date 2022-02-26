@@ -1,9 +1,20 @@
 ﻿@page "/"
+@inherits TchivsBaseComponent
+<div class="container">
+    <div class="p-5 text-center">
 
-<PageTitle>Index</PageTitle>
+        @if (!CurrentUser.IsAuthenticated)
+        {
+            <a class="btn btn-primary" href="/Account/Login"><i class="fa fa-sign-in"></i> @L["Login"]</a>
+        }
+        else
+        { 
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+            <strong>Claims</strong><br />
+            @foreach (var claims in CurrentUser.GetAllClaims())
+            {
+                <p>@($"{claims.Type}={claims.Value}")</p>
+            }
+        }
+    </div>
+</div>

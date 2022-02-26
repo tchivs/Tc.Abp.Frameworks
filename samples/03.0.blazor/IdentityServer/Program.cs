@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Components.Web;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.Elasticsearch;
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var configuration = new ConfigurationBuilder()
               .SetBasePath(Directory.GetCurrentDirectory())
@@ -18,36 +23,33 @@ Log.Logger = new LoggerConfiguration()
 #endif
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
     .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-    .Enrich.WithProperty("Application", "BlazorApp")
+    .Enrich.WithProperty("Application", "IdentityServer")
     .Enrich.FromLogContext()
 #if DEBUG
     .WriteTo.Async(c => c.File("Logs/logs.txt"))
     .WriteTo.Async(c => c.Console())
 #endif
+
     .WriteTo.Elasticsearch(
                     new ElasticsearchSinkOptions(new Uri(configuration["ElasticSearch:Url"]))
                     {
                         AutoRegisterTemplate = true,
                         AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv6,
-                        IndexFormat = "blazorApp-log-{0:yyyy.MM}"
+                        IndexFormat = "IdentityServer-log-{0:yyyy.MM}"
                     })
     .CreateLogger();
 try
 {
-    Log.Information("Starting web host.");
-    var app = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder(args)
-        .AddAppSettingsSecretsJson()
-        .ConfigureAppConfiguration(build =>
-        {
-            build.AddJsonFile("appsettings.secrets.json", optional: true);
-        })
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.UseStartup<Startup>();
-        })
-        .UseAutofac()
-        .UseSerilog().Build();
-    app.Run();
+    Log.Information("Starting IdentityServer host.");
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Host.AddAppSettingsSecretsJson()
+            .UseAutofac()
+            .UseSerilog();
+    await builder
+        .AddApplicationAsync<IdentityServer.IdentityServerHostModule>();
+    var app = builder.Build();
+    await app.InitializeApplicationAsync();
+    await app.RunAsync();
     return 0;
 }
 catch (Exception ex)
@@ -59,15 +61,4 @@ finally
 {
     Log.CloseAndFlush();
 }
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplication<IdentityServerHostModule>();
-    }
-
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        app.InitializeApplication();
-    }
-}
+ 

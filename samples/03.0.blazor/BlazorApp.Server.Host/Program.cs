@@ -36,10 +36,7 @@ try
     Log.Information("Starting web host.");
     var app = Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder(args)
         .AddAppSettingsSecretsJson()
-        .ConfigureAppConfiguration(build =>
-        {
-            build.AddJsonFile("appsettings.secrets.json", optional: true);
-        })
+         
         .ConfigureWebHostDefaults(webBuilder =>
         {
             webBuilder.UseStartup<Startup>();

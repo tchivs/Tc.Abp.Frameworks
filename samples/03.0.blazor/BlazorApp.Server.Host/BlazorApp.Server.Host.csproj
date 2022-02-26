@@ -20,10 +20,16 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.Autofac" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.Client"  Version="$(AbpVersion)"/>
 		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.OpenIdConnect" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.Swashbuckle" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="$(AbpVersion)"/>
+		<PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="$(AbpVersion)"/>
+		<PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="$(AbpVersion)"/>
+		<PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="$(AbpVersion)"/>
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Remove="Logs\**" />
@@ -33,5 +39,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor.Server\Tchivs.Abp.AspNetCore.Blazor.Server.csproj" />
+		<ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.Server\Tchivs.Abp.Identity.Blazor.Server.csproj" />
 	</ItemGroup>
 </Project>

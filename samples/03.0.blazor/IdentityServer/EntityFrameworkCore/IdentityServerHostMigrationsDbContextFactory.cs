@@ -10,7 +10,7 @@ public class IdentityServerHostMigrationsDbContextFactory : IDesignTimeDbContext
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<IdentityServerHostMigrationsDbContext>()
-            .UseSqlite(configuration.GetConnectionString("Default"));
+            .UseSqlServer(configuration.GetConnectionString("Default"));
 
         return new IdentityServerHostMigrationsDbContext(builder.Options);
     }
