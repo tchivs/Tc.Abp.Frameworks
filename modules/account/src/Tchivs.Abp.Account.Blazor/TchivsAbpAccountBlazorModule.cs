@@ -58,7 +58,7 @@ namespace Tchivs.Abp.Account.Blazor
                 options.MenuContributors.Add(new AbpAccountUserMenuContributor());
             });
 
-            Configure<AbpToolbarOptions>(options =>
+            Configure<Tchivs.Abp.AspNetCore.Blazor.Abstractions.AbpToolbarOptions>(options =>
             {
                 options.Contributors.Add(new AccountModuleToolbarContributor());
             });

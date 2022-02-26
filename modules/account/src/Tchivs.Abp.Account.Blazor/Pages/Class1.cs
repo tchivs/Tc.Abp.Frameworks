@@ -375,13 +375,13 @@ namespace Tchivs.Abp.Account.Blazor.Pages
     {
         [Required]
         [DynamicStringLength(typeof(IdentityUserConsts), nameof(IdentityUserConsts.MaxEmailLength))]
-        public string UserNameOrEmailAddress { get; set; }
+        public string? UserNameOrEmailAddress { get; set; }
 
         [Required]
         [DynamicStringLength(typeof(IdentityUserConsts), nameof(IdentityUserConsts.MaxPasswordLength))]
         [DataType(DataType.Password)]
         [DisableAuditing]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         public bool RememberMe { get; set; }
     }

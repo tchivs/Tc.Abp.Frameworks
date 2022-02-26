@@ -18,16 +18,5 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor\Tchivs.Abp.AspNetCore.Blazor.csproj" />
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="wwwroot\Images\" />
-	</ItemGroup>
-	<ItemGroup>
-		<EmbeddedResource Include="wwwroot\**\*.*" />
-		<Compile Remove="wwwroot\libs\**" />
-		<Content Remove="wwwroot\**\*.*" />
-		<Content Remove="wwwroot\libs\**" />
-		<EmbeddedResource Remove="wwwroot\libs\**" />
-		<None Remove="wwwroot\libs\**" />
-	</ItemGroup>
-
+ 
 </Project>

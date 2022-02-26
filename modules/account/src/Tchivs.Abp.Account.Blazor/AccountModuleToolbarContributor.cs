@@ -1,12 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars;
+using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
 using Volo.Abp.Users;
 
 public class AccountModuleToolbarContributor : IToolbarContributor
 {
     public virtual Task ConfigureToolbarAsync(IToolbarConfigurationContext context)
     {
-        if (context.Toolbar.Name != StandardToolbars.Main)
+        if (context.Toolbar.Name != Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars.StandardToolbars.Main)
         {
             return Task.CompletedTask;
         }
