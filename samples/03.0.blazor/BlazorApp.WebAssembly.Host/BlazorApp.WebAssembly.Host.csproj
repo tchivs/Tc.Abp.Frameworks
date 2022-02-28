@@ -26,6 +26,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor.WebAssembly\Tchivs.Abp.AspNetCore.Blazor.WebAssembly.csproj" />
+		<ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.WebAssembly\Tchivs.Abp.Identity.Blazor.WebAssembly.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

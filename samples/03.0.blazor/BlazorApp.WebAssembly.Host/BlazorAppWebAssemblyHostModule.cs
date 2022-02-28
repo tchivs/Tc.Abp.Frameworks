@@ -7,10 +7,14 @@ using Tchivs.Abp.AspNetCore.Blazor.WebAssembly;
 using Volo.Abp.Account;
 using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.AutoMapper;
+using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement;
+using Volo.Abp.TenantManagement;
 using Volo.Abp.Ui.Branding;
 using Volo.Abp.UI.Navigation;
+using Tchivs.Abp.Identity.Blazor.WebAssembly;
 public class BlazorAppHostBrandingProvider : DefaultBrandingProvider
 {
     public override string AppName => "BlazorApp|Wasm";
@@ -19,6 +23,11 @@ public class BlazorAppHostBrandingProvider : DefaultBrandingProvider
     typeof(AbpAutofacWebAssemblyModule),
     typeof(AbpAccountApplicationContractsModule),
     typeof(AbpIdentityApplicationContractsModule),
+         typeof(AbpIdentityHttpApiClientModule),
+     typeof(AbpFeatureManagementHttpApiClientModule),
+     typeof(AbpTenantManagementHttpApiClientModule),
+    typeof(AbpPermissionManagementHttpApiClientModule),
+    typeof(TchivsAbpIdentityBlazorWebAssemblyModule),
     typeof(TchivsAbpAspNetCoreBlazorWebAssemblyModule)
 )]
 public class BlazorAppWebAssemblyHostModule : AbpModule
