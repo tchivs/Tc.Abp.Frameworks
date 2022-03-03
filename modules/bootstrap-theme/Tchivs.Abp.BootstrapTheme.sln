@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED6D078F-B0A2-48E8-A09D-3B7CDF6CE3D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0BC55E3B-4964-48E3-A390-2ADD37980149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.BootstrapTheme.Installer", "src\Tchivs.Abp.BootstrapTheme.Installer\Tchivs.Abp.BootstrapTheme.Installer.csproj", "{0189067D-B817-4895-845A-7A155728B604}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme", "src\Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme\Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme.csproj", "{9A409808-260A-40F7-8B9C-53F2C6269C36}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.Bootstrap", "..\..\framework\Tchivs.Abp.UI.Bootstrap\Tchivs.Abp.UI.Bootstrap.csproj", "{E4483FD9-C32E-4F5F-B505-F68B63D85057}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.Server.Theming", "..\..\framework\Tchivs.Abp.AspNetCore.Components.Server.Theming\Tchivs.Abp.AspNetCore.Components.Server.Theming.csproj", "{EFCF50C4-2AD5-4732-8901-86873DE7C4DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme", "src\Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme\Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme.csproj", "{BB10B7E1-A444-40B1-B413-30697BD0EF2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming", "..\..\framework\Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming\Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming.csproj", "{7C4FA667-CEF4-4CCD-A6BA-9693A3091E05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI", "..\..\framework\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj", "{0041B63C-A3E6-47A1-93E6-56C491E154BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{74E7DAE6-0B41-41E7-B36B-7C8D1252D1C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0189067D-B817-4895-845A-7A155728B604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0189067D-B817-4895-845A-7A155728B604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0189067D-B817-4895-845A-7A155728B604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0189067D-B817-4895-845A-7A155728B604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A409808-260A-40F7-8B9C-53F2C6269C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A409808-260A-40F7-8B9C-53F2C6269C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A409808-260A-40F7-8B9C-53F2C6269C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A409808-260A-40F7-8B9C-53F2C6269C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4483FD9-C32E-4F5F-B505-F68B63D85057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4483FD9-C32E-4F5F-B505-F68B63D85057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4483FD9-C32E-4F5F-B505-F68B63D85057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4483FD9-C32E-4F5F-B505-F68B63D85057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFCF50C4-2AD5-4732-8901-86873DE7C4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCF50C4-2AD5-4732-8901-86873DE7C4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCF50C4-2AD5-4732-8901-86873DE7C4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCF50C4-2AD5-4732-8901-86873DE7C4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB10B7E1-A444-40B1-B413-30697BD0EF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB10B7E1-A444-40B1-B413-30697BD0EF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB10B7E1-A444-40B1-B413-30697BD0EF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB10B7E1-A444-40B1-B413-30697BD0EF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4FA667-CEF4-4CCD-A6BA-9693A3091E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4FA667-CEF4-4CCD-A6BA-9693A3091E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4FA667-CEF4-4CCD-A6BA-9693A3091E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4FA667-CEF4-4CCD-A6BA-9693A3091E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0041B63C-A3E6-47A1-93E6-56C491E154BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0041B63C-A3E6-47A1-93E6-56C491E154BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0041B63C-A3E6-47A1-93E6-56C491E154BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0041B63C-A3E6-47A1-93E6-56C491E154BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0189067D-B817-4895-845A-7A155728B604} = {ED6D078F-B0A2-48E8-A09D-3B7CDF6CE3D1}
+		{9A409808-260A-40F7-8B9C-53F2C6269C36} = {ED6D078F-B0A2-48E8-A09D-3B7CDF6CE3D1}
+		{E4483FD9-C32E-4F5F-B505-F68B63D85057} = {74E7DAE6-0B41-41E7-B36B-7C8D1252D1C3}
+		{EFCF50C4-2AD5-4732-8901-86873DE7C4DE} = {74E7DAE6-0B41-41E7-B36B-7C8D1252D1C3}
+		{BB10B7E1-A444-40B1-B413-30697BD0EF2E} = {ED6D078F-B0A2-48E8-A09D-3B7CDF6CE3D1}
+		{7C4FA667-CEF4-4CCD-A6BA-9693A3091E05} = {74E7DAE6-0B41-41E7-B36B-7C8D1252D1C3}
+		{0041B63C-A3E6-47A1-93E6-56C491E154BD} = {74E7DAE6-0B41-41E7-B36B-7C8D1252D1C3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B9AC4BD-25D8-47B6-A404-1A11DEBCA4C7}
+	EndGlobalSection
+EndGlobal

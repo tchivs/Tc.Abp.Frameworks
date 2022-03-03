@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "Tchivs.Abp.BootstrapTheme": {
+      "path": "Tchivs.Abp.BootstrapTheme.abpmdl.json"
+    }
+  }
+}
