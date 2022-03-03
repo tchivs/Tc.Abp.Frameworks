@@ -16,10 +16,13 @@ namespace Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming
             var name = this.GetType().Namespace;
             context.BundleDefinitions.Insert(0, new BundleDefinition
             {
-                Source = $"_content/{name}/libs/fontawesome/css/all.css"
+                Source = $"_content/Tchivs.Abp.UI/libs/fortawesome/fontawesome-free/css/all.css"
             });
-
-            context.Add($"_content/{name}/libs/flag-icon/css/flag-icon.css");
+            context.BundleDefinitions.Insert(1, new BundleDefinition
+            {
+                Source = $"_content/Tchivs.Abp.UI/libs/fortawesome/fontawesome-free/css/v4-shims.css"
+            });
+             context.Add($"_content/{name}/libs/flag-icon/css/flag-icon.css");
         }
     }
 

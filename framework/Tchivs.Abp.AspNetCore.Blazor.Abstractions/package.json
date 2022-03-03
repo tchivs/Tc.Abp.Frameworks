@@ -1,8 +1,0 @@
-{
-  "version": "1.0.0",
-  "name": "blazor-app",
-  "private": true,
-  "dependencies": {
-    "@abp/font-awesome": "~5.0.0"
-  }
-}

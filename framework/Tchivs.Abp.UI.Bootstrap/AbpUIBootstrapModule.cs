@@ -15,6 +15,11 @@ namespace Tchivs.Abp.UI.Bootstrap
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             ConfigureBootstrapBlazor(context);
+            Configure<AbpRouterOptions>(options =>
+            {
+                options.AppAssembly = typeof(AbpUIBootstrapModule).Assembly;
+            });
+
         }
 
         private void ConfigureBootstrapBlazor(ServiceConfigurationContext context)

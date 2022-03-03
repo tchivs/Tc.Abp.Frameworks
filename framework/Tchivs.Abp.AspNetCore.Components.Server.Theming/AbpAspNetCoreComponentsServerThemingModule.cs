@@ -17,12 +17,12 @@ namespace Tchivs.Abp.AspNetCore.Components.Server.Theming
         {
             Configure<AbpBundlingOptions>(options =>
             {
-                //options
-                //    .StyleBundles
-                //    .Add(BlazorStandardBundles.Styles.Global, bundle =>
-                //    {
-                //        bundle.AddContributors(typeof(BlazorGlobalStyleContributor));
-                //    });
+                options
+                    .StyleBundles
+                    .Add(BlazorStandardBundles.Styles.Global, bundle =>
+                    {
+                        bundle.AddContributors(typeof(BlazorGlobalStyleContributor));
+                    });
 
                 options
                     .ScriptBundles

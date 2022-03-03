@@ -3,6 +3,7 @@ using Tchivs.Abp.UI.Localization;
 using Volo.Abp.Application;
 using Volo.Abp.AspNetCore.Components.Web;
 using Volo.Abp.Authorization;
+using Volo.Abp.AutoMapper;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
@@ -17,9 +18,9 @@ namespace Tchivs.Abp.UI
     typeof(AbpAspNetCoreComponentsWebModule),
     typeof(AbpDddApplicationContractsModule),
     typeof(AbpAuthorizationModule),
-    typeof(AbpUiNavigationModule)
+    typeof(AbpUiNavigationModule),
     //typeof(AbpExceptionHandlingModule),
-    //typeof(AbpAutoMapperModule),
+    typeof(AbpAutoMapperModule)
     )]
     public class AbpUIModule : AbpModule
     {

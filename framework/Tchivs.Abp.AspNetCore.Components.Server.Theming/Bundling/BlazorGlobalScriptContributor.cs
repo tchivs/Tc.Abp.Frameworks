@@ -1,9 +1,10 @@
 ﻿
 using System.Collections.Generic;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.Packages.Bootstrap;
+
 namespace Tchivs.Abp.AspNetCore.Components.Server.Theming.Bundling
 {
-
     public class BlazorGlobalScriptContributor : BundleContributor
     {
         public override void ConfigureBundle(BundleConfigurationContext context)
