@@ -37,6 +37,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.WebAssembly.Host"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "samples\03.0.blazor\IdentityServer\IdentityServer.csproj", "{CC24E45A-28F3-445E-A59C-91280E1A0262}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.Bootstrap", "framework\Tchivs.Abp.UI.Bootstrap\Tchivs.Abp.UI.Bootstrap.csproj", "{74E25924-49EC-4C32-B75A-A7FFE2F53598}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI", "framework\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj", "{DBBADC02-E6EA-447D-897E-8EE953931E11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.Server.Theming", "framework\Tchivs.Abp.AspNetCore.Components.Server.Theming\Tchivs.Abp.AspNetCore.Components.Server.Theming.csproj", "{EDC67EE9-5581-4F00-906E-ACFA4B0B7EAE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming", "framework\Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming\Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming.csproj", "{A6D67857-7843-4310-AC75-093970A3CB03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bootstrap", "bootstrap", "{D6D4C6A9-2FE3-4049-8528-365D2B2CBB5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +101,22 @@ Global
 		{CC24E45A-28F3-445E-A59C-91280E1A0262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC24E45A-28F3-445E-A59C-91280E1A0262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC24E45A-28F3-445E-A59C-91280E1A0262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E25924-49EC-4C32-B75A-A7FFE2F53598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E25924-49EC-4C32-B75A-A7FFE2F53598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E25924-49EC-4C32-B75A-A7FFE2F53598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E25924-49EC-4C32-B75A-A7FFE2F53598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBBADC02-E6EA-447D-897E-8EE953931E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBBADC02-E6EA-447D-897E-8EE953931E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBBADC02-E6EA-447D-897E-8EE953931E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBBADC02-E6EA-447D-897E-8EE953931E11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC67EE9-5581-4F00-906E-ACFA4B0B7EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC67EE9-5581-4F00-906E-ACFA4B0B7EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC67EE9-5581-4F00-906E-ACFA4B0B7EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC67EE9-5581-4F00-906E-ACFA4B0B7EAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D67857-7843-4310-AC75-093970A3CB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D67857-7843-4310-AC75-093970A3CB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D67857-7843-4310-AC75-093970A3CB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D67857-7843-4310-AC75-093970A3CB03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +137,11 @@ Global
 		{7D0FC7CB-F58E-47E3-A462-61FF4A09CE60} = {E9D6627C-4AAA-4159-A9D9-8D747F8D1006}
 		{C3BB971D-9946-4301-9782-94D6BAB2E678} = {E9D6627C-4AAA-4159-A9D9-8D747F8D1006}
 		{CC24E45A-28F3-445E-A59C-91280E1A0262} = {E9D6627C-4AAA-4159-A9D9-8D747F8D1006}
+		{74E25924-49EC-4C32-B75A-A7FFE2F53598} = {03D05D59-AA4C-499B-9022-B33CD24013EB}
+		{DBBADC02-E6EA-447D-897E-8EE953931E11} = {03D05D59-AA4C-499B-9022-B33CD24013EB}
+		{EDC67EE9-5581-4F00-906E-ACFA4B0B7EAE} = {03D05D59-AA4C-499B-9022-B33CD24013EB}
+		{A6D67857-7843-4310-AC75-093970A3CB03} = {03D05D59-AA4C-499B-9022-B33CD24013EB}
+		{D6D4C6A9-2FE3-4049-8528-365D2B2CBB5D} = {92D1F899-54F6-465A-908C-163A1856AA70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}
