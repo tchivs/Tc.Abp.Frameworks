@@ -66,7 +66,7 @@
     public AddOrUpdateContext<Guid,IdentityUserDto,IdentityUserCreateDto,IdentityUserUpdateDto> Model { get; set; }
 
     [Inject, NotNull]
-    private IIdentityUserAppService? AppService { get; set; }
+    private IIdentityUserAppService AppService { get; set; }
 
     List<SelectedItem> Roles { get; set; } = new List<SelectedItem>();
 

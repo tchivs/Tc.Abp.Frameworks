@@ -3,10 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using BootstrapBlazor.Components;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using Volo.Abp.AspNetCore.Components;
 
-namespace Tchivs.Abp.UI.Bootstrap.Components
+namespace Tchivs.Abp.UI.Components
 {
     public abstract class AbpBootstrapBlazorComponent : AbpBlazorComponent
     {

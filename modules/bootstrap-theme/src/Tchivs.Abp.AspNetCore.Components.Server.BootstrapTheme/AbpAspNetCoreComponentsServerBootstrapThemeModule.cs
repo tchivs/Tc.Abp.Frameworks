@@ -4,7 +4,7 @@ using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme.Bunding;
 using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme.Components;
 using Tchivs.Abp.AspNetCore.Components.Server.Theming;
 using Tchivs.Abp.AspNetCore.Components.Server.Theming.Bundling;
-using Tchivs.Abp.UI.Bootstrap;
+using Tchivs.Abp.UI;
 using Tchivs.Abp.UI.Toolbars;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.Modularity;

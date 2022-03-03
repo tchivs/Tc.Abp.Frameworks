@@ -8,7 +8,7 @@ using Volo.Abp.Modularity;
 namespace Tchivs.Abp.AspNetCore.Components.Server.Theming
 {
     [DependsOn(typeof(AbpUIModule),
-         typeof(AbpAspNetCoreComponentsServerModule),
+    typeof(AbpAspNetCoreComponentsServerModule),
     typeof(AbpAspNetCoreMvcUiPackagesModule),
     typeof(AbpAspNetCoreMvcUiBundlingModule))]
     public class AbpAspNetCoreComponentsServerThemingModule : AbpModule

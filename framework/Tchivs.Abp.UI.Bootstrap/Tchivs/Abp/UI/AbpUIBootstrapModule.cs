@@ -4,7 +4,7 @@ using Volo.Abp.AspNetCore.Components.Web;
 using Volo.Abp.Authorization;
 using Volo.Abp.Modularity;
 
-namespace Tchivs.Abp.UI.Bootstrap
+namespace Tchivs.Abp.UI
 {
     [DependsOn(
   
@@ -21,11 +21,9 @@ namespace Tchivs.Abp.UI.Bootstrap
             });
 
         }
-
         private void ConfigureBootstrapBlazor(ServiceConfigurationContext context)
         {
             context.Services.AddBootstrapBlazor();
-         
         }
     }
 }

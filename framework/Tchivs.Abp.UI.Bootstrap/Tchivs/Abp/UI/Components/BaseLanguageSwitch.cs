@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Localization;
 
-namespace Tchivs.Abp.UI.Bootstrap.Components
+namespace Tchivs.Abp.UI.Components
 {
 
     public abstract class BaseLanguageSwitch : AbpBlazorComponent

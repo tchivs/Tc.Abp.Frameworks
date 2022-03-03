@@ -1,6 +1,6 @@
 using Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming;
 using Tchivs.Abp.UI;
-using Tchivs.Abp.UI.Bootstrap;
+using Tchivs.Abp.UI.Components;
 using Tchivs.Abp.UI.Toolbars;
 using Volo.Abp.Modularity;
 

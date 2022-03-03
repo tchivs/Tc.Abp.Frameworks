@@ -1,7 +1,6 @@
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Tchivs.Abp.UI;
-using Tchivs.Abp.UI.Bootstrap;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.ExceptionHandling;
 using Volo.Abp.Identity;
@@ -20,13 +19,13 @@ namespace Tchivs.Abp.Identity.Blazor;
         typeof(AbpIdentityApplicationContractsModule),
         typeof(AbpUIBootstrapModule)
     )]
-    public class TchivsAbpIdentityBlazorModule : AbpModule
+    public class AbpIdentityBlazorModule : AbpModule
     {
     private static readonly OneTimeRunner OneTimeRunner = new OneTimeRunner();
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        context.Services.AddAutoMapperObjectMapper<TchivsAbpIdentityBlazorModule>();
+        context.Services.AddAutoMapperObjectMapper<AbpIdentityBlazorModule>();
         Configure<AbpAutoMapperOptions>(options =>
         {
             options.AddProfile<AbpIdentityBlazorAutoMapperProfile>(validate: true);
@@ -38,7 +37,7 @@ namespace Tchivs.Abp.Identity.Blazor;
         });
         Configure<AbpRouterOptions>(options =>
         {
-            options.AdditionalAssemblies.Add(typeof(TchivsAbpIdentityBlazorModule).Assembly);
+            options.AdditionalAssemblies.Add(typeof(AbpIdentityBlazorModule).Assembly);
         });
     }
 

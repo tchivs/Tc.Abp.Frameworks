@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 
-namespace Tchivs.Abp.UI.Bootstrap.Components
+namespace Tchivs.Abp.UI.Components
 {
     [CascadingTypeParameter(nameof(TItem))]
     [CascadingTypeParameter(nameof(TKey))]

@@ -17,19 +17,18 @@ namespace Tchivs.Abp.Identity.Blazor.Pages
         {
             LocalizationResource = typeof(IdentityResource);
         }
-        [Inject, NotNull] private IPermissionAppService? PermissionAppService { get; set; }
+        [Inject, NotNull] private IPermissionAppService PermissionAppService { get; set; }
 
         [Inject, NotNull]
-        private ICurrentApplicationConfigurationCacheResetService? CurrentApplicationConfigurationCacheResetService
+        private ICurrentApplicationConfigurationCacheResetService CurrentApplicationConfigurationCacheResetService
         {
             get;
             set;
         }
 
-        // protected const string PermissionProviderName = "U/R";
-        [Parameter, NotNull] public string? ProviderName { get; set; }
-        [Parameter, NotNull] public string? ProviderKey { get; set; }
-        [Parameter, NotNull] public Action? OnClose { get; set; }
+        [Parameter, NotNull] public string ProviderName { get; set; }
+        [Parameter, NotNull] public string ProviderKey { get; set; }
+        [Parameter, NotNull] public Action OnClose { get; set; }
         private bool IsOpen { get; set; } = false;
         private List<PermissionGrantInfoDto> _disabledPermissions = new List<PermissionGrantInfoDto>();
 
