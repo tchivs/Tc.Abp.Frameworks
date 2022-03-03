@@ -1,11 +1,5 @@
 using BlazorApp.Server.Host.Data;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Tchivs.Abp.AspNetCore;
-using Tchivs.Abp.AspNetCore.Blazor;
-using Tchivs.Abp.AspNetCore.Blazor.Server;
-using Tchivs.Abp.Core;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
@@ -17,7 +11,8 @@ using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
-using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
+using Tchivs.Abp.UI.Bootstrap.Components;
+using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.Localization;
@@ -28,8 +23,10 @@ using Volo.Abp.PermissionManagement;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.AspNetCore.Mvc.Client;
 using Volo.Abp.UI.Navigation;
+using Tchivs.Abp.UI;
+using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme.Bunding;
 
-[DependsOn(typeof(TchivsAbpAspNetCoreBlazorServerModule),
+[DependsOn(typeof(AbpAspNetCoreComponentsServerBootstrapThemeModule),
 typeof(AbpAutofacModule),
 typeof(AbpSwashbuckleModule),
 typeof(AbpAspNetCoreSerilogModule),
@@ -95,7 +92,7 @@ public class BlazorAppServerHostModule : AbpModule
         {
             //BLAZOR UI
             options.StyleBundles.Configure(
-                BlazorThemeBundles.Styles.Global,
+                BlazorBootstrapThemeBundles.Styles.Global,
                 bundle =>
                 {
                     bundle.AddFiles("/css/blazor-global-styles.css");

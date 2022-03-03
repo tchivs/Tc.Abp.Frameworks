@@ -1,75 +1,74 @@
-using AutoMapper;
+﻿using System;
+using System.Net.Http;
+
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Tchivs.Abp.AspNetCore.Blazor;
-using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
-using Tchivs.Abp.AspNetCore.Blazor.Components;
-using Tchivs.Abp.AspNetCore.Blazor.WebAssembly;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Account;
+
 using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.FeatureManagement;
-using Volo.Abp.Identity;
-using Volo.Abp.Modularity;
-using Volo.Abp.PermissionManagement;
-using Volo.Abp.TenantManagement;
-using Volo.Abp.Ui.Branding;
-using Volo.Abp.UI.Navigation;
 using Tchivs.Abp.Identity.Blazor.WebAssembly;
-public class BlazorAppHostBrandingProvider : DefaultBrandingProvider
-{
-    public override string AppName => "BlazorApp|Wasm";
-}
+using Volo.Abp.Modularity;
+
+using Volo.Abp.UI.Navigation;
+using Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme;
+using Tchivs.Abp.UI;
+using Tchivs.Abp.UI.Bootstrap.Components;
+
+namespace BlazorApp.Blazor.Host;
+
 [DependsOn(
     typeof(AbpAutofacWebAssemblyModule),
+    typeof(AbpAspNetCoreComponentsWebAssemblyBootstrapThemeModule),
     typeof(AbpAccountApplicationContractsModule),
-    typeof(AbpIdentityApplicationContractsModule),
-         typeof(AbpIdentityHttpApiClientModule),
-     typeof(AbpFeatureManagementHttpApiClientModule),
-     typeof(AbpTenantManagementHttpApiClientModule),
-    typeof(AbpPermissionManagementHttpApiClientModule),
-    typeof(TchivsAbpIdentityBlazorWebAssemblyModule),
-    typeof(TchivsAbpAspNetCoreBlazorWebAssemblyModule)
+    typeof(TchivsAbpIdentityBlazorWebAssemblyModule)
+
 )]
-public class BlazorAppWebAssemblyHostModule : AbpModule
+public class BlazorAppBlazorHostModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var environment = context.Services.GetSingletonInstance<IWebAssemblyHostEnvironment>();
         var builder = context.Services.GetSingletonInstance<WebAssemblyHostBuilder>();
+
         ConfigureAuthentication(builder);
         ConfigureHttpClient(context, environment);
         ConfigureRouter(context);
-        ConfigureUi(builder);
+        ConfigureUI(builder);
         ConfigureMenu(context);
         ConfigureAutoMapper(context);
     }
+
     private void ConfigureRouter(ServiceConfigurationContext context)
     {
         Configure<AbpRouterOptions>(options =>
         {
-            
+            // options.AppAssembly = typeof(BlazorAppBlazorHostModule).Assembly;
             options.AdditionalAssemblies.Add(this.GetType().Assembly);
         });
     }
+
     private void ConfigureMenu(ServiceConfigurationContext context)
     {
-        //Configure<AbpNavigationOptions>(options =>
-        //{
-        //    options.MenuContributors.Add(new DemoAppHostMenuContributor(context.Services.GetConfiguration()));
-        //});
+        Configure<AbpNavigationOptions>(options =>
+        {
+            options.MenuContributors.Add(new BlazorAppHostMenuContributor(context.Services.GetConfiguration()));
+        });
     }
+
     private static void ConfigureAuthentication(WebAssemblyHostBuilder builder)
     {
         builder.Services.AddOidcAuthentication(options =>
         {
             builder.Configuration.Bind("AuthServer", options.ProviderOptions);
-
             options.ProviderOptions.DefaultScopes.Add("BlazorApp");
         });
     }
-    private static void ConfigureUi(WebAssemblyHostBuilder builder)
+
+    private static void ConfigureUI(WebAssemblyHostBuilder builder)
     {
-        builder.RootComponents.Add<App>("#app");
+        builder.RootComponents.Add<App>("#ApplicationContainer");
     }
 
     private static void ConfigureHttpClient(ServiceConfigurationContext context, IWebAssemblyHostEnvironment environment)
@@ -84,12 +83,7 @@ public class BlazorAppWebAssemblyHostModule : AbpModule
     {
         Configure<AbpAutoMapperOptions>(options =>
         {
-            options.AddMaps<BlazorAppWebAssemblyHostModule>();
+            options.AddMaps<BlazorAppBlazorHostModule>();
         });
     }
-}
-
-public class BlazorAppWebAssemblyHostAutoMapperProfile : Profile
-{
-
 }
