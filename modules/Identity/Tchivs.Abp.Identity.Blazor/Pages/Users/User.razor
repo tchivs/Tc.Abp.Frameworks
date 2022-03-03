@@ -2,7 +2,7 @@
 @attribute [Authorize(IdentityPermissions.Users.Default)]
 @using Volo.Abp.Identity
 @using Volo.Abp.Identity.Localization
-@inherits Tchivs.Abp.AspNetCore.Blazor.Abstractions.TchivsBaseComponent
+@inherits AbpBootstrapBlazorComponent
 
 <CrudTable TItem=IdentityUserDto
          TAppService=IIdentityUserAppService

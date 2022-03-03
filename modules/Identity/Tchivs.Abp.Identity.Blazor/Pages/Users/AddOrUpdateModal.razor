@@ -1,10 +1,9 @@
-﻿@using Tchivs.Abp.AspNetCore.Blazor.Abstractions
-@using Volo.Abp.Identity
+﻿@using Volo.Abp.Identity
 @using Volo.Abp.Identity.Localization
 @using System.Diagnostics.CodeAnalysis
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<IdentityResource> LH
-@inherits TchivsBaseComponent
+@inherits AbpBootstrapBlazorComponent
 <AbpEditModal TItem=IdentityUserDto
               Model=@Model
               TKey=Guid
@@ -73,22 +72,20 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Roles = new List<SelectedItem>();
+     
         var result = await this.AppService.GetAssignableRolesAsync();
-        foreach (var item in result.Items)
-        {
-            Roles.Add(new SelectedItem(item.Name, item.Name));
-        }
-    }
-
-
-    protected override async Task OnParametersSetAsync()
-    {
-        if (Model.ItemChangedType== ItemChangedType.Update)
+        Roles = result.Items.Select(x => new SelectedItem(x.Name, x.Name)).ToList();
+        if (Model.ItemChangedType == ItemChangedType.Update)
         {
             var roles = await AppService.GetRolesAsync(this.Model.GetId());
-            Roles = roles.Items.Select(x => new SelectedItem(x.Name, x.Name)).ToList();
+            if (Model.UpdateInput != null)
+            {
+                Model.UpdateInput.RoleNames = roles.Items.Select(x => x.Name).ToArray();
+            }
         }
     }
+
+
+  
 
 }

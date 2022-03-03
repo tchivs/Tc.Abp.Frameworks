@@ -5,12 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor\Tchivs.Abp.AspNetCore.Blazor.csproj" />
-  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="$(AbpVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.UI.Bootstrap\Tchivs.Abp.UI.Bootstrap.csproj" />
 	</ItemGroup>
 
 </Project>

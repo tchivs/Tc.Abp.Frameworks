@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Blazor.Server\Tchivs.Abp.AspNetCore.Blazor.Server.csproj" />
+	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server.Theming\Tchivs.Abp.AspNetCore.Components.Server.Theming.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.Identity.Blazor\Tchivs.Abp.Identity.Blazor.csproj" />
 	</ItemGroup>
  

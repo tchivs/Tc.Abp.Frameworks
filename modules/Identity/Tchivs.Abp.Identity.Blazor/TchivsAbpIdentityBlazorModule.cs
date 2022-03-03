@@ -1,7 +1,7 @@
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using Tchivs.Abp.AspNetCore.Blazor;
-using Tchivs.Abp.AspNetCore.Blazor.Abstractions;
+using Tchivs.Abp.UI;
+using Tchivs.Abp.UI.Bootstrap;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.ExceptionHandling;
 using Volo.Abp.Identity;
@@ -18,7 +18,7 @@ namespace Tchivs.Abp.Identity.Blazor;
 [DependsOn(
        typeof(AbpPermissionManagementApplicationContractsModule),
         typeof(AbpIdentityApplicationContractsModule),
-        typeof(TchivsAbpAspNetCoreBlazorModule)
+        typeof(AbpUIBootstrapModule)
     )]
     public class TchivsAbpIdentityBlazorModule : AbpModule
     {
