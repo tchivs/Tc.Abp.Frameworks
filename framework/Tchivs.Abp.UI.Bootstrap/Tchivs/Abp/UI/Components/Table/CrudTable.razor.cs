@@ -12,7 +12,7 @@ using Microsoft.Extensions.Localization;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
-namespace Tchivs.Abp.UI.Bootstrap.Components
+namespace Tchivs.Abp.UI.Components
 {
     [CascadingTypeParameter(nameof(TItem))]
     public partial class CrudTable<TAppService, TItem, TKey, TGetListInput, TCreateInput,

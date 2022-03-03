@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Components;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
-namespace Tchivs.Abp.UI.Bootstrap.Components
+namespace Tchivs.Abp.UI.Components
 {
     [CascadingTypeParameter(nameof(TItem))]
     public class ReadOnlyBaseTable<TAppService, TItem, TKey, TGetListInput> : AbpBootstrapBlazorComponent

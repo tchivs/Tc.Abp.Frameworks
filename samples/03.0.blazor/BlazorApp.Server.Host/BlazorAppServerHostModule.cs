@@ -11,7 +11,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
-using Tchivs.Abp.UI.Bootstrap.Components;
+using Tchivs.Abp.UI.Components;
 using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
@@ -35,7 +35,7 @@ typeof(AbpAspNetCoreMvcClientModule),
 //typeof(AbpCachingStackExchangeRedisModule),
 typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
  typeof(AbpHttpClientIdentityModelWebModule),
-    typeof(TchivsAbpIdentityBlazorServerModule),
+    typeof(AbpIdentityBlazorServerModule),
      typeof(AbpIdentityHttpApiClientModule),
      typeof(AbpFeatureManagementHttpApiClientModule),
      typeof(AbpTenantManagementHttpApiClientModule),

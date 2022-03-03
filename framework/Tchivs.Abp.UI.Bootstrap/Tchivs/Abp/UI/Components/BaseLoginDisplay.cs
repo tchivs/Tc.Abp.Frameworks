@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components.Routing;
 using System.Threading.Tasks;
 using Volo.Abp.UI.Navigation;
 
-namespace Tchivs.Abp.UI.Bootstrap.Components
+namespace Tchivs.Abp.UI.Components
 {
     public abstract class BaseLoginDisplay : AbpBlazorComponent
     {

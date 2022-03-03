@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Net.Http;
-
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Account;
-
 using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.AutoMapper;
 using Tchivs.Abp.Identity.Blazor.WebAssembly;
 using Volo.Abp.Modularity;
-
 using Volo.Abp.UI.Navigation;
 using Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme;
 using Tchivs.Abp.UI;
-using Tchivs.Abp.UI.Bootstrap.Components;
+using Tchivs.Abp.UI.Components;
 
 namespace BlazorApp.Blazor.Host;
 
@@ -22,7 +19,7 @@ namespace BlazorApp.Blazor.Host;
     typeof(AbpAutofacWebAssemblyModule),
     typeof(AbpAspNetCoreComponentsWebAssemblyBootstrapThemeModule),
     typeof(AbpAccountApplicationContractsModule),
-    typeof(TchivsAbpIdentityBlazorWebAssemblyModule)
+    typeof(AbpIdentityBlazorWebAssemblyModule)
 
 )]
 public class BlazorAppBlazorHostModule : AbpModule
