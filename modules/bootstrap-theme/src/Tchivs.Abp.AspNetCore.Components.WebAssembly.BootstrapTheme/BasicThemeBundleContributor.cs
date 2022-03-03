@@ -13,6 +13,7 @@ namespace Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme
         {
             context.Add("_content/BootstrapBlazor/css/bootstrap.blazor.bundle.min.css");
             context.Add("_content/BootstrapBlazor/css/motronic.min.css");
+            context.Add("_content/Tchivs.Abp.UI.Bootstrap/css/global.css");
         }
 
     }
