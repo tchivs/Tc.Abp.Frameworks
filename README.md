@@ -36,6 +36,17 @@ Supports WASM & Blazor SSR
   3) <a target="_blank" href="https://github.com/dotnetcore/BootstrapBlazor">BootstrapBlazor Default Theme </a>
   4) more coming soon...
 
+## Project Structure
+
+#    Framework (Basic Framework)
+        Tchivs.Abp.UI (Blazor Basic Component)
+        Tchivs.Abp.AspNetCore.Components.Server.Theming (Blazor SSR Template Framework)
+        Tchivs.Abp.AspNetCore.Components.WebAssembly.Theming(Blazor WASM Template Framework)
+        Tchivs.Abp.UI.Bootstrap (Implementation of BlazorBootstrap Component Template By Bootstrap Theme)
+#    Modules
+        Bootstrap-Theme (Bootstrap theme for blazor)
+        Identity (identity page for blazor)
+
 More Documentation coming soon...
 
 
