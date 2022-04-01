@@ -16,7 +16,7 @@ namespace Tchivs.Abp.UI.Components
         where TGetListInput : PagedAndSortedResultRequestDto, new()
     {
         protected virtual IEnumerable<int> PageItemsSource => new int[] { 10, 20, 50 };
-        [Inject][NotNull] protected TAppService? AppService { get; set; }
+        [Inject][NotNull] protected TAppService AppService { get; set; }
         protected virtual async Task<QueryData<TItem>> OnQueryAsync(QueryPageOptions option)
         {
             var result = await this.AppService.GetListAsync(Convert2Input(option));

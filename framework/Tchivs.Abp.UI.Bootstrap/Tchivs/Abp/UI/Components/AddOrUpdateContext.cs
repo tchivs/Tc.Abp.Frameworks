@@ -9,7 +9,7 @@ namespace Tchivs.Abp.UI.Components
       where TCreateInput : class, new()
       where TUpdateInput : class, new()
     {
-        public AddOrUpdateContext(TItem? source = null, ItemChangedType itemChangedType = ItemChangedType.Add, TCreateInput? createInput = null, TUpdateInput? updateInput = null, bool bindSource = false)
+        public AddOrUpdateContext(TItem source = null, ItemChangedType itemChangedType = ItemChangedType.Add, TCreateInput createInput = null, TUpdateInput updateInput = null, bool bindSource = false)
         {
             this.BindSource = bindSource;
             if (itemChangedType == ItemChangedType.Add)
@@ -33,8 +33,8 @@ namespace Tchivs.Abp.UI.Components
             ItemChangedType = itemChangedType;
         }
         public TItem Source { get; }
-        public TCreateInput? CreateInput { get; }
-        public TUpdateInput? UpdateInput { get; }
+        public TCreateInput CreateInput { get; }
+        public TUpdateInput UpdateInput { get; }
         public ItemChangedType ItemChangedType { get; }
         /// <summary>
         /// 是否直接绑定到Source字段，保存的时候会把Source mapper to dto;

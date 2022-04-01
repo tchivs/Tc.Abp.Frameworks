@@ -302,11 +302,12 @@
 /*drawer-component*/
 .drawer-component {
     margin: 1rem;
-    height: 96%;
 }
-
+.drawer-component-header {
+    border-bottom: 1px solid #dee2e6;
+}
 .drawer-component-body {
-    height: 90%;
+    height: 100%;
 }
 
 .drawer-component-body-scroll {
@@ -314,7 +315,7 @@
 }
 
 .drawer-component-footer {
-    padding-top: 1rem;
+    padding-top: 5px;
     border-top: 1px solid #dee2e6;
     text-align: right;
 }

@@ -10,5 +10,4 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.UI.Bootstrap\Tchivs.Abp.UI.Bootstrap.csproj" />
 	</ItemGroup>
-
 </Project>
