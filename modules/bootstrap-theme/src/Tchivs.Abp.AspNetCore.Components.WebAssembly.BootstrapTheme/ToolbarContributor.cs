@@ -11,7 +11,7 @@ namespace Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme
     {
         public Task ConfigureToolbarAsync(IToolbarConfigurationContext context)
         {
-            if (context.Toolbar.Name == StandardToolbars.Main)
+            if (context.Toolbar.Name == StandardToolbars.Right)
             {
                 context.Toolbar.Items.Add(new ToolbarItem(typeof(LanguageSwitch)));
 
