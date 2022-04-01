@@ -1,4 +1,4 @@
-name: publish nuget
+name: publish guthub
 
 on:
   push:
@@ -15,7 +15,6 @@ jobs:
       with:
         dotnet-version: '6.0.x'
         include-prerelease: true
-        source-url: https://api.nuget.org/v3/index.json
       env:
           NUGET_AUTH_TOKEN: ${{secrets.NugetKey}}
     - name: Build with dotnet
@@ -24,6 +23,7 @@ jobs:
       uses: nuget/setup-nuget@v1
       with:        
         nuget-version: '5.x'
-    - name: Push package to Nuget registry
+    - name: Add And Push generated package to GitHub registry
       run: |
-        nuget push .\bin\release\*.nupkg -SkipDuplicate -ApiKey ${{ secrets.NugetKey }} -NoSymbols 
+        dotnet nuget add source https://nuget.pkg.github.com/ORGANIZATION_NAME/index.json -n github -u ORGANIZATION_NAME -p ${{ secrets.GITHUB_TOKEN }}
+        dotnet nuget push .\bin\release\*.nupkg -s github --skip-duplicate
