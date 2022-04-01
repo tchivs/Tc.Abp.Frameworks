@@ -1,9 +1,9 @@
 name: publish nuget
 
-on: 
+on:
   push:
-    branches: 
-      - master
+    tags:
+    - '*'
 
 jobs:
   build:
