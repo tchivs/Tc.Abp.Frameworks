@@ -22,9 +22,9 @@ namespace Tchivs.Abp.UI.Components
     {
         #region properties
 
-        [Parameter] public string? CreatePolicyName { get; set; }
-        [Parameter] public string? UpdatePolicyName { get; set; }
-        [Parameter] public string? DeletePolicyName { get; set; }
+        [Parameter] public string CreatePolicyName { get; set; }
+        [Parameter] public string UpdatePolicyName { get; set; }
+        [Parameter] public string DeletePolicyName { get; set; }
         protected bool HasCreatePermission { get; set; }
         protected bool HasUpdatePermission { get; set; }
         protected bool HasDeletePermission { get; set; }

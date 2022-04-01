@@ -26,38 +26,38 @@ namespace Tchivs.Abp.UI.Components
     {
         [Inject]
         [NotNull]
-        public IStringLocalizer<AbpUiResource>? Localizer { get; set; }
+        public IStringLocalizer<AbpUiResource> Localizer { get; set; }
         #region properties
 
-        [Parameter] public string? AddModalTitle { get; set; }
+        [Parameter] public string AddModalTitle { get; set; }
 
         /// <summary>
         /// 获得/设置 表格 Toolbar 按钮模板
         /// </summary>
         [Parameter]
-        public RenderFragment? TableToolbarTemplate { get; set; }
+        public RenderFragment TableToolbarTemplate { get; set; }
          [Parameter] public bool AutoGenerateColumns { get; set; }
 
         /// <summary>
         /// 获得/设置 删除按钮异步回调方法
         /// </summary>
         [Parameter]
-        public Func<IEnumerable<TItem>, Task<bool>>? OnDeleteCallBackAsync { get; set; }
+        public Func<IEnumerable<TItem>, Task<bool>> OnDeleteCallBackAsync { get; set; }
 
         /// <summary>
         /// 获得/设置 新建按钮回调方法
         /// </summary>
         [Parameter]
-        public Func<Task<TCreateInput>>? OnAddAsync { get; set; }
+        public Func<Task<TCreateInput>> OnAddAsync { get; set; }
 
         /// <summary>
         /// 获得/设置 TableHeader 实例
         /// </summary>
         [Parameter]
-        public RenderFragment<TItem>? TableColumns { get; set; }
-        [Parameter] public RenderFragment<AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput>>? EditTemplate { get; set; }
+        public RenderFragment<TItem> TableColumns { get; set; }
+        [Parameter] public RenderFragment<AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput>> EditTemplate { get; set; }
 
-        [Parameter] public RenderFragment<TItem>? RowButtonTemplate { get; set; }
+        [Parameter] public RenderFragment<TItem> RowButtonTemplate { get; set; }
         /// <summary>
         /// 是否直接绑定AddOrUpdateContext的Source，这样在更新或者删除时就可以直接共用一个模板。保存时会mapper到相应的dto
         /// </summary>
@@ -112,12 +112,12 @@ namespace Tchivs.Abp.UI.Components
         {
             return EditAsync();
         }
-        public virtual async Task EditAsync(ItemChangedType itemChangedType = ItemChangedType.Add, TItem? item = null)
+        public virtual async Task EditAsync(ItemChangedType itemChangedType = ItemChangedType.Add, TItem item = null)
         {
 
             Size size = Size.Medium;
-            TCreateInput? createInput = default;
-            TUpdateInput? updateInput = default;
+            TCreateInput createInput = default;
+            TUpdateInput updateInput = default;
             string title = string.Empty;
             if (itemChangedType == ItemChangedType.Add)
             {
@@ -154,7 +154,7 @@ namespace Tchivs.Abp.UI.Components
                 RowType = table.EditDialogRowType,
                 ItemsPerRow = table.EditDialogItemsPerRow,
                 LabelAlign = table.EditDialogLabelAlign,
-                OnCloseAsync = async () => { },
+               // OnCloseAsync = async () => { },
                 OnEditAsync = async(EditContext context) => {
                     await table.ToggleLoading(true);
                     var valid = false;

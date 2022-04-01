@@ -3,16 +3,17 @@
 	<PropertyGroup>
 		<!-- All Microsoft packages -->
 		<MicrosoftPackageVersion>6.0.1</MicrosoftPackageVersion>
-
 		<!-- All Abp packages -->
 		<AbpVersion>5.1.4</AbpVersion>
+		<PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
 		<PackageVersion>0.0.1</PackageVersion>
+		<Description>Abp Frameworks By Tchivs</Description>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
 		<Authors>tchivs</Authors>
 		<Company>tchivs</Company>
 		<LangVersion>latest</LangVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<Copyright>Copyright (c) 2020 tchivs</Copyright>
+		<Copyright>Copyright (c) 2021 tchivs</Copyright>
 		<PackageProjectUrl>https://github.com/tchivs/Tchivs.Abp.Frameworks</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/tchivs/Tchivs.Abp.Frameworks</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
