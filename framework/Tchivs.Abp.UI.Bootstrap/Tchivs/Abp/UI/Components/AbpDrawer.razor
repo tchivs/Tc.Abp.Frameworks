@@ -16,7 +16,7 @@
                 </button>
                 @if (!IsReadOnly)
                 {
-                    <Button IsAsync="true" Color="Color.Primary" ButtonType="ButtonType.Submit"  @onclick="OnSubmit" Icon="fa fa-save" Text="@L["SaveButtonText"]"></Button>
+                    <Button IsAsync="true" Color="Color.Primary" ButtonType="ButtonType.Submit"  @onclick="OnSubmit" Icon="fa fa-save" Text=@L["Save"]></Button>
                 }
             }
             else
@@ -28,18 +28,21 @@
 </Drawer>
 
 @code {
+    public AbpDrawer()
+    {
+        this.LocalizationResource = typeof(AbpUiResource);
+    }
+    [Parameter]
+    public RenderFragment HeaderTemplate { get; set; }
 
     [Parameter]
-    public RenderFragment? HeaderTemplate { get; set; }
+    public RenderFragment BodyTemplate { get; set; }
 
     [Parameter]
-    public RenderFragment? BodyTemplate { get; set; }
+    public RenderFragment FooterTemplate { get; set; }
 
     [Parameter]
-    public RenderFragment? FooterTemplate { get; set; }
-
-    [Parameter]
-    public Action? OnClose { get; set; }
+    public Action OnClose { get; set; }
 
     [Parameter]
     public EventCallback Submit { get; set; }
@@ -75,7 +78,6 @@
         OnClose?.Invoke();
         this.IsOpen = false;
     }
-
     private async Task OnSubmit()
     {
         await this.Submit.InvokeAsync();
