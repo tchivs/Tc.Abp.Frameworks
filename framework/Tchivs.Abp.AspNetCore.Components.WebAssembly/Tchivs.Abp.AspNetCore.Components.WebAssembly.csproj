@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="..\..\common.props" />
+
+	<PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+ 
+  <ItemGroup>
+	  <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.WebAssembly" Version="$(AbpVersion)" />
+	  <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly" Version="$(AbpVersion)" />
+  </ItemGroup>
+
+	<ItemGroup>
+    <ProjectReference Include="..\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj" />
+  </ItemGroup>
+
+</Project>

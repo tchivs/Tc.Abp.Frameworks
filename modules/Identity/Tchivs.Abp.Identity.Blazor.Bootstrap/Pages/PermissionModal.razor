@@ -1,0 +1,11 @@
+﻿@using Volo.Abp.Identity.Localization
+@inherits  AbpBootstrapBlazorComponent
+<AbpDrawer IsScroll="true" IsOpen="@IsOpen" Submit="@Save">
+    <HeaderTemplate>
+        <h3>@L["Permission:RoleManagement"]</h3>
+    </HeaderTemplate>
+    <BodyTemplate>
+        <Tree ShowCheckbox="true" Items="Items">
+        </Tree>
+    </BodyTemplate>
+</AbpDrawer>

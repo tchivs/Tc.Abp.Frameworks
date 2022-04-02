@@ -1,0 +1,47 @@
+﻿@inherits BaseLanguageSwitch
+
+@if (this.Language != null && Languages != null)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @Language.DisplayName
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @foreach (var lan in this.Languages)
+            {
+                <li>
+                    <a id="@lan.UiCultureName" class="@GetDropdownItemClass(lan)" @onclick="() => this.ChangeLanguage(lan)" href="javascript:void()">@lan.DisplayName</a>
+                </li>
+            }
+        </ul>
+    </li>
+}
+@code {
+
+    string GetDropdownItemClass(LanguageInfo languageInfo)
+    {
+        if (languageInfo == Language)
+        {
+            return "dropdown-item active";
+        }
+        return "dropdown-item";
+    }
+    protected override async Task<LanguageInfo> GetCurrentLanguage(IReadOnlyList<LanguageInfo> languages)
+    {
+        var selectedLanguageName = await JsRuntime.InvokeAsync<string>(
+           "localStorage.getItem",
+           "Abp.SelectedLanguage"
+           );
+        var currentLanguage = languages.FindByCulture(selectedLanguageName);
+        return currentLanguage;
+    }
+    protected override async Task ChangeLanguage(LanguageInfo language)
+    {
+        await JsRuntime.InvokeVoidAsync(
+            "localStorage.setItem",
+            "Abp.SelectedLanguage", language.UiCultureName
+            );
+
+        await JsRuntime.InvokeVoidAsync("location.reload");
+    }
+}
