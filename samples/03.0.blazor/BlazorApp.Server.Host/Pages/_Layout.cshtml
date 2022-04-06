@@ -1,6 +1,6 @@
 ﻿@using System.Globalization
 @using Microsoft.AspNetCore.Components.Web
-@using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme.Bunding
+@using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.Bunding
 @using Volo.Abp.Localization
 @namespace BlazorApp.Server.Host.Pages
 @{
@@ -12,7 +12,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
-    <abp-style-bundle name="@BlazorBootstrapThemeBundles.Styles.Global" />
+    <abp-style-bundle name="@BlazorBootstrapBundles.Styles.Global" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
 <body>
@@ -29,6 +29,6 @@
         <a class="dismiss">🗙</a>
     </div>
 
-    <abp-script-bundle name="@BlazorBootstrapThemeBundles.Scripts.Global" />
+    <abp-script-bundle name="@BlazorBootstrapBundles.Scripts.Global" />
 </body>
 </html>

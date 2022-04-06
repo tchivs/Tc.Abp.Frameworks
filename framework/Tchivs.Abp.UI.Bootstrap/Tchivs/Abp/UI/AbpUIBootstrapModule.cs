@@ -6,10 +6,7 @@ using Volo.Abp.Modularity;
 
 namespace Tchivs.Abp.UI
 {
-    [DependsOn(
-  
-    typeof(AbpUIModule)
-    )]
+    [DependsOn(typeof(AbpUIModule))]
     public class AbpUIBootstrapModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

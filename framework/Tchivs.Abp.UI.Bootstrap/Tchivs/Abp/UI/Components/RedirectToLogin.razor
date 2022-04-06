@@ -2,17 +2,25 @@
 @inject NavigationManager _navigation
 @inject IJSRuntime _jsRuntime
 
-@code { 
+@code {
+ 
     protected override void OnInitialized()
     {
-        bool isWebAssembly = _jsRuntime is IJSInProcessRuntime;
+       
+    }    
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+         bool isWebAssembly = _jsRuntime is IJSInProcessRuntime;
+        var url = Uri.EscapeDataString(_navigation.Uri);
         if (isWebAssembly)
         {
-            _navigation.NavigateTo($"authentication/login?returnUrl={Uri.EscapeDataString(_navigation.Uri)}");
+            _navigation.NavigateTo($"authentication/login?returnUrl={url}");
         }
         else
         {
-             _navigation.NavigateTo($"account/login?returnUrl={Uri.EscapeDataString(_navigation.Uri)}");
+             _navigation.NavigateTo($"account/login?returnUrl={url}");
         }
-    } 
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
 }

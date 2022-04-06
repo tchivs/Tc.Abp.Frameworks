@@ -12,7 +12,7 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
 using Tchivs.Abp.UI.Components;
-using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme;
+using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.Localization;
@@ -24,9 +24,10 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.AspNetCore.Mvc.Client;
 using Volo.Abp.UI.Navigation;
 using Tchivs.Abp.UI;
-using Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme.Bunding;
+using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.Bunding;
+using Tchivs.Abp.Identity.Blazor.Server.Bootstrap;
 
-[DependsOn(typeof(AbpAspNetCoreComponentsServerBootstrapThemeModule),
+[DependsOn(typeof(AbpIdentityBlazorServerBootstrapModule),typeof(AbpIdentityBlazorServerModule),
 typeof(AbpAutofacModule),
 typeof(AbpSwashbuckleModule),
 typeof(AbpAspNetCoreSerilogModule),
@@ -35,8 +36,7 @@ typeof(AbpAspNetCoreMvcClientModule),
 //typeof(AbpCachingStackExchangeRedisModule),
 typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
  typeof(AbpHttpClientIdentityModelWebModule),
-    typeof(AbpIdentityBlazorServerModule),
-     typeof(AbpIdentityHttpApiClientModule),
+typeof(AbpIdentityHttpApiClientModule),
      typeof(AbpFeatureManagementHttpApiClientModule),
      typeof(AbpTenantManagementHttpApiClientModule),
     typeof(AbpPermissionManagementHttpApiClientModule)
@@ -63,7 +63,7 @@ public class BlazorAppServerHostModule : AbpModule
         {
             BaseAddress = new Uri("/")
         });
-       
+
         Configure<AbpNavigationOptions>(options => { options.MenuContributors.Add(new AppMenuContributor()); });
 
         //   ConfigureUrls(configuration);
@@ -92,7 +92,7 @@ public class BlazorAppServerHostModule : AbpModule
         {
             //BLAZOR UI
             options.StyleBundles.Configure(
-                BlazorBootstrapThemeBundles.Styles.Global,
+                BlazorBootstrapBundles.Styles.Global,
                 bundle =>
                 {
                     bundle.AddFiles("/css/blazor-global-styles.css");

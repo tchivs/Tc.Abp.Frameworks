@@ -3,11 +3,9 @@
 	<PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
-	<ItemGroup>
+		<ItemGroup>
 		<PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="$(AbpVersion)" />
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.UI.Bootstrap\Tchivs.Abp.UI.Bootstrap.csproj" />
+	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj" />
 	</ItemGroup>
 </Project>

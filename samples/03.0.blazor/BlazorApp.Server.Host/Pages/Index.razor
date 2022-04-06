@@ -25,10 +25,6 @@
         <li>Roles: <strong>@CurrentUser.Roles.JoinAsString(", ")</strong></li>
     </ul>
 }
-else
-{
-    <RedirectToLogin/>
-}
 @if (_claims != null)
 {
     <h3>Current Claims</h3>

@@ -38,7 +38,7 @@
 		<None Remove="Logs\**" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\modules\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme\Tchivs.Abp.AspNetCore.Components.Server.BootstrapTheme.csproj" />
-		<ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.Server\Tchivs.Abp.Identity.Blazor.Server.csproj" />
+	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server\Tchivs.Abp.AspNetCore.Components.Server.csproj" />
+	  <ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.Server.Bootstrap\Tchivs.Abp.Identity.Blazor.Server.Bootstrap.csproj" />
 	</ItemGroup>
 </Project>

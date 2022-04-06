@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="..\..\..\common.props" />
+	<PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	  <RootNamespace>Tchivs.Abp.TenantManagement.Blazor.WebAssembly</RootNamespace>
+  </PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap\Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap.csproj" />
+	  <ProjectReference Include="..\Tchivs.Abp.TenantManagement.Blazor.Bootstrap\Tchivs.Abp.TenantManagement.Blazor.Bootstrap.csproj" />
+	  <ProjectReference Include="..\Tchivs.Abp.TenantManagement.Blazor.WebAssembly\Tchivs.Abp.TenantManagement.Blazor.WebAssembly.csproj" />
+	</ItemGroup>
+</Project>

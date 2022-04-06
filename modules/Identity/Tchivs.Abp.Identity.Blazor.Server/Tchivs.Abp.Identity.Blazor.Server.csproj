@@ -2,11 +2,9 @@
 	<Import Project="..\..\..\common.props" />
 	<PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server.Theming\Tchivs.Abp.AspNetCore.Components.Server.Theming.csproj" />
+	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server\Tchivs.Abp.AspNetCore.Components.Server.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.Identity.Blazor\Tchivs.Abp.Identity.Blazor.csproj" />
 	</ItemGroup>
  

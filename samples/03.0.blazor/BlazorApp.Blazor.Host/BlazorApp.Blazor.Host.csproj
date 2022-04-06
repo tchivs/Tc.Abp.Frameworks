@@ -11,10 +11,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.Autofac.WebAssembly" Version="$(AbpVersion)" />
-		<PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(AbpVersion)"  />
+		<PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(AbpVersion)" />
 	</ItemGroup>
+
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\modules\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme\Tchivs.Abp.AspNetCore.Components.WebAssembly.BootstrapTheme.csproj" />
-		<ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.WebAssembly\Tchivs.Abp.Identity.Blazor.WebAssembly.csproj" />
+	  <ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.WebAssembly.Bootstrap\Tchivs.Abp.Identity.Blazor.WebAssembly.Bootstrap.csproj" />
 	</ItemGroup>
 </Project>
