@@ -3,10 +3,6 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 	</PropertyGroup>
-
- 
-
- 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.AspNetCore.Components.WebAssembly\Tchivs.Abp.AspNetCore.Components.WebAssembly.csproj" />
     <ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.UI.Bootstrap\Tchivs.Abp.UI.Bootstrap.csproj" />
