@@ -8,7 +8,7 @@ namespace Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap
 {
     [DependsOn(
    typeof(AbpUIBootstrapModule),
-   typeof(WebAssemblyThemingModule)
+   typeof(TchivsAbpAspNetCoreComponentsWebAssemblyModule)
    )]
     public class WebAssemblyBootstrapModule : AbpModule
     {

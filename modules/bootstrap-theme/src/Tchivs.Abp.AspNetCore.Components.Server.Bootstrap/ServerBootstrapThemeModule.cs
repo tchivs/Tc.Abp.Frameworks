@@ -10,7 +10,7 @@ namespace Tchivs.Abp.AspNetCore.Components.Server.Bootstrap
 {
     [DependsOn(
    typeof(AbpUIBootstrapModule),
-   typeof(ServerThemingModule)
+   typeof(TchivsAbpAspNetCoreComponentsServerModule)
    )]
     public class ServerBootstrapModule : AbpModule
     {

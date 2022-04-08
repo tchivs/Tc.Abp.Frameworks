@@ -28,7 +28,7 @@ namespace Tchivs.Abp.UI.Components
         {
             Navigation.LocationChanged -= OnLocationChanged;
         }
-        protected abstract Task Logout();
-        protected abstract Task Login();
+        //protected abstract Task Logout();
+        //protected abstract Task Login();
     }
 }

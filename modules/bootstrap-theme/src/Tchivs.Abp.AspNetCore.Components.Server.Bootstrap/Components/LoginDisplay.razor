@@ -29,24 +29,12 @@
                     <hr class="dropdown-divider">
                 </li>
                 <li>
-                    <a class="dropdown-item" @onclick=this.Logout>@UiLocalizer["Logout"]</a>
+                    <a class="dropdown-item" href="Account/Logout">@UiLocalizer["Logout"]</a>
                 </li>
             </ul>
         </li>
     </Authorized>
     <NotAuthorized>
-        <a class="nav-link" @onclick=this.Login>@UiLocalizer["Login"]</a>
+        <a class="nav-link" href="Account/Login">@UiLocalizer["Login"]</a>
     </NotAuthorized>
 </AuthorizeView>
-@code {
-    protected override async Task Login()
-    {
-        await this.NavigateToAsync("Account/Login");
-    }
-    protected override async Task Logout()
-    {
-
-        await this.NavigateToAsync("Account/Logout");
-    }
-
-}

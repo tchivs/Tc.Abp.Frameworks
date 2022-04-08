@@ -1,6 +1,6 @@
 ﻿@inherits AbpBootstrapBlazorComponent
 <Drawer Placement="Placement.Right" IsBackdrop="true" @bind-IsOpen="@IsOpen">
-    <div class="drawer-component">
+    <div class="drawer-component h-100">
         <div class="drawer-component-header">
             @HeaderTemplate
         </div>
@@ -16,7 +16,7 @@
                 </button>
                 @if (!IsReadOnly)
                 {
-                    <Button IsAsync="true" Color="Color.Primary" ButtonType="ButtonType.Submit"  @onclick="OnSubmit" Icon="fa fa-save" Text=@L["Save"]></Button>
+                    <Button IsAsync="true" Color="Color.Primary" ButtonType="ButtonType.Submit" @onclick="OnSubmit" Icon="fa fa-save" Text=@L["Save"]></Button>
                 }
             }
             else
@@ -56,7 +56,7 @@
     [Parameter]
     public bool IsScroll { get; set; }
 
-    private string[] bodyClass = new[] {"drawer-component-body"};
+    private string[] bodyClass = new[] { "drawer-component-body row" };
 
     string getBodyClass()
     {

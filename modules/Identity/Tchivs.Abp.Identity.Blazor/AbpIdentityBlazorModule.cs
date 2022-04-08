@@ -17,7 +17,7 @@ namespace Tchivs.Abp.Identity.Blazor;
 [DependsOn(
        typeof(AbpPermissionManagementApplicationContractsModule),
         typeof(AbpIdentityApplicationContractsModule),
-        typeof(AbpUIModule)
+        typeof(TchivsAbpUIModule)
     )]
     public class AbpIdentityBlazorModule : AbpModule
     {

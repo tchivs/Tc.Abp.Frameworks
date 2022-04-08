@@ -68,11 +68,11 @@
         AuthenticationStateProvider.AuthenticationStateChanged -=
             AuthenticationStateProviderOnAuthenticationStateChanged;
     }
-    protected override async Task Login()
+    protected  async Task Login()
     {
         await this.NavigateToAsync("authentication/login");
     }
-    protected override async Task Logout()
+    protected  async Task Logout()
     {
         if (SignOutManager != null)
         {

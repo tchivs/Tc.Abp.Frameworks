@@ -9,7 +9,7 @@ using Volo.Abp.Modularity;
 namespace Tchivs.Abp.Identity.Blazor.Server
 {
     [DependsOn(typeof(AbpIdentityBlazorModule),
-        typeof(ServerThemingModule))]
+        typeof(TchivsAbpAspNetCoreComponentsServerModule))]
     public class AbpIdentityBlazorServerModule : AbpModule
     {
     }

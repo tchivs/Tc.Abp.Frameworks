@@ -11,12 +11,9 @@ using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
-using Tchivs.Abp.UI.Components;
-using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.Localization;
-using Tchivs.Abp.Identity.Blazor.Server;
 using Volo.Abp.Identity;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.PermissionManagement;
@@ -25,9 +22,14 @@ using Volo.Abp.AspNetCore.Mvc.Client;
 using Volo.Abp.UI.Navigation;
 using Tchivs.Abp.UI;
 using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.Bunding;
+using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap;
 using Tchivs.Abp.Identity.Blazor.Server.Bootstrap;
 
-[DependsOn(typeof(AbpIdentityBlazorServerBootstrapModule),typeof(AbpIdentityBlazorServerModule),
+[DependsOn(
+    //typeof(AbpIdentityBlazorServerBootstrapModule),
+    //typeof(AbpIdentityBlazorServerModule),
+    typeof(ServerBootstrapModule),
+    typeof(AbpIdentityBlazorServerBootstrapModule),
 typeof(AbpAutofacModule),
 typeof(AbpSwashbuckleModule),
 typeof(AbpAspNetCoreSerilogModule),

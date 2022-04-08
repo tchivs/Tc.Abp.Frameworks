@@ -11,7 +11,7 @@ using Volo.Abp.PermissionManagement;
 namespace Tchivs.Abp.Identity.Blazor.WebAssembly
 {
     [DependsOn(typeof(AbpIdentityBlazorModule),
-       typeof(WebAssemblyThemingModule),
+       typeof(TchivsAbpAspNetCoreComponentsWebAssemblyModule),
        typeof(AbpIdentityHttpApiClientModule),
        typeof(AbpPermissionManagementHttpApiClientModule))]
     public class AbpIdentityBlazorWebAssemblyModule : AbpModule

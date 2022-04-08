@@ -297,17 +297,21 @@
     background-color: inherit;
 }
 
-
-
 /*drawer-component*/
 .drawer-component {
     margin: 1rem;
 }
+:root {
+    --drawer-component-header-height: 40px;
+    --drawer-component-footer-height: 42px;
+}
 .drawer-component-header {
+    height: var(--drawer-component-header-height);
     border-bottom: 1px solid #dee2e6;
 }
+
 .drawer-component-body {
-    height: 100%;
+    height: calc(98vh - 1rem - var(--drawer-component-header-height) - var(--drawer-component-footer-height));
 }
 
 .drawer-component-body-scroll {
@@ -315,7 +319,8 @@
 }
 
 .drawer-component-footer {
-    padding-top: 5px;
+    height: var(--drawer-component-footer-height);
+    padding-top: 1rem;
     border-top: 1px solid #dee2e6;
     text-align: right;
 }

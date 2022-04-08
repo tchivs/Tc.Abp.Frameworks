@@ -7,11 +7,11 @@ using Volo.Abp.Modularity;
 
 namespace Tchivs.Abp.AspNetCore.Components.Server
 {
-    [DependsOn(typeof(AbpUIModule),
+    [DependsOn(typeof(TchivsAbpUIModule),
     typeof(AbpAspNetCoreComponentsServerModule),
     typeof(AbpAspNetCoreMvcUiPackagesModule),
     typeof(AbpAspNetCoreMvcUiBundlingModule))]
-    public class ServerThemingModule : AbpModule
+    public class TchivsAbpAspNetCoreComponentsServerModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

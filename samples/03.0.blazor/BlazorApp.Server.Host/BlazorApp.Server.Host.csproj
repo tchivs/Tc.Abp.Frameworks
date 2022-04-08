@@ -25,7 +25,9 @@
 		<PackageReference Include="Volo.Abp.Swashbuckle" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="$(AbpVersion)" />
+		
 		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(AbpVersion)" />
+		
 		<PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="$(AbpVersion)" />
@@ -38,7 +40,7 @@
 		<None Remove="Logs\**" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server\Tchivs.Abp.AspNetCore.Components.Server.csproj" />
+	  <ProjectReference Include="..\..\..\modules\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.csproj" />
 	  <ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.Server.Bootstrap\Tchivs.Abp.Identity.Blazor.Server.Bootstrap.csproj" />
 	</ItemGroup>
 </Project>

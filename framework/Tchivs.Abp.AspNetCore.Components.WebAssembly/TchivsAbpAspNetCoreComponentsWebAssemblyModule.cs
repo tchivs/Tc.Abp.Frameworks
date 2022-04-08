@@ -7,17 +7,17 @@ using Volo.Abp.Modularity;
 namespace Tchivs.Abp.AspNetCore.Components.WebAssembly
 {
     [DependsOn(
-    typeof(AbpUIModule),
+    typeof(TchivsAbpUIModule),
     typeof(AbpHttpClientIdentityModelWebAssemblyModule),
     typeof(AbpAspNetCoreComponentsWebAssemblyModule)
 )]
-    public class WebAssemblyThemingModule : AbpModule
+    public class TchivsAbpAspNetCoreComponentsWebAssemblyModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             Configure<AbpRouterOptions>(options =>
             {
-                options.AdditionalAssemblies.Add(typeof(WebAssemblyThemingModule).Assembly);
+                options.AdditionalAssemblies.Add(typeof(TchivsAbpAspNetCoreComponentsWebAssemblyModule).Assembly);
             });
         }
     }

@@ -9,6 +9,10 @@ namespace Tchivs.Abp.UI
 {
     public abstract class AbpBlazorComponent : AbpComponentBase
     {
+        protected AbpBlazorComponent()
+        {
+            this.LocalizationResource = typeof(Localization.BlazorUIResource);
+        }
         [Inject, NotNull] public NavigationManager Navigation { get; set; }
         [Inject, NotNull] public IJSRuntime JsRuntime { get; set; }
         public bool IsWebAssembly { get => OperatingSystem.IsBrowser(); }
