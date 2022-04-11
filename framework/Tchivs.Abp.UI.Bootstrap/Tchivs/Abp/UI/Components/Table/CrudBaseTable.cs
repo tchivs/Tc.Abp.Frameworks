@@ -10,7 +10,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 namespace Tchivs.Abp.UI.Components
 {
-    [CascadingTypeParameter(nameof(TItem))]
+
     public class CrudBaseTable<TAppService, TItem, TKey, TGetListInput, TCreateInput,
         TUpdateInput> : ReadOnlyBaseTable<TAppService, TItem, TKey, TGetListInput>
         where TAppService : ICrudAppService<TItem, TKey, TGetListInput, TCreateInput,
@@ -21,9 +21,30 @@ namespace Tchivs.Abp.UI.Components
         where TGetListInput : PagedAndSortedResultRequestDto, new()
     {
         #region properties
+        /// <summary>
+        /// 更新或删除混合模板 如果设置了值则CreateTemplate&UpdateTemplate不启用
+        /// </summary>
+        [Parameter] public RenderFragment<AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput>> EditTemplate { get; set; }
 
+        /// <summary>
+        /// 新增时模板
+        /// </summary>
+        [Parameter] public RenderFragment<TCreateInput> CreateTemplate { get; set; }
+        /// <summary>
+        /// 编辑时模板
+        /// </summary>
+        [Parameter] public RenderFragment<TUpdateInput> UpdateTemplate { get; set; }
+        /// <summary>
+        /// 创建权限名
+        /// </summary>
         [Parameter] public string CreatePolicyName { get; set; }
+        /// <summary>
+        /// 更新权限名
+        /// </summary>
         [Parameter] public string UpdatePolicyName { get; set; }
+        /// <summary>
+        /// 删除权限名
+        /// </summary>
         [Parameter] public string DeletePolicyName { get; set; }
         protected bool HasCreatePermission { get; set; }
         protected bool HasUpdatePermission { get; set; }

@@ -15,9 +15,6 @@ namespace Tchivs.Abp.UI.Components
     [CascadingTypeParameter(nameof(TCreateInput))]
     [CascadingTypeParameter(nameof(TUpdateInput))]
     public partial class AbpEditModal<TKey, TItem, TCreateInput, TUpdateInput>
-                where TItem : class, IEntityDto<TKey>, new()
-        where TCreateInput : class, new()
-        where TUpdateInput : class, new()
     {
         private string rootCss => CssBuilder
                   .Default("row")
@@ -25,14 +22,11 @@ namespace Tchivs.Abp.UI.Components
                   .AddClass("tm", Width != null)
                   .AddClass("form-inline", this.IsInline)
                   .Build();
-
         [Parameter, NotNull] public AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput> Model { get; set; }
         [Parameter] public RenderFragment<TCreateInput> CreateTemplate { get; set; }
         [Parameter] public RenderFragment<TUpdateInput> UpdateTemplate { get; set; }
         [Parameter] public bool IsInline { get; set; }
         [Parameter] public double? Width { get; set; }
-
-
-
+      
     }
 }

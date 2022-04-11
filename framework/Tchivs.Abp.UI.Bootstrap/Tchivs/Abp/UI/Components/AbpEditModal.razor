@@ -1,18 +1,19 @@
 ﻿@using System.Diagnostics.CodeAnalysis
 @using Volo.Abp.Application.Dtos;
 @typeparam TKey
-@typeparam TItem
-@typeparam TCreateInput
-@typeparam TUpdateInput
+@typeparam TItem where TItem :class, IEntityDto<TKey>, new()
+@typeparam TCreateInput where TCreateInput:class,new()
+@typeparam TUpdateInput where TUpdateInput:class,new()
+
 @inherits AbpBlazorComponent
 <div class="@rootCss">
-    @if (Model.ItemChangedType== ItemChangedType.Update)
+    @if (Model.ItemChangedType == ItemChangedType.Update)
     {
-     @UpdateTemplate?.Invoke(Model.GetUpdateInput())
+        @UpdateTemplate?.Invoke(Model.GetUpdateInput())
     }
     else
     {
-     @CreateTemplate?.Invoke(Model.GetCreateInput())
+        @CreateTemplate?.Invoke(Model.GetCreateInput())
     }
 </div>
 

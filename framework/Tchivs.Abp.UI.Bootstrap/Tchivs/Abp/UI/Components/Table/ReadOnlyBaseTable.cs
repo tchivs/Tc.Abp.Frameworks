@@ -9,7 +9,6 @@ using Volo.Abp.Application.Services;
 
 namespace Tchivs.Abp.UI.Components
 {
-    [CascadingTypeParameter(nameof(TItem))]
     public class ReadOnlyBaseTable<TAppService, TItem, TKey, TGetListInput> : AbpBootstrapBlazorComponent
              where TAppService : IReadOnlyAppService<TItem, TItem, TKey, TGetListInput>
         where TItem : class, IEntityDto<TKey>, new()

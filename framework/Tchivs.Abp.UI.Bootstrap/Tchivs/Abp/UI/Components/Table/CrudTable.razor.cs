@@ -15,14 +15,11 @@ using Volo.Abp.Application.Services;
 namespace Tchivs.Abp.UI.Components
 {
     [CascadingTypeParameter(nameof(TItem))]
+    [CascadingTypeParameter(nameof(TKey))]
+    [CascadingTypeParameter(nameof(TCreateInput))]
+    [CascadingTypeParameter(nameof(TUpdateInput))]
     public partial class CrudTable<TAppService, TItem, TKey, TGetListInput, TCreateInput,
-        TUpdateInput> :CrudBaseTable<TAppService, TItem, TKey, TGetListInput, TCreateInput,
-        TUpdateInput> where TAppService : ICrudAppService<TItem, TKey, TGetListInput, TCreateInput,
-            TUpdateInput>
-        where TItem : class, IEntityDto<TKey>, new()
-        where TCreateInput : class, new()
-        where TUpdateInput : class, new()
-        where TGetListInput : PagedAndSortedResultRequestDto, new()
+        TUpdateInput>  
     {
         [Inject]
         [NotNull]
@@ -49,14 +46,13 @@ namespace Tchivs.Abp.UI.Components
         /// </summary>
         [Parameter]
         public Func<Task<TCreateInput>> OnAddAsync { get; set; }
-
+ 
         /// <summary>
         /// 获得/设置 TableHeader 实例
         /// </summary>
         [Parameter]
         public RenderFragment<TItem> TableColumns { get; set; }
-        [Parameter] public RenderFragment<AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput>> EditTemplate { get; set; }
-
+    
         [Parameter] public RenderFragment<TItem> RowButtonTemplate { get; set; }
         /// <summary>
         /// 是否直接绑定AddOrUpdateContext的Source，这样在更新或者删除时就可以直接共用一个模板。保存时会mapper到相应的dto
@@ -143,75 +139,190 @@ namespace Tchivs.Abp.UI.Components
                 updateInput = this.ObjectMapper.Map<TItem, TUpdateInput>(item);
             }
             var ctx = new AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput>(item, itemChangedType, createInput, updateInput, this.BindSourceContext);
-            await this.DialogService.ShowEditDialog(new EditDialogOption<AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput>>()
+            if (this.EditTemplate!=null)
             {
-                IsScrolling = table.ScrollingDialogContent,
-                ShowLoading = true,
-                Title = title,
-                DialogBodyTemplate = this.EditTemplate,
-                Model = ctx,
-                Size = size,
-                RowType = table.EditDialogRowType,
-                ItemsPerRow = table.EditDialogItemsPerRow,
-                LabelAlign = table.EditDialogLabelAlign,
-               // OnCloseAsync = async () => { },
-                OnEditAsync = async(EditContext context) => {
-                    await table.ToggleLoading(true);
-                    var valid = false;
-                    try
-                    {
-                        if (ctx.ItemChangedType == ItemChangedType.Add)
+                await this.DialogService.ShowEditDialog(new EditDialogOption<AddOrUpdateContext<TKey, TItem, TCreateInput, TUpdateInput>>()
+                {
+                    IsScrolling = table.ScrollingDialogContent,
+                    ShowLoading = true,
+                    Title = title,
+                    DialogBodyTemplate = this.EditTemplate ,
+                    Model = ctx,
+                    Size = size,
+                    RowType = table.EditDialogRowType,
+                    ItemsPerRow = table.EditDialogItemsPerRow,
+                    LabelAlign = table.EditDialogLabelAlign,
+                    // OnCloseAsync = async () => { },
+                    OnEditAsync = async (EditContext context) => {
+                        await table.ToggleLoading(true);
+                        var valid = false;
+                        try
                         {
-                            TCreateInput create;
-                            if (ctx.BindSource)
+                            if (ctx.ItemChangedType == ItemChangedType.Add)
                             {
-                                create = this.ObjectMapper.Map<TItem, TCreateInput>(ctx.Source);
+                                TCreateInput create;
+                                if (ctx.BindSource)
+                                {
+                                    create = this.ObjectMapper.Map<TItem, TCreateInput>(ctx.Source);
+                                }
+                                else
+                                {
+                                    create = ctx.GetCreateInput();
+                                }
+                                await this.AppService.CreateAsync(create);
                             }
                             else
                             {
-                                create = ctx.GetCreateInput();
+                                TUpdateInput update;
+                                if (ctx.BindSource)
+                                {
+                                    update = this.ObjectMapper.Map<TItem, TUpdateInput>(ctx.Source);
+                                }
+                                else
+                                {
+                                    update = ctx.GetUpdateInput();
+                                }
+                                var r = await this.AppService.UpdateAsync(ctx.GetId(), update);
                             }
-                            await this.AppService.CreateAsync(create);
+                            valid = true;
+
                         }
-                        else
+                        catch (Exception e)
                         {
-                            TUpdateInput update;
-                            if (ctx.BindSource)
-                            {
-                                update = this.ObjectMapper.Map<TItem, TUpdateInput>(ctx.Source);
-                            }
-                            else
-                            {
-                                update = ctx.GetUpdateInput();
-                            }
-                            var r = await this.AppService.UpdateAsync(ctx.GetId(), update);
+                            valid = false;
+                            this.AlertManager.Alerts.Add(Volo.Abp.AspNetCore.Components.Alerts.AlertType.Warning, e.Message);
+                            //await this.Message.Warn(e.Message);
                         }
-                        valid = true;
+                        finally
+                        {
+                            await table.ToggleLoading(false);
+                            table.SelectedRows?.Clear();
+                        }
 
+                        if (valid)
+                        {
+                            await InvokeAsync(table.QueryAsync);
+                        }
+                        return valid;
                     }
-                    catch (Exception e)
-                    {
-                        valid = false;
-                        this.AlertManager.Alerts.Add(Volo.Abp.AspNetCore.Components.Alerts.AlertType.Warning, e.Message);
-                        //await this.Message.Warn(e.Message);
-                    }
-                    finally
-                    {
-                        await table.ToggleLoading(false);
-                        table.SelectedRows?.Clear();
-                    }
+                });
 
-                    if (valid)
-                    {
-                        await InvokeAsync(table.QueryAsync);
-                    }
+            }
+            else
+            {
+                switch (ctx.ItemChangedType)
+                {
+                    case ItemChangedType.Add:
+                        await this.DialogService.ShowEditDialog(new EditDialogOption<TCreateInput>()
+                        {
+                            IsScrolling = table.ScrollingDialogContent,
+                            ShowLoading = true,
+                            Title = title,
+                            DialogBodyTemplate = this.CreateTemplate,
+                            Model = ctx.CreateInput,
+                            Size = size,
+                            RowType = table.EditDialogRowType,
+                            ItemsPerRow = table.EditDialogItemsPerRow,
+                            LabelAlign = table.EditDialogLabelAlign,
+                            // OnCloseAsync = async () => { },
+                            OnEditAsync = async (EditContext context) => {
+                                await table.ToggleLoading(true);
+                                var valid = false;
+                                try
+                                {
+                                    
+                                        TCreateInput create;
+                                        if (ctx.BindSource)
+                                        {
+                                            create = this.ObjectMapper.Map<TItem, TCreateInput>(ctx.Source);
+                                        }
+                                        else
+                                        {
+                                            create = ctx.GetCreateInput();
+                                        }
+                                        await this.AppService.CreateAsync(create);
+                                    
+                                    valid = true;
 
-                    return valid;
-                } 
-            });
+                                }
+                                catch (Exception e)
+                                {
+                                    valid = false;
+                                    this.AlertManager.Alerts.Add(Volo.Abp.AspNetCore.Components.Alerts.AlertType.Warning, e.Message);
+                                    //await this.Message.Warn(e.Message);
+                                }
+                                finally
+                                {
+                                    await table.ToggleLoading(false);
+                                    table.SelectedRows?.Clear();
+                                }
+
+                                if (valid)
+                                {
+                                    await InvokeAsync(table.QueryAsync);
+                                }
+                                return valid;
+                            }
+                        });
+                        break;
+                    case ItemChangedType.Update:
+                        await this.DialogService.ShowEditDialog(new EditDialogOption<TUpdateInput>()
+                        {
+                            IsScrolling = table.ScrollingDialogContent,
+                            ShowLoading = true,
+                            Title = title,
+                            DialogBodyTemplate = this.UpdateTemplate,
+                            Model = ctx.UpdateInput,
+                            Size = size,
+                            RowType = table.EditDialogRowType,
+                            ItemsPerRow = table.EditDialogItemsPerRow,
+                            LabelAlign = table.EditDialogLabelAlign,
+                            // OnCloseAsync = async () => { },
+                            OnEditAsync = async (EditContext context) => {
+                                await table.ToggleLoading(true);
+                                var valid = false;
+                                try
+                                {
+                                   
+                                        TUpdateInput update;
+                                        if (ctx.BindSource)
+                                        {
+                                            update = this.ObjectMapper.Map<TItem, TUpdateInput>(ctx.Source);
+                                        }
+                                        else
+                                        {
+                                            update = ctx.GetUpdateInput();
+                                        }
+                                        var r = await this.AppService.UpdateAsync(ctx.GetId(), update);
+                                    
+                                    valid = true;
+
+                                }
+                                catch (Exception e)
+                                {
+                                    valid = false;
+                                    this.AlertManager.Alerts.Add(Volo.Abp.AspNetCore.Components.Alerts.AlertType.Warning, e.Message);
+                                    //await this.Message.Warn(e.Message);
+                                }
+                                finally
+                                {
+                                    await table.ToggleLoading(false);
+                                    table.SelectedRows?.Clear();
+                                }
+
+                                if (valid)
+                                {
+                                    await InvokeAsync(table.QueryAsync);
+                                }
+                                return valid;
+                            }
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
- 
-
         public async Task UpdateAsync()
         {
             if (table.SelectedRows == null || table.SelectedRows.Count == 0)
