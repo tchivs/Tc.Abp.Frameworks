@@ -7,6 +7,4 @@
 	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server\Tchivs.Abp.AspNetCore.Components.Server.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.Identity.Blazor\Tchivs.Abp.Identity.Blazor.csproj" />
 	</ItemGroup>
- 
-
 </Project>

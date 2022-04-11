@@ -17,5 +17,6 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\modules\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap\Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap.csproj" />
 	  <ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.WebAssembly.Bootstrap\Tchivs.Abp.Identity.Blazor.WebAssembly.Bootstrap.csproj" />
+	  <ProjectReference Include="..\..\..\modules\tenant-management\Tchivs.Abp.TenantManagement.Blazor.WebAssembly.Bootstrap\Tchivs.Abp.TenantManagement.Blazor.WebAssembly.Bootstrap.csproj" />
 	</ItemGroup>
 </Project>

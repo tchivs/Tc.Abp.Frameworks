@@ -24,12 +24,12 @@ using Tchivs.Abp.UI;
 using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.Bunding;
 using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap;
 using Tchivs.Abp.Identity.Blazor.Server.Bootstrap;
+using Tchivs.Abp.TenantManagement.Blazor.Server;
 
 [DependsOn(
-    //typeof(AbpIdentityBlazorServerBootstrapModule),
-    //typeof(AbpIdentityBlazorServerModule),
     typeof(ServerBootstrapModule),
     typeof(AbpIdentityBlazorServerBootstrapModule),
+    typeof(AbpTenantManagementBlazorServerBootstrapModule),
 typeof(AbpAutofacModule),
 typeof(AbpSwashbuckleModule),
 typeof(AbpAspNetCoreSerilogModule),

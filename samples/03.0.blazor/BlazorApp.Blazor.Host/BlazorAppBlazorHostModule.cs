@@ -9,16 +9,16 @@ using Volo.Abp.AutoMapper;
 using Tchivs.Abp.Identity.Blazor.WebAssembly;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
-using Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap;
 using Tchivs.Abp.UI;
 using Tchivs.Abp.UI.Components;
-using Tchivs.Abp.Identity.WebAssembly.Blazor;
+using Tchivs.Abp.TenantManagement.Blazor.WebAssembly;
 
 namespace BlazorApp.Blazor.Host;
 
 [DependsOn(
     typeof(AbpAutofacWebAssemblyModule),
     typeof(AbpIdentityBlazorWebAssemblyBootstrapModule),
+   typeof(AbpTenantManagementBlazorWebAssemblyBootstrapModule),
     typeof(AbpAccountApplicationContractsModule)
 )]
 public class BlazorAppBlazorHostModule : AbpModule
