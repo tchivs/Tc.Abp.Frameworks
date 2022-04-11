@@ -1,0 +1,21 @@
+﻿@page "/tenant-management/tenants"
+@attribute [Authorize(TenantManagementPermissions.Tenants.Default)]
+@using Microsoft.AspNetCore.Authorization
+@using Tchivs.Abp.FeatureManagement.Blazor.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using Volo.Abp.AspNetCore.Components.Web
+@*@inherits CrudTable<ITenantAppService, TenantDto, Guid, GetTenantsInput, TenantCreateDto, TenantUpdateDto>*@
+@inherits AbpBootstrapBlazorComponent
+<CrudTable TItem=TenantDto
+         TAppService=ITenantAppService
+         TKey=Guid TGetListInput=GetTenantsInput
+         TCreateInput=TenantCreateDto
+         TUpdateInput=TenantUpdateDto
+         AutoGenerateColumns="false"
+         CreatePolicyName="@TenantManagementPermissions.Tenants.Create"
+         UpdatePolicyName="@TenantManagementPermissions.Tenants.Update"
+         DeletePolicyName="@TenantManagementPermissions.Tenants.Delete">
+    <TableColumns>
+        <TableColumn @bind-Field="@context.Name" Text="@L["TenantName"]"/>
+    </TableColumns>
+</CrudTable>

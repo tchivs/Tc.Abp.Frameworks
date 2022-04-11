@@ -8,6 +8,7 @@
  
   <ItemGroup>
     <ProjectReference Include="..\..\..\framework\Tchivs.Abp.UI.Bootstrap\Tchivs.Abp.UI.Bootstrap.csproj" />
+    <ProjectReference Include="..\..\feature-management\Tchivs.Abp.FeatureManagement.Blazor.Bootstrap\Tchivs.Abp.FeatureManagement.Blazor.Bootstrap.csproj" />
     <ProjectReference Include="..\Tchivs.Abp.TenantManagement.Blazor\Tchivs.Abp.TenantManagement.Blazor.csproj" />
   </ItemGroup>
 

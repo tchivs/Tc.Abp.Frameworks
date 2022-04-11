@@ -5,6 +5,9 @@
 	  <RootNamespace>Tchivs.Abp.TenantManagement.Blazor.WebAssembly</RootNamespace>
   </PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="$(AbpVersion)" />
+	</ItemGroup>
+	<ItemGroup>
 		<ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.WebAssembly\Tchivs.Abp.AspNetCore.Components.WebAssembly.csproj" />
 		<ProjectReference Include="..\Tchivs.Abp.TenantManagement.Blazor\Tchivs.Abp.TenantManagement.Blazor.csproj" />
 	</ItemGroup>

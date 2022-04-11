@@ -1,5 +1,4 @@
 using Tchivs.Abp.AspNetCore.Components.Server.Bootstrap;
-using Tchivs.Abp.TenantManagement.Blazor.Bootstrap;
 using Tchivs.Abp.UI;
 using Volo.Abp.Modularity;
 namespace Tchivs.Abp.TenantManagement.Blazor.Server

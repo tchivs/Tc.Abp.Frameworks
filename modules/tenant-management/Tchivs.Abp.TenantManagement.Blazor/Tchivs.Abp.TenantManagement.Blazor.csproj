@@ -5,6 +5,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj" />
+	  <ProjectReference Include="..\..\feature-management\Tchivs.Abp.FeatureManagement.Blazor\Tchivs.Abp.FeatureManagement.Blazor.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="$(AbpVersion)" />
