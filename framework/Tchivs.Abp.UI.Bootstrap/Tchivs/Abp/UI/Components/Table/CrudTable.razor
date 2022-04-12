@@ -1,12 +1,16 @@
-﻿@typeparam TAppService where TAppService : ICrudAppService<TItem, TKey, TGetListInput, TCreateInput,TUpdateInput>
+﻿@namespace Tchivs.Abp.UI.Components
+@using Volo.Abp.Application.Dtos
+@using Volo.Abp.Application.Services
+@typeparam TAppService where TAppService : ICrudAppService<TItem, TKey, TGetListInput, TCreateInput,TUpdateInput>
 @typeparam TItem where TItem :class, IEntityDto<TKey>, new()
 @typeparam TKey
 @typeparam TGetListInput where TGetListInput:PagedAndSortedResultRequestDto,new()
 @typeparam TCreateInput where TCreateInput:class,new()
 @typeparam TUpdateInput where TUpdateInput:class,new()
-@namespace Tchivs.Abp.UI.Components
-@using Volo.Abp.Application.Dtos
-@using Volo.Abp.Application.Services
+@attribute [CascadingTypeParameter(nameof(TItem))]
+@attribute [CascadingTypeParameter(nameof(TKey))]
+@attribute [CascadingTypeParameter(nameof(TCreateInput))]
+@attribute [CascadingTypeParameter(nameof(TUpdateInput))]
 @inherits CrudBaseTable<TAppService, TItem, TKey, TGetListInput, TCreateInput,TUpdateInput>
 
 <Table @ref=table TItem=TItem
@@ -53,10 +57,12 @@
         @if (HasDeletePermission)
                 {
         <TableToolbarPopconfirmButton TItem="TItem" Color="Color.Danger"
-                                      Icon="fa fa-remove" Text="@Localizer["Delete"]"
-                                      OnBeforeClick="@ConfirmDelete" OnConfirm="@DeleteAsync"
+                                      Icon="fa fa-remove" 
+                                      Text="@Localizer["Delete"]"
+                                      OnBeforeClick="@ConfirmDelete" 
+                                      OnConfirm="@DeleteAsync"
                                       CloseButtonText="@Localizer["Cancel"]"
-                                      Content="@L["ConfirmDeleteContent"]"
+                                      Content="@ConfirmDeleteContent"
                                       ConfirmButtonText="@Localizer["Delete"]"
                                       ConfirmButtonColor="Color.Danger" />
                 }

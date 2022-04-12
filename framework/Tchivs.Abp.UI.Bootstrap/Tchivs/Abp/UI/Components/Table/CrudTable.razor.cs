@@ -14,10 +14,7 @@ using Volo.Abp.Application.Services;
 
 namespace Tchivs.Abp.UI.Components
 {
-    [CascadingTypeParameter(nameof(TItem))]
-    [CascadingTypeParameter(nameof(TKey))]
-    [CascadingTypeParameter(nameof(TCreateInput))]
-    [CascadingTypeParameter(nameof(TUpdateInput))]
+
     public partial class CrudTable<TAppService, TItem, TKey, TGetListInput, TCreateInput,
         TUpdateInput>  
     {
@@ -27,6 +24,7 @@ namespace Tchivs.Abp.UI.Components
         #region properties
 
         [Parameter] public string AddModalTitle { get; set; }
+        [Parameter] public string ConfirmDeleteContent { get; set; } 
 
         /// <summary>
         /// 获得/设置 表格 Toolbar 按钮模板
@@ -66,6 +64,12 @@ namespace Tchivs.Abp.UI.Components
         #endregion
 
         #region methods
+        protected override Task OnInitializedAsync()
+        {
+            this.ConfirmDeleteContent = L["ConfirmDeleteContent"];
+
+            return base.OnInitializedAsync();
+        }
         /// <summary>
         /// 行尾列编辑按钮点击回调此方法
         /// </summary>
