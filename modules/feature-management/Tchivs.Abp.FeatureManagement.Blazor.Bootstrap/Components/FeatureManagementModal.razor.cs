@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BootstrapBlazor.Components;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
@@ -28,15 +29,14 @@ namespace Tchivs.Abp.FeatureManagement.Blazor.Components
         [Inject] private ICurrentApplicationConfigurationCacheResetService CurrentApplicationConfigurationCacheResetService { get; set; }
         protected string ProviderName;
         protected string ProviderKey;
-
         protected string SelectedTabName;
-
         protected List<FeatureGroupDto> Groups { get; set; }
 
         protected Dictionary<string, bool> ToggleValues;
 
         protected Dictionary<string, string> SelectionStringValues;
-
+        [NotNull]
+        private Modal BackdropModal { get; set; }
         public virtual async Task OpenAsync([NotNull] string providerName, string providerKey = null)
         {
             try
@@ -71,8 +71,8 @@ namespace Tchivs.Abp.FeatureManagement.Blazor.Components
                         }
                     }
                 }
-
-               // await InvokeAsync(Modal.Show);
+                 this.StateHasChanged();
+                await BackdropModal.Show();
             }
             catch (Exception ex)
             {
@@ -80,10 +80,9 @@ namespace Tchivs.Abp.FeatureManagement.Blazor.Components
             }
         }
 
-        public virtual Task CloseModal()
+        public virtual async Task CloseModal()
         {
-            // return InvokeAsync(Modal.Hide);
-            return Task.CompletedTask;
+            await this.BackdropModal.Close();
         }
 
         protected virtual async Task SaveAsync()
@@ -99,12 +98,9 @@ namespace Tchivs.Abp.FeatureManagement.Blazor.Components
                             f.ValueType is SelectionStringValueType ? SelectionStringValues[f.Name] : f.Value
                     }).ToList()
                 };
-
                 await FeatureAppService.UpdateAsync(ProviderName, ProviderKey, features);
-
                 await CurrentApplicationConfigurationCacheResetService.ResetAsync();
-
-               // await InvokeAsync(Modal.Hide);
+                await this.BackdropModal.Close();
             }
             catch (Exception ex)
             {

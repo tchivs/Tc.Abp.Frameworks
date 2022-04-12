@@ -4,11 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server\Tchivs.Abp.AspNetCore.Components.Server.csproj" />
 	  <ProjectReference Include="..\..\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.Identity.Blazor.Bootstrap\Tchivs.Abp.Identity.Blazor.Bootstrap.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.Identity.Blazor.Server\Tchivs.Abp.Identity.Blazor.Server.csproj" />
 	</ItemGroup>
- 
-
 </Project>

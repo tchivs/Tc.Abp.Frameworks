@@ -14,7 +14,6 @@ namespace Tchivs.Abp.AspNetCore.Components.Server.Bootstrap
                 context.Toolbar.Items.Add(new ToolbarItem(typeof(LanguageSwitch)));
                 context.Toolbar.Items.Add(new ToolbarItem(typeof(LoginDisplay)));
             }
-
             return Task.CompletedTask;
         }
     }

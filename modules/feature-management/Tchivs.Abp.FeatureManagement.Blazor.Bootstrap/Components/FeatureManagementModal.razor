@@ -1,4 +1,29 @@
 ﻿@using Volo.Abp.Validation.StringValues
 @using Microsoft.Extensions.Localization
+@using  Localization.Resources.AbpUi
 @inherits AbpFeatureManagementComponentBase
-<h3>FeatureManagementModal</h3>
+@inject IStringLocalizer<AbpUiResource> LH
+ <Modal @ref="BackdropModal" IsBackdrop="true">
+        <ModalDialog  IsCentered="true" Size="Size.Large"   Title="@L["Features"]">
+            <BodyTemplate>
+            @if (Groups == null|| !Groups.Any())
+            {
+                <span>@L["NoFeatureFoundMessage"]</span>
+            }
+            else
+            {
+                <Tab Height="200"  Placement="Placement.Left">
+                     @foreach(var group in Groups)
+                            {
+                        <TabItem Text="@group.DisplayName">
+                                <div>我是 @group.DisplayName</div>
+                        </TabItem>
+                            }
+                </Tab>
+            }
+        </BodyTemplate>
+        <FooterTemplate>
+                    <Button Text="@LH["Save"]" OnClick=SaveAsync Icon="fa fa-save"></Button>
+        </FooterTemplate>
+        </ModalDialog>
+    </Modal>
