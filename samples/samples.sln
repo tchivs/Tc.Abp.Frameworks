@@ -70,6 +70,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.FeatureManagemen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.FeatureManagement.Blazor.Bootstrap", "..\modules\feature-management\Tchivs.Abp.FeatureManagement.Blazor.Bootstrap\Tchivs.Abp.FeatureManagement.Blazor.Bootstrap.csproj", "{3318187B-8455-4C4F-A256-1A30AFE95910}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.IdentityServer.Application", "..\modules\identityserver\Tchivs.Abp.IdentityServer.Application\Tchivs.Abp.IdentityServer.Application.csproj", "{A42D6910-DC5B-4A8D-BD57-6575CB536B31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.IdentityServer.Application.Contracts", "..\modules\identityserver\Tchivs.Abp.IdentityServer.Application.Contracts\Tchivs.Abp.IdentityServer.Application.Contracts.csproj", "{1F1CE1A0-3C10-4D44-A0F9-73E0F39E7C7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.IdentityServer.Domain", "..\modules\identityserver\Tchivs.Abp.IdentityServer.Domain\Tchivs.Abp.IdentityServer.Domain.csproj", "{2D3006F2-DC4D-4277-8F5F-499C4201106A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.IdentityServer.Domain.Shared", "..\modules\identityserver\Tchivs.Abp.IdentityServer.Domain.Shared\Tchivs.Abp.IdentityServer.Domain.Shared.csproj", "{B3F4AB44-6DFB-4518-A414-E220E07141DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -172,6 +180,22 @@ Global
 		{3318187B-8455-4C4F-A256-1A30AFE95910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3318187B-8455-4C4F-A256-1A30AFE95910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3318187B-8455-4C4F-A256-1A30AFE95910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A42D6910-DC5B-4A8D-BD57-6575CB536B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42D6910-DC5B-4A8D-BD57-6575CB536B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42D6910-DC5B-4A8D-BD57-6575CB536B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42D6910-DC5B-4A8D-BD57-6575CB536B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F1CE1A0-3C10-4D44-A0F9-73E0F39E7C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1CE1A0-3C10-4D44-A0F9-73E0F39E7C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1CE1A0-3C10-4D44-A0F9-73E0F39E7C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1CE1A0-3C10-4D44-A0F9-73E0F39E7C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D3006F2-DC4D-4277-8F5F-499C4201106A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D3006F2-DC4D-4277-8F5F-499C4201106A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D3006F2-DC4D-4277-8F5F-499C4201106A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D3006F2-DC4D-4277-8F5F-499C4201106A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3F4AB44-6DFB-4518-A414-E220E07141DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F4AB44-6DFB-4518-A414-E220E07141DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F4AB44-6DFB-4518-A414-E220E07141DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F4AB44-6DFB-4518-A414-E220E07141DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,6 +232,10 @@ Global
 		{115AEA5A-5144-4D41-9AB4-8CC459C3947C} = {4FB91AE6-7F6F-48E6-90CA-45F2A962A8D5}
 		{41A504C6-1075-4347-8551-154D1ED83086} = {115AEA5A-5144-4D41-9AB4-8CC459C3947C}
 		{3318187B-8455-4C4F-A256-1A30AFE95910} = {115AEA5A-5144-4D41-9AB4-8CC459C3947C}
+		{A42D6910-DC5B-4A8D-BD57-6575CB536B31} = {F442497F-8E62-408F-BD74-4C850620B77F}
+		{1F1CE1A0-3C10-4D44-A0F9-73E0F39E7C7F} = {F442497F-8E62-408F-BD74-4C850620B77F}
+		{2D3006F2-DC4D-4277-8F5F-499C4201106A} = {F442497F-8E62-408F-BD74-4C850620B77F}
+		{B3F4AB44-6DFB-4518-A414-E220E07141DC} = {F442497F-8E62-408F-BD74-4C850620B77F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}
