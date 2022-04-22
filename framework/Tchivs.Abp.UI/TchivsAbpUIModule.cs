@@ -40,7 +40,11 @@ namespace Tchivs.Abp.UI
                     // .AddBaseTypes(typeof(AbpValidationResource))
                     .AddVirtualJson("/Localization/BlazorUI");
             });
-
+            Configure<AbpRouterOptions>(options =>
+            {
+               
+                options.AdditionalAssemblies.Add(this.GetType().Assembly);
+            });
             Configure<AbpExceptionLocalizationOptions>(options =>
             {
                 options.MapCodeNamespace("BlazorUI", typeof(BlazorUIResource));

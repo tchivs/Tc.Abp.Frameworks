@@ -1,29 +1,40 @@
 ﻿@using Volo.Abp.Validation.StringValues
 @using Microsoft.Extensions.Localization
-@using  Localization.Resources.AbpUi
+@using Localization.Resources.AbpUi
 @inherits AbpFeatureManagementComponentBase
 @inject IStringLocalizer<AbpUiResource> LH
- <Modal @ref="BackdropModal" IsBackdrop="true">
-        <ModalDialog  IsCentered="true" Size="Size.Large"   Title="@L["Features"]">
-            <BodyTemplate>
-            @if (Groups == null|| !Groups.Any())
+<Modal @ref="BackdropModal" IsBackdrop="true">
+    <ModalDialog IsCentered="true" Size="Size.Large" Title="@L["Features"]">
+        <BodyTemplate>
+            @if (Groups == null || !Groups.Any())
             {
                 <span>@L["NoFeatureFoundMessage"]</span>
             }
             else
             {
-                <Tab Height="200"  Placement="Placement.Left">
-                     @foreach(var group in Groups)
-                            {
-                        <TabItem Text="@group.DisplayName">
-                                <div>我是 @group.DisplayName</div>
-                        </TabItem>
-                            }
-                </Tab>
+                @*<Tab Height="200"  IsBorderCard="false"  Placement="Placement.Left">
+                    @foreach(var group in Groups)
+                    {
+                    <TabItem Text="@group.DisplayName">
+                    <div>我是 @group.DisplayName</div>
+                    </TabItem>
+                    }
+                    </Tab>*@
+                <NavTabs>
+                    <Items>
+                        @foreach (var group in Groups)
+                        {
+                            <NavTabItem Name="@group.DisplayName"></NavTabItem>
+                        }
+                    </Items>
+                    <Content>
+
+                    </Content>
+                </NavTabs>
             }
         </BodyTemplate>
         <FooterTemplate>
-                    <Button Text="@LH["Save"]" OnClick=SaveAsync Icon="fa fa-save"></Button>
+            <Button Text="@LH["Save"]" OnClick=SaveAsync Icon="fa fa-save"></Button>
         </FooterTemplate>
-        </ModalDialog>
-    </Modal>
+    </ModalDialog>
+</Modal>

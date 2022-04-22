@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.MudBlazor", "..\..\framework\Tchivs.Abp.UI.MudBlazor\Tchivs.Abp.UI.MudBlazor.csproj", "{A6076534-E8E1-4036-B010-4C456DA1B7C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.AspNetCore.Components.Server.MudBlazor", "src\Tchivs.Abp.AspNetCore.Components.Server.MudBlazor\Tchivs.Abp.AspNetCore.Components.Server.MudBlazor.csproj", "{F39CBFA4-0C83-4647-92C2-077F075C3AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.Server.MudBlazor", "src\Tchivs.Abp.AspNetCore.Components.Server.MudBlazor\Tchivs.Abp.AspNetCore.Components.Server.MudBlazor.csproj", "{F39CBFA4-0C83-4647-92C2-077F075C3AEF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{52DB30A2-2ED8-4B87-88DA-9974536EBB5C}"
 EndProject
@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Compo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.WebAssembly", "..\..\framework\Tchivs.Abp.AspNetCore.Components.WebAssembly\Tchivs.Abp.AspNetCore.Components.WebAssembly.csproj", "{7829FD54-61FE-4EFC-B987-6370779406FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.AspNetCore.Components.WebAssembly.MudBlazor", "src\Tchivs.Abp.AspNetCore.Components.WebAssembly.MudBlazor\Tchivs.Abp.AspNetCore.Components.WebAssembly.MudBlazor.csproj", "{57BA5951-13F8-4243-95BE-DE153C141B27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.WebAssembly.MudBlazor", "src\Tchivs.Abp.AspNetCore.Components.WebAssembly.MudBlazor\Tchivs.Abp.AspNetCore.Components.WebAssembly.MudBlazor.csproj", "{57BA5951-13F8-4243-95BE-DE153C141B27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{836B9586-61D1-48A5-96B4-9956EFD0F0EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudBlazor.Server.Host", "test\MudBlazor.Server.Host\MudBlazor.Server.Host.csproj", "{6A7DFB40-9EFC-40A2-BF48-5327784EFC9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{57BA5951-13F8-4243-95BE-DE153C141B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57BA5951-13F8-4243-95BE-DE153C141B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57BA5951-13F8-4243-95BE-DE153C141B27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A7DFB40-9EFC-40A2-BF48-5327784EFC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A7DFB40-9EFC-40A2-BF48-5327784EFC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A7DFB40-9EFC-40A2-BF48-5327784EFC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A7DFB40-9EFC-40A2-BF48-5327784EFC9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,7 @@ Global
 		{6C170D81-2C0D-4371-87DB-26393B56359D} = {52DB30A2-2ED8-4B87-88DA-9974536EBB5C}
 		{7829FD54-61FE-4EFC-B987-6370779406FA} = {52DB30A2-2ED8-4B87-88DA-9974536EBB5C}
 		{57BA5951-13F8-4243-95BE-DE153C141B27} = {1B44BE0B-1343-4231-A17F-D7A4531378E7}
+		{6A7DFB40-9EFC-40A2-BF48-5327784EFC9A} = {836B9586-61D1-48A5-96B4-9956EFD0F0EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {653C6BC2-A3D3-424F-BAA1-B4C1DC986005}

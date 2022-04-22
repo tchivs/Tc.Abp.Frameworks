@@ -2,6 +2,7 @@
 	<Import Project="..\..\..\..\common.props" />
 	<PropertyGroup>
 		<RootNamespace>\</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<TargetFramework>net6.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>

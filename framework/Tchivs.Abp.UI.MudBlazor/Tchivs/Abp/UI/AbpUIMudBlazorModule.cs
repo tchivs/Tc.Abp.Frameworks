@@ -12,6 +12,10 @@ namespace Tchivs.Abp.UI
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.AddMudServices();
+            Configure<AbpRouterOptions>(options =>
+            {
+                options.AppAssembly = typeof(AbpUIMudBlazorModule).Assembly;
+            });
         }
     }
 }
