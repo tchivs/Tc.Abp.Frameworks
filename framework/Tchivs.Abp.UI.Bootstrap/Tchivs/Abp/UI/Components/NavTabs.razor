@@ -1,0 +1,12 @@
+﻿@inherits AbpBootstrapBlazorComponent
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+   @this.Items
+   </div>
+  <div class="tab-content" id="v-pills-tabContent">
+       @* @foreach(var item in this.NavTabItems)
+        {
+                   <div class="@item.ContentCss" id=@item.ContentId role="tabpanel" aria-labelledby="@item.Id">@item.Content</div>
+        }*@
+  </div>
+</div>
