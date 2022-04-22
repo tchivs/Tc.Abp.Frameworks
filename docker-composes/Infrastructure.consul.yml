@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  service_1:
+    image: consul
+    command: agent -server -client=0.0.0.0 -bootstrap-expect=3 -node=service_1
+    volumes:
+      - /usr/local/docker/consul/data/service_1:/data
+  service_2:
+    image: consul
+    command: agent -server -client=0.0.0.0 -retry-join=service_1 -node=service_2
+    volumes:
+      - /usr/local/docker/consul/data/service_2:/data
+    depends_on:
+      - service_1
+  service_3:
+    image: consul
+    command: agent -server -client=0.0.0.0 -retry-join=service_1 -node=service_3
+    volumes:
+      - /usr/local/docker/consul/data/service_3:/data
+    depends_on:
+      - service_1
+  client_1:
+    image: consul
+    command: agent -client=0.0.0.0 -retry-join=service_1 -ui -node=client_1
+    ports:
+      - 8500:8500
+    volumes:
+      - /usr/local/docker/consul/data/client_1:/data
+    depends_on:
+      - service_2
+      - service_3
