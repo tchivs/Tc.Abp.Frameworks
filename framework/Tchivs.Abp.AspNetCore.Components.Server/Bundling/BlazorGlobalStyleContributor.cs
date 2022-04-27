@@ -10,8 +10,8 @@ namespace Tchivs.Abp.AspNetCore.Components.Server.Bundling
     {
         public override void ConfigureBundle(BundleConfigurationContext context)
         {
-            context.Files.AddIfNotContains("/_content/Tchivs.Abp.UI/libs/fortawesome/fontawesome-free/css/all.css");
-            context.Files.AddIfNotContains("/_content/Tchivs.Abp.UI/libs/fortawesome/fontawesome-free/css/v4-shims.css");
+            //context.Files.AddIfNotContains("/_content/Tchivs.Abp.UI/libs/fortawesome/fontawesome-free/css/all.css");
+          //  context.Files.AddIfNotContains("/_content/Tchivs.Abp.UI/libs/fortawesome/fontawesome-free/css/v4-shims.css");
         }
     }
 

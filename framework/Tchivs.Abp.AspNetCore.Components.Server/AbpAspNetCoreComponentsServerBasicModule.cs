@@ -11,7 +11,9 @@ namespace Tchivs.Abp.AspNetCore.Components.Server
     typeof(AbpAspNetCoreComponentsServerModule),
     typeof(AbpAspNetCoreMvcUiPackagesModule),
     typeof(AbpAspNetCoreMvcUiBundlingModule))]
-    public class TchivsAbpAspNetCoreComponentsServerModule : AbpModule
+    public abstract class AbpAspNetCoreComponentsServerBasicModule<TStyleContributor, TScriptContributor> : AbpModule
+        where TStyleContributor : BundleContributor
+       where TScriptContributor : BundleContributor
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
@@ -22,6 +24,7 @@ namespace Tchivs.Abp.AspNetCore.Components.Server
                     .Add(BlazorStandardBundles.Styles.Global, bundle =>
                     {
                         bundle.AddContributors(typeof(BlazorGlobalStyleContributor));
+                        bundle.AddContributors(typeof(TStyleContributor));
                     });
 
                 options
@@ -29,9 +32,9 @@ namespace Tchivs.Abp.AspNetCore.Components.Server
                     .Add(BlazorStandardBundles.Scripts.Global, bundle =>
                     {
                         bundle.AddContributors(typeof(BlazorGlobalScriptContributor));
+                        bundle.AddContributors(typeof(TScriptContributor));
                     });
             });
         }
     }
-
 }
