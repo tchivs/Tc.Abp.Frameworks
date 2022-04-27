@@ -1,0 +1,44 @@
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<AbpRouterOptions> RouterOptions
+@using Tchivs.Abp.UI.Layouts
+@inject NavigationManager Navigation
+<MApp>
+<CascadingAuthenticationState>
+    <Router AppAssembly="RouterOptions.Value.AppAssembly"
+            AdditionalAssemblies="RouterOptions.Value.AdditionalAssemblies">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@RouterOptions.Value.DefaultLayout">
+                <NotAuthorized>
+                    <p>You are not authorized to access this resource.</p>
+                    <a href=@_loginUrl>Log in</a>
+                </NotAuthorized>
+                <Authorizing>
+                    @* 此方法的主要方案是在 Blazor WebAssembly 应用中 *@
+                    <h1>Authentication in progress</h1>
+                    <p>You can only see this content while authentication is in progress.</p>
+                </Authorizing>
+            </AuthorizeRouteView>
+        </Found>
+        <NotFound>
+            <PageTitle>404 Not Found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <div>
+                    <p>Sorry, there's nothing at this address.</p>
+                </div>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+</MApp>
+@code
+{
+    string _loginUrl = "";
+    bool IsWebAssembly => System.OperatingSystem.IsBrowser(); //_jsRuntime is IJSInProcessRuntime;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        var url = Uri.EscapeDataString(Navigation.Uri);
+        _loginUrl = IsWebAssembly ? $"authentication/login?returnUrl={url}" : $"account/login?returnUrl={url}";
+    }
+}
