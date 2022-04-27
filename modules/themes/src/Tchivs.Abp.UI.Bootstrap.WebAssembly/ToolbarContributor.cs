@@ -1,11 +1,9 @@
-﻿
-using Microsoft.AspNetCore.Components.Authorization;
+﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
-using Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap.Components;
+using Tchivs.Abp.UI.Bootstrap.WebAssembly.Components;
 using Tchivs.Abp.UI.Toolbars;
 
-namespace Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap
+namespace Tchivs.Abp.UI.Bootstrap.WebAssembly
 {
     public class ToolbarContributor : IToolbarContributor
     {
@@ -28,6 +26,6 @@ namespace Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap
             return Task.CompletedTask;
         }
 
-     
+
     }
 }

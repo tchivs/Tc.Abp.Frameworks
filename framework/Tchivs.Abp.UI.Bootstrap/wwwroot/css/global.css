@@ -36,7 +36,7 @@
     font-weight: 400;
 }
 
-.layout-drawer {
+/*.layout-drawer {
     padding: 8px;
     margin-right: -1rem;
     cursor: pointer;
@@ -45,7 +45,7 @@
     .layout-drawer:hover {
         background-color: #1893a7;
     }
-
+*/
 .layout-drawer-body {
     padding: 1rem;
 }

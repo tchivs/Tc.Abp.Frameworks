@@ -15,6 +15,7 @@ namespace Tchivs.Abp.UI
             Configure<AbpRouterOptions>(options =>
             {
                 options.AppAssembly = typeof(AbpUIBootstrapModule).Assembly;
+                options.DefaultLayout = typeof(Layouts.MainLayout);
             });
 
         }

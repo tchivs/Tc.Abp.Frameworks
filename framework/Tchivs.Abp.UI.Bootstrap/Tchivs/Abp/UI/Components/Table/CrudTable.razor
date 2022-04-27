@@ -1,17 +1,17 @@
 ﻿@namespace Tchivs.Abp.UI.Components
 @using Volo.Abp.Application.Dtos
 @using Volo.Abp.Application.Services
-@typeparam TAppService where TAppService : ICrudAppService<TItem, TKey, TGetListInput, TCreateInput,TUpdateInput>
-@typeparam TItem where TItem :class, IEntityDto<TKey>, new()
+@typeparam TAppService where TAppService : ICrudAppService<TItem, TKey, TGetListInput, TCreateInput, TUpdateInput>
+@typeparam TItem where TItem : class, IEntityDto<TKey>, new()
 @typeparam TKey
-@typeparam TGetListInput where TGetListInput:PagedAndSortedResultRequestDto,new()
-@typeparam TCreateInput where TCreateInput:class,new()
-@typeparam TUpdateInput where TUpdateInput:class,new()
+@typeparam TGetListInput where TGetListInput : PagedAndSortedResultRequestDto, new()
+@typeparam TCreateInput where TCreateInput : class, new()
+@typeparam TUpdateInput where TUpdateInput : class, new()
 @attribute [CascadingTypeParameter(nameof(TItem))]
 @attribute [CascadingTypeParameter(nameof(TKey))]
 @attribute [CascadingTypeParameter(nameof(TCreateInput))]
 @attribute [CascadingTypeParameter(nameof(TUpdateInput))]
-@inherits CrudBaseTable<TAppService, TItem, TKey, TGetListInput, TCreateInput,TUpdateInput>
+@inherits CrudBaseTable<TAppService, TItem, TKey, TGetListInput, TCreateInput, TUpdateInput>
 
 <Table @ref=table TItem=TItem
        PageItemsSource="@PageItemsSource"
@@ -34,41 +34,41 @@
        OnQueryAsync=OnQueryAsync>
     <TableColumns>
         @TableColumns?.Invoke(context)
-    </TableColumns> 
+    </TableColumns>
     <BeforeRowButtonTemplate>
         @if (HasUpdatePermission)
-                {
-        <Button Size="Size.ExtraSmall" OnClick="@ClickEditButtonCallback(context)" Icon="fa fa-edit" Text="@Localizer["Edit"]" />
-                }
+        {
+            <Button Size="Size.ExtraSmall" OnClick="@ClickEditButtonCallback(context)" Icon="fa fa-edit" Text="@Localizer["Edit"]"></Button>
+        }
         @if (RowButtonTemplate != null)
-                {
-        @RowButtonTemplate.Invoke(context)
-                }
+        {
+            @RowButtonTemplate.Invoke(context)
+        }
     </BeforeRowButtonTemplate>
     <TableToolbarTemplate>
         @if (HasCreatePermission)
-                {
-        <TableToolbarButton TItem="TItem" Color="Color.Success" OnClick="@AddAsync" Icon="fa fa-plus" Text="@this.L["Add"]" />
-                }
+        {
+            <TableToolbarButton TItem="TItem" Color="Color.Success" OnClick="@AddAsync" Icon="fa fa-plus" Text="@this.L["Add"]"/>
+        }
         @if (HasUpdatePermission)
-                {
-        <TableToolbarButton TItem="TItem" Color="Color.Primary" OnClick="@UpdateAsync" Icon="fa fa-pencil" Text="@Localizer["Edit"]" />
-                }
+        {
+            <TableToolbarButton TItem="TItem" Color="Color.Primary" OnClick="@UpdateAsync" Icon="fa fa-pencil" Text="@Localizer["Edit"]"/>
+        }
         @if (HasDeletePermission)
-                {
-        <TableToolbarPopconfirmButton TItem="TItem" Color="Color.Danger"
-                                      Icon="fa fa-remove" 
-                                      Text="@Localizer["Delete"]"
-                                      OnBeforeClick="@ConfirmDelete" 
-                                      OnConfirm="@DeleteAsync"
-                                      CloseButtonText="@Localizer["Cancel"]"
-                                      Content="@ConfirmDeleteContent"
-                                      ConfirmButtonText="@Localizer["Delete"]"
-                                      ConfirmButtonColor="Color.Danger" />
-                }
+        {
+            <TableToolbarPopconfirmButton TItem="TItem" Color="Color.Danger"
+                                          Icon="fa fa-remove"
+                                          Text="@Localizer["Delete"]"
+                                          OnBeforeClick="@ConfirmDelete"
+                                          OnConfirm="@DeleteAsync"
+                                          CloseButtonText="@Localizer["Cancel"]"
+                                          Content="@ConfirmDeleteContent"
+                                          ConfirmButtonText="@Localizer["Delete"]"
+                                          ConfirmButtonColor="Color.Danger"/>
+        }
         @if (TableToolbarTemplate != null)
-                {
-        @TableToolbarTemplate
-                }
+        {
+            @TableToolbarTemplate
+        }
     </TableToolbarTemplate>
 </Table>
