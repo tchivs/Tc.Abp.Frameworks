@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="..\..\..\..\common.props" />
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.AspNetCore.Components.WebAssembly\Tchivs.Abp.AspNetCore.Components.WebAssembly.csproj" />
+		<ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.UI.MudBlazor\Tchivs.Abp.UI.MudBlazor.csproj" />
+	</ItemGroup>
+</Project>
