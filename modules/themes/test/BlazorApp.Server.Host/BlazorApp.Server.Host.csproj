@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PreserveCompilationReferences>true</PreserveCompilationReferences>
+		<Configurations>Debug;Release;Debug_Bootstrap;Release_Bootstrap</Configurations>
+	</PropertyGroup>
+	<Choose>
+		<When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), 'Debug_.*'))">
+			<PropertyGroup>
+				<DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+				<DebugSymbols>true</DebugSymbols>
+				<DebugType>full</DebugType>
+				<Optimize>false</Optimize>
+			</PropertyGroup>
+		</When>
+		<When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), 'Release_.*'))">
+			<PropertyGroup>
+				<DebugSymbols>false</DebugSymbols>
+				<Optimize>true</Optimize>
+				<DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+			</PropertyGroup>
+		</When>
+	</Choose>
+	<ItemGroup>
+		<PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+		<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Autofac" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.Client" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.OpenIdConnect" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(AbpVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Logs\**" />
+		<Content Remove="Logs\**" />
+		<EmbeddedResource Remove="Logs\**" />
+		<None Remove="Logs\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.AspNetCore.Components.Server\Tchivs.Abp.AspNetCore.Components.Server.csproj" />
+	  <ProjectReference Include="..\..\..\..\framework\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj" />
+	</ItemGroup>
+	<Choose>
+		<When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), '.*Bootstrap'))">
+			<PropertyGroup>
+				<DefineConstants>$(DefineConstants);BOOTSTRAP</DefineConstants>
+			</PropertyGroup>
+			<ItemGroup>
+				<ProjectReference Include="..\..\src\Tchivs.Abp.UI.Bootstrap.Server\Tchivs.Abp.UI.Bootstrap.Server.csproj" />
+			</ItemGroup>
+		</When>
+	</Choose>
+</Project>
+ 

@@ -1,0 +1,11 @@
+﻿@page "/"
+@namespace BlazorApp.Server.Host.Pages
+@{
+    Layout = "_Layout";
+}
+<environment include="Staging,Production">
+    <component render-mode="ServerPrerendered" type="typeof(App)" />
+</environment>
+<environment include="Development">
+    <component render-mode="Server" type="typeof(App)" />
+</environment>
