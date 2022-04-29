@@ -1,10 +1,10 @@
-using Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap;
 using Tchivs.Abp.UI;
+using Tchivs.Abp.UI.Bootstrap.WebAssembly;
 using Volo.Abp.Modularity;
 namespace Tchivs.Abp.TenantManagement.Blazor.WebAssembly
 {
  [DependsOn(typeof(AbpTenantManagementBlazorBootstrapModule), 
-        typeof(WebAssemblyBootstrapModule),
+        typeof(AbpUIBootstrapWebAssemblyModule),
         typeof(AbpTenantManagementBlazorWebAssemblyModule))]
     public class AbpTenantManagementBlazorWebAssemblyBootstrapModule : AbpModule
     {

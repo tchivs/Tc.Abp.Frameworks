@@ -5,7 +5,7 @@
 	  <RootNamespace>Tchivs.Abp.TenantManagement.Blazor.Server</RootNamespace>
   </PropertyGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.csproj" />
+	  <ProjectReference Include="..\..\themes\src\Tchivs.Abp.UI.Bootstrap.Server\Tchivs.Abp.UI.Bootstrap.Server.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.TenantManagement.Blazor.Bootstrap\Tchivs.Abp.TenantManagement.Blazor.Bootstrap.csproj" />
 	  <ProjectReference Include="..\Tchivs.Abp.TenantManagement.Blazor.Server\Tchivs.Abp.TenantManagement.Blazor.Server.csproj" />
 	</ItemGroup>
