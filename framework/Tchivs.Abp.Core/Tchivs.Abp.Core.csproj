@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Volo.Abp.Core" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Core"  Version="$(AbpVersion)"/>
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Extensions\" />
