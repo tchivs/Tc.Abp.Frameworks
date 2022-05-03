@@ -95,6 +95,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.MasaBlazor.We
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "masa", "masa", "{3CD7AA46-F2D8-4618-BC85-78E5D3536428}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.MasaBlazor", "framework\Tchivs.Abp.UI.MasaBlazor\Tchivs.Abp.UI.MasaBlazor.csproj", "{0E2807D6-06CB-4721-BCE8-C27B03EFDBBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +231,10 @@ Global
 		{69A3146B-C8BF-4FFB-B552-2E5063BD247D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69A3146B-C8BF-4FFB-B552-2E5063BD247D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69A3146B-C8BF-4FFB-B552-2E5063BD247D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E2807D6-06CB-4721-BCE8-C27B03EFDBBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E2807D6-06CB-4721-BCE8-C27B03EFDBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2807D6-06CB-4721-BCE8-C27B03EFDBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2807D6-06CB-4721-BCE8-C27B03EFDBBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -279,6 +285,7 @@ Global
 		{C92A1885-DAB9-4106-BEB9-BCB651BE0D17} = {3CD7AA46-F2D8-4618-BC85-78E5D3536428}
 		{69A3146B-C8BF-4FFB-B552-2E5063BD247D} = {3CD7AA46-F2D8-4618-BC85-78E5D3536428}
 		{3CD7AA46-F2D8-4618-BC85-78E5D3536428} = {D6D4C6A9-2FE3-4049-8528-365D2B2CBB5D}
+		{0E2807D6-06CB-4721-BCE8-C27B03EFDBBD} = {03D05D59-AA4C-499B-9022-B33CD24013EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}
