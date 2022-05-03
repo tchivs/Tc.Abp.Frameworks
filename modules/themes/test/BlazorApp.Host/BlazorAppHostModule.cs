@@ -28,7 +28,7 @@ public class BlazorAppHostModule : AbpModule
         var environment = context.Services.GetSingletonInstance<IWebAssemblyHostEnvironment>();
         var builder = context.Services.GetSingletonInstance<WebAssemblyHostBuilder>();
         ConfigureAuthentication(builder);
-        ConfigureHttpClient(context, environment);
+       ConfigureHttpClient(context, environment);
         ConfigureRouter(context);
         ConfigureUI(builder);
         ConfigureMenu(context);

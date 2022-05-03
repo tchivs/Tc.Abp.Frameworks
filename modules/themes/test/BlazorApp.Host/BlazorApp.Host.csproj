@@ -10,7 +10,7 @@
 			<PropertyGroup>
 				<DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
 				<DebugSymbols>true</DebugSymbols>
-				<DebugType>full</DebugType>
+				<DebugType>Portable</DebugType>
 				<Optimize>false</Optimize>
 				<OutputPath>.\bin\Debug\</OutputPath>
 			</PropertyGroup>
@@ -47,4 +47,8 @@
 			</ItemGroup>
 		</When>
 	</Choose>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="abp bundle" />
+	</Target>
 </Project>

@@ -42,10 +42,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.Bootstrap", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "themes", "themes", "{4A826C7F-78D7-422B-9FB3-AD0422EA7C11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.Server.Bootstrap", "..\modules\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.csproj", "{984FD0C4-DF66-42E6-9D9C-2DB9C1A98ABD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap", "..\modules\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap\Tchivs.Abp.AspNetCore.Components.WebAssembly.Bootstrap.csproj", "{9C3F6BAC-CEE2-48AE-8AA1-B91A75EBCCDB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data-dictionary", "data-dictionary", "{4FED3B3E-4FDB-4C21-823C-09F80E66DA82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identityserver", "identityserver", "{F442497F-8E62-408F-BD74-4C850620B77F}"
@@ -82,9 +78,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.Consul", "..\fra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.AspNetCore.Consul", "..\framework\Tchivs.Abp.AspNetCore.Consul\Tchivs.Abp.AspNetCore.Consul.csproj", "{CA62285C-02D5-480F-B579-66D89B41DB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.UI.MudBlazor", "..\framework\Tchivs.Abp.UI.MudBlazor\Tchivs.Abp.UI.MudBlazor.csproj", "{33F1ACD3-829B-4793-ABBA-5BA5A1A73DB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.MudBlazor", "..\framework\Tchivs.Abp.UI.MudBlazor\Tchivs.Abp.UI.MudBlazor.csproj", "{33F1ACD3-829B-4793-ABBA-5BA5A1A73DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tchivs.Abp.UI.AntDesign", "..\framework\Tchivs.Abp.UI.AntDesign\Tchivs.Abp.UI.AntDesign.csproj", "{1EE2CB9D-D463-4958-BF88-F265F0B46C20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.AntDesign", "..\framework\Tchivs.Abp.UI.AntDesign\Tchivs.Abp.UI.AntDesign.csproj", "{1EE2CB9D-D463-4958-BF88-F265F0B46C20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.Bootstrap.WebAssembly", "..\modules\themes\src\Tchivs.Abp.UI.Bootstrap.WebAssembly\Tchivs.Abp.UI.Bootstrap.WebAssembly.csproj", "{19B0F3A0-52EE-4BAC-A30B-73E4E3E1AC26}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tchivs.Abp.UI.Bootstrap.Server", "..\modules\themes\src\Tchivs.Abp.UI.Bootstrap.Server\Tchivs.Abp.UI.Bootstrap.Server.csproj", "{1FD20430-BA85-4DC6-A066-E3A54292B93A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -148,14 +148,6 @@ Global
 		{DD7F3CDB-F0E0-4D98-85E2-3CC89E2918E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD7F3CDB-F0E0-4D98-85E2-3CC89E2918E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD7F3CDB-F0E0-4D98-85E2-3CC89E2918E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{984FD0C4-DF66-42E6-9D9C-2DB9C1A98ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{984FD0C4-DF66-42E6-9D9C-2DB9C1A98ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{984FD0C4-DF66-42E6-9D9C-2DB9C1A98ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{984FD0C4-DF66-42E6-9D9C-2DB9C1A98ABD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C3F6BAC-CEE2-48AE-8AA1-B91A75EBCCDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C3F6BAC-CEE2-48AE-8AA1-B91A75EBCCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C3F6BAC-CEE2-48AE-8AA1-B91A75EBCCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C3F6BAC-CEE2-48AE-8AA1-B91A75EBCCDB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3467333B-3443-4756-BE70-3EA731386298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3467333B-3443-4756-BE70-3EA731386298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3467333B-3443-4756-BE70-3EA731386298}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -220,6 +212,14 @@ Global
 		{1EE2CB9D-D463-4958-BF88-F265F0B46C20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EE2CB9D-D463-4958-BF88-F265F0B46C20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EE2CB9D-D463-4958-BF88-F265F0B46C20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B0F3A0-52EE-4BAC-A30B-73E4E3E1AC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B0F3A0-52EE-4BAC-A30B-73E4E3E1AC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B0F3A0-52EE-4BAC-A30B-73E4E3E1AC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B0F3A0-52EE-4BAC-A30B-73E4E3E1AC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD20430-BA85-4DC6-A066-E3A54292B93A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD20430-BA85-4DC6-A066-E3A54292B93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD20430-BA85-4DC6-A066-E3A54292B93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD20430-BA85-4DC6-A066-E3A54292B93A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -242,8 +242,6 @@ Global
 		{DA10591B-3617-4AEF-AA20-6373085F4837} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{DD7F3CDB-F0E0-4D98-85E2-3CC89E2918E0} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{4A826C7F-78D7-422B-9FB3-AD0422EA7C11} = {4FB91AE6-7F6F-48E6-90CA-45F2A962A8D5}
-		{984FD0C4-DF66-42E6-9D9C-2DB9C1A98ABD} = {4A826C7F-78D7-422B-9FB3-AD0422EA7C11}
-		{9C3F6BAC-CEE2-48AE-8AA1-B91A75EBCCDB} = {4A826C7F-78D7-422B-9FB3-AD0422EA7C11}
 		{4FED3B3E-4FDB-4C21-823C-09F80E66DA82} = {4FB91AE6-7F6F-48E6-90CA-45F2A962A8D5}
 		{F442497F-8E62-408F-BD74-4C850620B77F} = {4FB91AE6-7F6F-48E6-90CA-45F2A962A8D5}
 		{2C145E70-4D7D-40B0-9310-1E6CBE15661C} = {4FB91AE6-7F6F-48E6-90CA-45F2A962A8D5}
@@ -264,6 +262,8 @@ Global
 		{CA62285C-02D5-480F-B579-66D89B41DB28} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{33F1ACD3-829B-4793-ABBA-5BA5A1A73DB7} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
 		{1EE2CB9D-D463-4958-BF88-F265F0B46C20} = {D3E8A34C-60F0-4201-AE74-F568984B1825}
+		{19B0F3A0-52EE-4BAC-A30B-73E4E3E1AC26} = {4A826C7F-78D7-422B-9FB3-AD0422EA7C11}
+		{1FD20430-BA85-4DC6-A066-E3A54292B93A} = {4A826C7F-78D7-422B-9FB3-AD0422EA7C11}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCFE21D1-8264-41D5-B372-74B18454B7B9}
