@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using Volo.Abp.Ui.Branding;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Users;
@@ -19,33 +20,32 @@ namespace Tchivs.Abp.UI.Layouts
         private IEnumerable<MenuItem> MenuItems { get; set; }
         private string Title { get; set; }
         private string Footer { get; set; }
-        [Inject]
-        [NotNull]
-        private ICurrentUser CurrentUser { get; set; }
-        [Inject]
-        [NotNull]
-        private NavigationManager NavigationManager { get; set; }
-        [Inject]
-        [NotNull] IMenuManager MenuManager { get; set; }
-        [Inject]
-        [NotNull]
-        private IBrandingProvider BrandingProvider { get; set; }
-        [Inject]
-        [NotNull]
-        private ToastService ToastService { get; set; }
+        [Inject] [NotNull] private ICurrentUser CurrentUser { get; set; }
+        [Inject] [NotNull] private NavigationManager NavigationManager { get; set; }
+        [Inject] [NotNull] IMenuManager MenuManager { get; set; }
+        [Inject] [NotNull] private IBrandingProvider BrandingProvider { get; set; }
+        [Inject] [NotNull] private ToastService ToastService { get; set; }
+
+        [Inject] [NotNull] private IJSRuntime JsRuntime { get; set; }
+        public string Url { get; set; }
+
         private async Task<bool> OnAuthorizing(string url)
         {
-          
-           return true;
+            return true;
         }
+
         /// <summary>
         /// OnInitialized 方法
         /// </summary>
         protected override async Task OnInitializedAsync()
         {
+            bool isWebAssembly = JsRuntime is IJSInProcessRuntime;
+            Url = isWebAssembly ? "authentication/login" : "account/login";
+
             var mainMenu = await MenuManager.GetMainMenuAsync();
             MenuItems = GetIconSideMenuItems(mainMenu.Items);
         }
+
         private static List<MenuItem> GetIconSideMenuItems(ApplicationMenuItemList items)
         {
             var menus = new List<MenuItem>();
@@ -65,8 +65,10 @@ namespace Tchivs.Abp.UI.Layouts
                 menus.Add(menu);
                 menu.Items = GetIconSideMenuItems(item.Items);
             }
+
             return menus;
         }
+
         private async Task OnErrorHandleAsync(ILogger logger, Exception ex)
         {
             await ToastService.Error(Title, ex.Message);
@@ -78,6 +80,7 @@ namespace Tchivs.Abp.UI.Layouts
         {
             return !this.Footer.IsNullOrEmpty();
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -85,12 +88,13 @@ namespace Tchivs.Abp.UI.Layouts
         {
             if (key == "title")
             {
-               // Title = DictsService.GetWebTitle();
+                // Title = DictsService.GetWebTitle();
             }
             else if (key == "footer")
             {
-               // Footer = DictsService.GetWebFooter();
+                // Footer = DictsService.GetWebFooter();
             }
+
             StateHasChanged();
             return Task.CompletedTask;
         }
@@ -105,7 +109,9 @@ namespace Tchivs.Abp.UI.Layouts
             {
                 NavigationManager.LocationChanged -= NavigationManager_LocationChanged;
             }
-        }    /// <summary>
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
