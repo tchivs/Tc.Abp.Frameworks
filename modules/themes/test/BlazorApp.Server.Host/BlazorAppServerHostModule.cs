@@ -4,11 +4,13 @@ using Tchivs.Abp.AspNetCore.Components.Server.Bundling;
 using Tchivs.Abp.UI;
 using Tchivs.Abp.UI.Bootstrap.Server;
 using Volo.Abp;
+using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.Client;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
+using Volo.Abp.Http.Client.IdentityModel.Web;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
@@ -21,6 +23,8 @@ namespace BlazorApp.Server.Host
 #if BOOTSTRAP
 typeof(AbpUIBootstrapServerModule),
 #endif
+        typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
+        typeof(AbpHttpClientIdentityModelWebModule),
         typeof(AbpAspNetCoreSerilogModule),
         typeof(AbpAspNetCoreMvcClientModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule))]
@@ -133,6 +137,7 @@ typeof(AbpUIBootstrapServerModule),
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseAbpSerilogEnrichers();
             app.UseConfiguredEndpoints();
         }
     }

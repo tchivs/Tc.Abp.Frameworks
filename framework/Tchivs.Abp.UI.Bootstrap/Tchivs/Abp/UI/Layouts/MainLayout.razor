@@ -5,7 +5,7 @@
 <Layout SideWidth="0" IsPage="true" IsFullSide="true" IsFixedHeader="true"
 AdditionalAssemblies=RouterOptions.Value.AdditionalAssemblies
         ShowFooter="@ShowFooter()" ShowGotoTop="true" ShowCollapseBar="true" Menus="@MenuItems"
-        OnAuthorizing="@OnAuthorizing" OnErrorHandleAsync="OnErrorHandleAsync"
+        OnAuthorizing="@OnAuthorizing" OnErrorHandleAsync="OnErrorHandleAsync"  
         UseTabSet="true" TabDefaultUrl="/Index" OnUpdateAsync="OnUpdateAsync">
     <Header>
         <span class="ms-3 flex-fill">@BrandingProvider.AppName</span>
@@ -47,6 +47,6 @@ AdditionalAssemblies=RouterOptions.Value.AdditionalAssemblies
         <div class="flex-fill text-center text-dark">@Footer</div>
     </Footer>
     <NotAuthorized>
-        <Redirect />
+        <Redirect/>
     </NotAuthorized>
 </Layout>

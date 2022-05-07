@@ -40,7 +40,6 @@
 		<None Remove="Logs\**" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\modules\bootstrap-theme\src\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap\Tchivs.Abp.AspNetCore.Components.Server.Bootstrap.csproj" />
 	  <ProjectReference Include="..\..\..\modules\Identity\Tchivs.Abp.Identity.Blazor.Server.Bootstrap\Tchivs.Abp.Identity.Blazor.Server.Bootstrap.csproj" />
 	  <ProjectReference Include="..\..\..\modules\tenant-management\Tchivs.Abp.TenantManagement.Blazor.Server.Bootstrap\Tchivs.Abp.TenantManagement.Blazor.Server.Bootstrap.csproj" />
 	</ItemGroup>

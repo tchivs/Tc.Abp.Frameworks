@@ -35,7 +35,8 @@ namespace Tchivs.Abp.UI.Layouts
         private ToastService ToastService { get; set; }
         private async Task<bool> OnAuthorizing(string url)
         {
-            return true;
+          
+           return true;
         }
         /// <summary>
         /// OnInitialized 方法

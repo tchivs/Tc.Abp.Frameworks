@@ -25,6 +25,10 @@
         <li>Roles: <strong>@CurrentUser.Roles.JoinAsString(", ")</strong></li>
     </ul>
 }
+else
+{
+    <a class="nav-link" href="Account/Login">Login</a>
+}
 @if (_claims != null)
 {
     <h3>Current Claims</h3>
