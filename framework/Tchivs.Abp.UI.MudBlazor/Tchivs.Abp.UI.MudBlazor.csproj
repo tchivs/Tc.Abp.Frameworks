@@ -6,7 +6,7 @@
 		<RootNamespace>\</RootNamespace>
 	</PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MudBlazor" Version="6.0.9" />
+    <PackageReference Include="MudBlazor" Version="6.0.10" />
   </ItemGroup>
   <ItemGroup>
 	  <ProjectReference Include="..\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj" />

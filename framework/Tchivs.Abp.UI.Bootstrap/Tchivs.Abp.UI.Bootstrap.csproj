@@ -5,7 +5,7 @@
 		<RootNamespace>\</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
-	  <PackageReference Include="BootstrapBlazor" Version="6.5.19" />
+	  <PackageReference Include="BootstrapBlazor" Version="6.6.3" />
 	  <PackageReference Include="BootstrapBlazor.FontAwesome" Version="6.0.1" />
   </ItemGroup>
 	<ItemGroup>
