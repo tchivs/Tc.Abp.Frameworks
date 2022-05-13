@@ -1,9 +1,10 @@
 ﻿@page "/"
 @using Volo.Abp.Users
+@using  Tchivs.Abp.UI
 @using System.Security.Claims
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-@inherits AbpBootstrapBlazorComponent
+@inherits AbpBlazorComponent
 @attribute [Authorize()]
 <div class="container">
 <div class="p-5 text-center">

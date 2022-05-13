@@ -25,9 +25,12 @@ namespace Tchivs.Abp.UI.Layouts
         [Inject] [NotNull] IMenuManager MenuManager { get; set; }
         [Inject] [NotNull] private IBrandingProvider BrandingProvider { get; set; }
         [Inject] [NotNull] private ToastService ToastService { get; set; }
-
+        [Inject]
+        [NotNull]
+        private NavigationManager Navigation { get; set; }
         [Inject] [NotNull] private IJSRuntime JsRuntime { get; set; }
         public string Url { get; set; }
+        public string TabDefaultUrl { get; set; } = "/Index";
 
         private async Task<bool> OnAuthorizing(string url)
         {
@@ -40,8 +43,8 @@ namespace Tchivs.Abp.UI.Layouts
         protected override async Task OnInitializedAsync()
         {
             bool isWebAssembly = JsRuntime is IJSInProcessRuntime;
-            Url = isWebAssembly ? "authentication/login" : "account/login";
-
+            var url = Uri.EscapeDataString(Navigation.Uri);
+            Url = isWebAssembly ? $"authentication/login?returnUrl={url}" : "Account/Login";
             var mainMenu = await MenuManager.GetMainMenuAsync();
             MenuItems = GetIconSideMenuItems(mainMenu.Items);
         }
@@ -61,7 +64,7 @@ namespace Tchivs.Abp.UI.Layouts
                 {
                     menu.Match = NavLinkMatch.All;
                 }
-
+ 
                 menus.Add(menu);
                 menu.Items = GetIconSideMenuItems(item.Items);
             }
