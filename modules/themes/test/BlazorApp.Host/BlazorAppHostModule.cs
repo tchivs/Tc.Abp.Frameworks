@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Tchivs.Abp.UI;
-#if BOOTSTRAP
-using Tchivs.Abp.UI.Bootstrap.WebAssembly;
-#endif
+
 using Tchivs.Abp.UI.Components;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Localization;
@@ -11,14 +9,21 @@ using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
-
+#if BOOTSTRAP
+using Tchivs.Abp.UI.Bootstrap.WebAssembly;
+#elif ANTD
+using Tchivs.Abp.UI.AntDesign.WebAssembly;
+#endif
 namespace BlazorApp.Host;
 
 [DependsOn(
     typeof(AbpAutofacWebAssemblyModule),
 #if BOOTSTRAP
     typeof(AbpUIBootstrapWebAssemblyModule),
+#elif ANTD
+     typeof(AbpUIAntDesignWebAssemblyModule),
 #endif
+
     typeof(AbpAccountApplicationContractsModule)
 )]
 public class BlazorAppHostModule : AbpModule

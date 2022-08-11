@@ -3,7 +3,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<PreserveCompilationReferences>true</PreserveCompilationReferences>
-		<Configurations>Debug;Release;Debug_Bootstrap;Release_Bootstrap</Configurations>
+		<Configurations>Debug;Release;Debug_Bootstrap;Release_Bootstrap;Debug_Antd;Release_Antd</Configurations>
 	</PropertyGroup>
 	<Choose>
 		<When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), 'Debug_.*'))">
@@ -52,6 +52,14 @@
 			</PropertyGroup>
 			<ItemGroup>
 				<ProjectReference Include="..\..\src\Tchivs.Abp.UI.Bootstrap.Server\Tchivs.Abp.UI.Bootstrap.Server.csproj" />
+			</ItemGroup>
+		</When>
+		<When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), '.*Antd'))">
+			<PropertyGroup>
+				<DefineConstants>$(DefineConstants);ANTD</DefineConstants>
+			</PropertyGroup>
+			<ItemGroup>
+				<ProjectReference Include="..\..\src\Tchivs.Abp.UI.AntDesign.Server\Tchivs.Abp.UI.AntDesign.Server.csproj" />
 			</ItemGroup>
 		</When>
 	</Choose>

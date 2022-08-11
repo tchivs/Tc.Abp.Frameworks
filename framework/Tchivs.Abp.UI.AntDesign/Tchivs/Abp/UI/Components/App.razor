@@ -8,8 +8,14 @@
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@RouterOptions.Value.DefaultLayout">
                 <NotAuthorized>
+                     @if (context.User.Identity is {IsAuthenticated: false })
+                    {
+                        <RedirectToLogin /> 
+                    } else
+                    {
                     <p>You are not authorized to access this resource.</p>
                     <a href=@_loginUrl>Log in</a>
+                    }
                 </NotAuthorized>
                 <Authorizing>
                     @* 此方法的主要方案是在 Blazor WebAssembly 应用中 *@

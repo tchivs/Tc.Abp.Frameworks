@@ -13,7 +13,7 @@
 	  <None Remove="wwwroot\**" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="Masa.Blazor" Version="0.3.11407" />
+	  <PackageReference Include="Masa.Blazor" Version="0.5.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj" />

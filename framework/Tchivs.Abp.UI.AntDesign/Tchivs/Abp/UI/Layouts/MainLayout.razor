@@ -1,5 +1,52 @@
 ﻿@namespace Tchivs.Abp.UI.Layouts
+@using AntDesign.ProLayout
+@using JetBrains.Annotations
+@using Volo.Abp.UI.Navigation
 @inherits LayoutComponentBase
-<section class="container" style="height: 100%;">
-    @Body
-</section>
+<AntDesign.ProLayout.BasicLayout 
+    Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
+    MenuData="MenuData">
+    <RightContentRender>
+        @*<AntDesign.Pro.Template.Components.RightContent />*@
+    </RightContentRender>
+    <ChildContent>
+        @Body
+    </ChildContent>
+    <FooterRender>
+        <FooterView Copyright="2021 Ant Design Blazor" Links="Links"></FooterView>
+    </FooterRender>
+</AntDesign.ProLayout.BasicLayout>
+<SettingDrawer />
+@code{
+    public MenuDataItem[]MenuData{ get; set; }
+    public LinkItem[] Links { get; set; }
+    [Inject] [NotNull] IMenuManager MenuManager { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var mainMenu = await MenuManager.GetMainMenuAsync();
+        MenuData=GetIconSideMenuItems(mainMenu.Items);
+
+    }
+    MenuDataItem[] GetIconSideMenuItems(ApplicationMenuItemList items)
+    {
+         var menus = new List<MenuDataItem>();
+            foreach (var item in items)
+            {
+                var menu = new MenuDataItem()
+                {
+                    Name = item.DisplayName,
+                    Icon = item.Icon,
+                    Path = item.Url,
+                };
+                if (menu.Path == "/")
+                {
+                    menu.Match = NavLinkMatch.All;
+                }
+ 
+                menus.Add(menu);
+                menu.Children = GetIconSideMenuItems(item.Items);
+            }
+
+            return menus.ToArray();
+    }
+}

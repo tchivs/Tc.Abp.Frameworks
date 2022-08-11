@@ -9,7 +9,9 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AntDesign" Version="0.10.5" />
+    <PackageReference Include="AntDesign" Version="0.11.0" />
+	  <PackageReference Include="AntDesign.Charts" Version="0.2.3" />
+	  <PackageReference Include="AntDesign.ProLayout" Version="0.10.6" />
   </ItemGroup>
 
   <ItemGroup>

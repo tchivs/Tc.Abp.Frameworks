@@ -4,7 +4,7 @@
 		<!-- All Microsoft packages -->
 		<MicrosoftPackageVersion>6.0.1</MicrosoftPackageVersion>
 		<!-- All Abp packages -->
-		<AbpVersion>5.2.1</AbpVersion>
+		<AbpVersion>5.3.3</AbpVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
 		<PackageVersion>0.0.1</PackageVersion>
 		<Description>Abp Frameworks By Tchivs</Description>

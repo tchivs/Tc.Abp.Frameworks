@@ -3,7 +3,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
-		<Configurations>Debug;Release;Debug_Bootstrap;Release_Bootstrap</Configurations>
+		<Configurations>Debug;Release;Debug_Bootstrap;Release_Bootstrap;Debug_Antd;Release_Antd</Configurations>
 	</PropertyGroup>
 	<Choose>
 		<When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), 'Debug_.*'))">
@@ -44,6 +44,14 @@
 			</PropertyGroup>
 			<ItemGroup>
 				<ProjectReference Include="..\..\src\Tchivs.Abp.UI.Bootstrap.WebAssembly\Tchivs.Abp.UI.Bootstrap.WebAssembly.csproj" />
+			</ItemGroup>
+		</When>
+		<When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), '.*Antd'))">
+			<PropertyGroup>
+				<DefineConstants>$(DefineConstants);ANTD</DefineConstants>
+			</PropertyGroup>
+			<ItemGroup>
+				<ProjectReference Include="..\..\src\Tchivs.Abp.UI.AntDesign.WebAssembly\Tchivs.Abp.UI.AntDesign.WebAssembly.csproj" />
 			</ItemGroup>
 		</When>
 	</Choose>

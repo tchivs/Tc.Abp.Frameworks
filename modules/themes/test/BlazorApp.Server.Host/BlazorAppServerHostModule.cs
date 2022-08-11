@@ -2,7 +2,6 @@
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Tchivs.Abp.AspNetCore.Components.Server.Bundling;
 using Tchivs.Abp.UI;
-using Tchivs.Abp.UI.Bootstrap.Server;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.OpenIdConnect;
 using Volo.Abp.AspNetCore.Mvc.Client;
@@ -15,13 +14,19 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
-
+#if BOOTSTRAP
+using Tchivs.Abp.UI.Bootstrap.Server;
+#elif ANTD
+using Tchivs.Abp.UI.AntDesign.Server;
+#endif
 namespace BlazorApp.Server.Host
 {
     [DependsOn(
         typeof(AbpAutofacModule),
 #if BOOTSTRAP
 typeof(AbpUIBootstrapServerModule),
+#elif ANTD
+typeof(AbpUIAntDesignServerModule),
 #endif
         typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
         typeof(AbpHttpClientIdentityModelWebModule),
