@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
+using Tchivs.Abp.UI.Toolbars;
 using Volo.Abp.Ui.Branding;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Users;
@@ -31,7 +32,8 @@ namespace Tchivs.Abp.UI.Layouts
         [Inject] [NotNull] private IJSRuntime JsRuntime { get; set; }
         public string Url { get; set; }
         public string TabDefaultUrl { get; set; } = "/Index";
-
+        private List<RenderFragment> RightToolbarItemRenders { get; set; } = new();
+        private List<RenderFragment> LeftToolbarItemRenders { get; set; } = new();
         private async Task<bool> OnAuthorizing(string url)
         {
             return true;
@@ -47,8 +49,28 @@ namespace Tchivs.Abp.UI.Layouts
             Url = isWebAssembly ? $"authentication/login?returnUrl={url}" : "Account/Login";
             var mainMenu = await MenuManager.GetMainMenuAsync();
             MenuItems = GetIconSideMenuItems(mainMenu.Items);
+            await CreateToobar(LeftToolbarItemRenders, StandardToolbars.Left);
+            await CreateToobar(RightToolbarItemRenders, StandardToolbars.Right);
+        }
+        async Task CreateToobar(List<RenderFragment> renders, string name)
+        {
+            var toolbar = await this._toolbarManager.GetAsync(name);
+            renders.Clear();
+            var sequence = 0;
+            foreach (var item in toolbar.Items)
+            {
+                renders.Add(builder =>
+                {
+                    builder.OpenComponent(sequence++, item.ComponentType);
+                    builder.CloseComponent();
+                });
+            }
         }
 
+        private Task DrawerSwitch()
+        {
+            return Task.CompletedTask;
+        }
         private static List<MenuItem> GetIconSideMenuItems(ApplicationMenuItemList items)
         {
             var menus = new List<MenuItem>();

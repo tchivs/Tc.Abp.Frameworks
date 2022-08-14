@@ -2,6 +2,8 @@
 @using Microsoft.Extensions.Options
 @inject IOptions<AbpRouterOptions> RouterOptions
 @inherits LayoutComponentBase
+@inject IToolbarManager _toolbarManager
+
 @if (this.CurrentUser.IsAuthenticated)
 {
     <Layout SideWidth="0" IsPage="true" IsFullSide="true" IsFixedHeader="true"
@@ -10,7 +12,6 @@
         OnAuthorizing="@OnAuthorizing" OnErrorHandleAsync="OnErrorHandleAsync"
         UseTabSet="true" TabDefaultUrl="@TabDefaultUrl" OnUpdateAsync="OnUpdateAsync">
         <Header>
-            <span class="ms-3 flex-fill">@BrandingProvider.AppName</span>
             @*  <Logout ImageUrl="@Icon" DisplayName="@Context.DisplayName" UserName="@UserName">
                 <LinkTemplate>
                 <a href="/Admin/Profiles"><i class="fa fa-suitcase"></i>个人中心</a>
@@ -19,7 +20,33 @@
                 <LogoutLink />
                 </LinkTemplate>
                 </Logout>*@
-            <div class="layout-drawer"><i class="fa fa-gears"></i></div>
+ <div class="container-fluid">
+                <nav class="navbar navbar-expand navbar-dark flex-column justify-content-between flex-md-row bd-navbar">
+                    <div>
+                                   <span class="ms-3 flex-fill">@BrandingProvider.AppName</span>
+
+                    </div>
+                    <div>
+                        <ul class="navbar-nav ml-md-auto">
+                            @foreach (var render in LeftToolbarItemRenders)
+                            {
+                                @render
+                            }
+                        </ul>
+                        <ul class="navbar-nav ml-md-auto" style="align-items: center;">
+                            @foreach (var render in RightToolbarItemRenders)
+                            {
+                                @render
+                            }
+                            <li class="nav-item">
+                                <div class="layout-drawer" @onclick="DrawerSwitch">
+                                    <i class="fa fa-gears"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </Header>
         <Side>
             <div class="layout-banner">
