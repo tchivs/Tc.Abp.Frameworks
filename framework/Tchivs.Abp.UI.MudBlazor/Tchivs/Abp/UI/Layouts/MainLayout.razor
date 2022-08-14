@@ -5,10 +5,10 @@
 @using Tchivs.Abp.UI.Components
 @inherits LayoutComponentBase
 @inject IBrandingProvider _brandingProvider
+@inject ICurrentUser Current
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
-
 <MudLayout>
     <MudAppBar Elevation="1">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
@@ -21,7 +21,7 @@
         </MudMenu>
         <MudMenu FullWidth="true">
             <ActivatorContent>
-                <MudChip Icon="@Icons.Material.Filled.Person" Color="Color.Primary">Account</MudChip>
+                <MudChip Icon="@Icons.Material.Filled.Person" Color="Color.Primary">@Current.UserName</MudChip>
             </ActivatorContent>
             <ChildContent>
                 <MudMenuItem>Profile</MudMenuItem>
@@ -30,16 +30,12 @@
                 <MudMenuItem>Sign Out</MudMenuItem>
             </ChildContent>
         </MudMenu>
-        <MudMenu Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit">
+        @*<MudMenu Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit">
             <MudMenuItem>Profile</MudMenuItem>
             <MudMenuItem>My account</MudMenuItem>
             <MudMenuItem>Logout</MudMenuItem>
-        </MudMenu>
-         <MudMenu Icon="@Icons.Material.Filled.Translate" Color="Color.Inherit">
-            <MudMenuItem>Chinese</MudMenuItem>
-            <MudMenuItem>My account</MudMenuItem>
-            <MudMenuItem>Logout</MudMenuItem>
-        </MudMenu>
+        </MudMenu>*@
+        
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
