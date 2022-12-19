@@ -5,7 +5,7 @@
 		<RootNamespace>\</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
-	  <PackageReference Include="BootstrapBlazor" Version="6.3.1" />
+	  <PackageReference Include="BootstrapBlazor" Version="7.1.7" />
   </ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Tchivs.Abp.UI\Tchivs.Abp.UI.csproj" />
