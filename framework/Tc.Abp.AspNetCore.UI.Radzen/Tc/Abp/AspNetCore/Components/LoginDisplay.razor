@@ -1,0 +1,34 @@
+﻿@namespace Tc.Abp.AspNetCore.Components
+@inherits LoginDisplayBase
+<AuthorizeView>
+    <Authorized>
+        <div Class="mx-lg-5">
+            @if (Menu != null)
+            {
+                <RadzenMenu>
+                    <RadzenMenuItem Text="@CurrentUser.Name" Icon="account_circle">
+                        @foreach (var menuItem in Menu.Items)
+                        {
+                            <RadzenMenuItem Click="OnMenuClicked" Text="@menuItem.DisplayName" Path="@menuItem.Url" Icon="@menuItem.Icon"></RadzenMenuItem>
+                        }
+                    </RadzenMenuItem>
+                </RadzenMenu>
+            }
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <a href="@GetRedirectUrl()" title="Login" class="mx-3">Login</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+    async Task OnMenuClicked(MenuItemEventArgs args)
+    {
+        if (string.IsNullOrEmpty(args.Path))
+        {
+            return;
+        }
+        await this.NavigateToAsync(args.Path);
+    }
+}

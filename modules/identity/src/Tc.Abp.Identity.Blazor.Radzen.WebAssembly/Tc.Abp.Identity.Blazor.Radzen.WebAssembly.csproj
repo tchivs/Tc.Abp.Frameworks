@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="..\..\..\..\common.props" />
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\framework\Tc.Abp.AspNetCore.UI.Radzen.WebAssembly\Tc.Abp.AspNetCore.UI.Radzen.WebAssembly.csproj" />
+		<ProjectReference Include="..\Tc.Abp.Identity.Blazor.Radzen\Tc.Abp.Identity.Blazor.Radzen.csproj" />
+		<ProjectReference Include="..\Tc.Abp.Identity.Blazor.WebAssembly.Abstractions\Tc.Abp.Identity.Blazor.WebAssembly.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>

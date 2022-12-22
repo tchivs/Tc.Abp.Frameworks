@@ -1,0 +1,86 @@
+﻿@inherits LayoutComponentBase
+@namespace Tc.Abp.AspNetCore.Components
+@inject Volo.Abp.Ui.Branding.IBrandingProvider BrandingProvider
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+
+<RadzenLayout>
+    <RadzenHeader>
+        <ChildContent>
+            <div class="row justify-content-start align-items-center">
+                <div class="col-5 d-flex align-items-center">
+                    <RadzenSidebarToggle Click="@(args => { sidebarExpanded = !sidebarExpanded; bodyExpanded = !bodyExpanded; })">
+                    </RadzenSidebarToggle>
+                    <RadzenLabel Text="@BrandingProvider.AppName" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                    </RadzenLabel>
+                </div>
+                <NavToolbar />
+            </div>
+        </ChildContent>
+    </RadzenHeader>
+    <RadzenBody @ref="@body0" @bind-Expanded="@bodyExpanded">
+        <ChildContent>
+            <RadzenContentContainer Name="main">
+                <div class="container-fluid example-container">
+                    <div class="row">
+                        <div class="col-12 pt-4 pb-5 px-3 px-lg-5">
+                            @Body
+
+
+                            <RadzenText TextStyle="TextStyle.Body1" TextAlign="TextAlign.Center" Class="mt-5 mb-3">
+                                <RadzenLabel Text="Radzen Blazor Components, &copy; 2018-2022 Radzen."></RadzenLabel>
+                                <a href="https://github.com/radzenhq/radzen-blazor" target="_blank">Source Code</a> licensed under
+                                <a href="https://github.com/radzenhq/radzen-blazor/blob/master/LICENSE" target="_blank">MIT</a>
+                            </RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1" TextAlign="TextAlign.Center">
+                                <Social />
+                            </RadzenText>
+                        </div>
+                    </div>
+                </div>
+            </RadzenContentContainer>
+        </ChildContent>
+    </RadzenBody>
+    <RadzenSidebar @ref="@sidebar0" @bind-Expanded="@sidebarExpanded" class="demos-sidebar" style="display: flex; flex-direction: column">
+        <div style="padding: 1rem">
+            <RadzenTextBox Placeholder="Find component ..." type="search" @oninput="@FilterPanelMenu" style="width: 100%" />
+        </div>
+        <div style="flex: 1; overflow: auto">
+            <RadzenPanelMenu Match="NavLinkMatch.Prefix" Click="@PanelMenuClick">
+                <RadzenPanelMenuItem Text="General" Icon="home">
+                    <RadzenPanelMenuItem Text="Buttons" Path="buttons" Icon="account_circle"></RadzenPanelMenuItem>
+                    <RadzenPanelMenuItem Text="Menu" Path="menu" Icon="line_weight"></RadzenPanelMenuItem>
+                    <RadzenPanelMenuItem Text="FileInput" Path="fileinput" Icon="attach_file"></RadzenPanelMenuItem>
+                    <RadzenPanelMenuItem Text="Dialog" Path="dialog" Icon="perm_media"></RadzenPanelMenuItem>
+                    <RadzenPanelMenuItem Text="Notification" Path="notification" Icon="announcement"></RadzenPanelMenuItem>
+                </RadzenPanelMenuItem>
+                @* @foreach (var category in examples)
+                {
+                <NavigationItem @bind-Expanded=@category.Expanded Example=@category>
+                @if (category.Children != null)
+                {
+                @foreach (var example in category.Children)
+                {
+                if (example.Children != null)
+                {
+                <NavigationItem @bind-Expanded=@example.Expanded Example=@example>
+                @foreach (var child in example.Children)
+                {
+                <NavigationItem @bind-Expanded=@child.Expanded Example=@child />
+                }
+                </NavigationItem>
+                }
+                else
+                {
+                <NavigationItem @bind-Expanded=@example.Expanded Example=@example />
+                }
+                }
+                }
+                </NavigationItem>
+                }*@
+            </RadzenPanelMenu>
+        </div>
+    </RadzenSidebar>
+</RadzenLayout>

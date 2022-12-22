@@ -1,10 +1,9 @@
 <Project>
 	<!-- <Import Project="build\Version.props" /> -->
 	<PropertyGroup>
-		<!-- All Microsoft packages -->
-		<MicrosoftPackageVersion>6.0.1</MicrosoftPackageVersion>
+		<TargetFramework>net6.0</TargetFramework>
 		<!-- All Abp packages -->
-		<AbpVersion>5.3.3</AbpVersion>
+		<AbpVersion>6.0.*</AbpVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
 		<PackageVersion>0.0.1</PackageVersion>
 		<Description>Abp Frameworks By Tchivs</Description>
@@ -13,12 +12,19 @@
 		<Company>tchivs</Company>
 		<LangVersion>latest</LangVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<Copyright>Copyright (c) 2021 tchivs</Copyright>
-		<PackageProjectUrl>https://github.com/tchivs/Tchivs.Abp.Frameworks</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/tchivs/Tchivs.Abp.Frameworks</RepositoryUrl>
+		<Copyright>Copyright (c) 2022 tchivs</Copyright>
+		<PackageProjectUrl>https://github.com/tchivs/Tc.Abp.Frameworks</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/tchivs/Tc.Abp.Frameworks</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>dotnet;nuget;msbuild</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+	<!-- All Microsoft packages -->
+	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
+		<MicrosoftPackageVersion>6.0.11</MicrosoftPackageVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net7.0'">
+		<MicrosoftPackageVersion>7.0.*</MicrosoftPackageVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
