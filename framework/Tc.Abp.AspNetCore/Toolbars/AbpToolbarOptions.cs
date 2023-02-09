@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
-
-namespace Tc.Abp.AspNetCore.Toolbars;
+﻿namespace Tc.Abp.AspNetCore.Toolbars;
 
 public class AbpToolbarOptions
 {

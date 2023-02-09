@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Volo.Abp.Localization;
 
-namespace Tc.Abp.AspNetCore.Components
-{
+namespace Tc.Abp.AspNetCore.Components;
     public abstract class LanguageSwitchBase : TcAbpComponentBase
     {
         [Inject]
@@ -25,4 +19,3 @@ namespace Tc.Abp.AspNetCore.Components
 
         protected abstract Task ChangeLanguageAsync(LanguageInfo language);
     }
-}

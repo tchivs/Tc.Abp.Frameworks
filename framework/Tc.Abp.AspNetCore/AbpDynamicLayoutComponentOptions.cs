@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace Tc.Abp.AspNetCore;
+﻿namespace Tc.Abp.AspNetCore;
 
 public class AbpDynamicLayoutComponentOptions
 {

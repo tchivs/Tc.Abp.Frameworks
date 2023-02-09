@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Tc.Abp.AspNetCore.PageToolbars;
+﻿namespace Tc.Abp.AspNetCore.PageToolbars;
 
 public interface IPageToolbarManager
 {

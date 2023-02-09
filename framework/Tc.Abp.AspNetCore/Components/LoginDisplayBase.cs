@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Components.Routing;
 using Volo.Abp.UI.Navigation;
 
-namespace Tc.Abp.AspNetCore.Components
-{
+namespace Tc.Abp.AspNetCore.Components;
     public abstract class LoginDisplayBase : TcAbpComponentBase, IDisposable
     {
         [Inject]
@@ -27,4 +26,3 @@ namespace Tc.Abp.AspNetCore.Components
             Navigation.LocationChanged -= OnLocationChanged;
         }
     }
-}

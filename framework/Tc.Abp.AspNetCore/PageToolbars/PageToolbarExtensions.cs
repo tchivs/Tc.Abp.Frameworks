@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Volo.Abp.Localization;
-
-namespace Tc.Abp.AspNetCore.PageToolbars;
+﻿namespace Tc.Abp.AspNetCore.PageToolbars;
 
 public static class PageToolbarExtensions
 {

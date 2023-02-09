@@ -19,11 +19,10 @@ using Volo.Abp.AutoMapper;
 
 namespace Tc.Abp.AspNetCore;
 [DependsOn(
-typeof(AbpValidationModule),
 typeof(AbpAspNetCoreComponentsWebModule),
 typeof(AbpDddApplicationContractsModule),
-typeof(AbpAuthorizationModule),
 typeof(AbpUiNavigationModule),
+typeof(AbpValidationModule),
 typeof(AbpAutoMapperModule),
 typeof(AbpExceptionHandlingModule)
 )]

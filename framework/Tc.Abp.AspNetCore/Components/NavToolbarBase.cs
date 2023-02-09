@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Tc.Abp.AspNetCore.Toolbars;
 
-namespace Tc.Abp.AspNetCore.Components
-{
+namespace Tc.Abp.AspNetCore.Components;
     public abstract class NavToolbarBase : TcAbpComponentBase, IDisposable
     {
         [Inject]
@@ -48,4 +47,3 @@ namespace Tc.Abp.AspNetCore.Components
             AuthenticationStateProvider.AuthenticationStateChanged -= AuthenticationStateProviderOnAuthenticationStateChanged;
         }
     }
-}

@@ -1,7 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
-using Volo.Abp;
-namespace Tc.Abp.AspNetCore.Toolbars;
+﻿namespace Tc.Abp.AspNetCore.Toolbars;
 
 public class ToolbarItem
 {
