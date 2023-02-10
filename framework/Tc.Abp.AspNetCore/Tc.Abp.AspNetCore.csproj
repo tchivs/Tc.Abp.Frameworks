@@ -6,7 +6,8 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
-		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.1" />
+		<PackageReference Include="Fluxor.Blazor.Web" Version="5.7.0" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.2" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.Validation" Version="$(AbpVersion)" />
