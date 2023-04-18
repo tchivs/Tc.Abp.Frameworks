@@ -1,9 +1,8 @@
 <Project>
 	<!-- <Import Project="build\Version.props" /> -->
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
 		<!-- All Abp packages -->
-		<AbpVersion>7.0.*</AbpVersion>
+		<AbpVersion>7.1.*</AbpVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
 		<PackageVersion>0.0.1</PackageVersion>
 		<Description>Abp Frameworks By Tchivs</Description>
