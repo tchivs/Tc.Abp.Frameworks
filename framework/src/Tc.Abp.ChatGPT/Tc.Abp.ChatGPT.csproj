@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\common.props" />
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Caching" Version="$(AbpVersion)"  />
+	  <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.*" />
+  </ItemGroup>
+
+</Project>
