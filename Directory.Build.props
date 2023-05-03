@@ -23,7 +23,7 @@
 		<MicrosoftPackageVersion>6.0.11</MicrosoftPackageVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(TargetFramework)'=='net7.0'">
-		<MicrosoftPackageVersion>7.0.*</MicrosoftPackageVersion>
+		<MicrosoftPackageVersion>7.2.*</MicrosoftPackageVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
