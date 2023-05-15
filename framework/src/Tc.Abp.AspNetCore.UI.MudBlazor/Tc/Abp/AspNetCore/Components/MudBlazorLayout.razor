@@ -1,0 +1,29 @@
+﻿@using Volo.Abp.Ui.Branding;
+@inject IBrandingProvider BrandingProvider
+@inherits LayoutComponentBase
+@namespace Tc.Abp.AspNetCore.Components
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        @BrandingProvider.AppName
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
+       <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Medium">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}

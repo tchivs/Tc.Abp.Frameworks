@@ -2,7 +2,7 @@
 	<!-- <Import Project="build\Version.props" /> -->
 	<PropertyGroup>
 		<!-- All Abp packages -->
-		<AbpVersion>7.1.*</AbpVersion>
+		<AbpVersion>7.2.*</AbpVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
 		<PackageVersion>0.0.1</PackageVersion>
 		<Description>Abp Frameworks By Tchivs</Description>

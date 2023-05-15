@@ -1,0 +1,37 @@
+﻿@namespace Tc.Abp.AspNetCore.Components
+@using Volo.Abp.UI.Navigation
+@inherits MenuBase
+<MudNavMenu>
+    @foreach (var item in Menu.Items)
+    {
+        @if (item.IsLeaf)
+        {
+            <MudNavLink Href="@item.Url" Match="@GetMatch(item)">@item.DisplayName</MudNavLink>
+        }
+        else
+        {
+            <MudNavGroup Title="@item.DisplayName" Expanded="true">
+                @foreach (var subItem in item.Items)
+                {
+                    <MudNavLink Href="@subItem.Url" Match="@GetMatch(item)">@subItem.DisplayName</MudNavLink>
+                }
+            </MudNavGroup>
+        }
+        <MudNavLink Href="@item.Url" Match="NavLinkMatch.Prefix">@item.DisplayName</MudNavLink>
+    }
+    @*<MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>*@
+</MudNavMenu>
+@code {
+    NavLinkMatch GetMatch(ApplicationMenuItem menuItem)
+    {
+        if (menuItem.Url == null)
+        {
+            return NavLinkMatch.All;
+        }
+        if (menuItem.Url.StartsWith("http"))
+        {
+            return NavLinkMatch.All;
+        }
+        return NavLinkMatch.Prefix;
+    }
+}

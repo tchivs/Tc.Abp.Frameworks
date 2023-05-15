@@ -18,4 +18,3 @@ public class AbpRouterOptions
         AdditionalAssemblies = new List<Assembly>();
     }
 }
-

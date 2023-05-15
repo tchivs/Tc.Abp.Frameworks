@@ -3,15 +3,11 @@ using Microsoft.AspNetCore.Components.Routing;
 using Volo.Abp.UI.Navigation;
 
 namespace Tc.Abp.AspNetCore.Components;
-    public abstract class LoginDisplayBase : TcAbpComponentBase, IDisposable
-    {
-        [Inject]
-        protected IMenuManager MenuManager { get; set; }
-        protected ApplicationMenu Menu { get; set; }
-
+    public abstract class LoginDisplayBase : MenuBase
+{
         protected override async Task OnInitializedAsync()
         {
-            Menu = await MenuManager.GetAsync(StandardMenus.User);
+            await base.OnInitializedAsync();
 
             Navigation.LocationChanged += OnLocationChanged;
         }
