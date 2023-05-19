@@ -13,7 +13,7 @@ public class ConversationManager : IConversationManager,IServiceProviderAccessor
     public IHistoryMessageStore historyMessageStore { get=> ServiceProvider!.GetRequiredService<IHistoryMessageStore>();   }
     public ConversationOption options { get=> ServiceProvider!.GetRequiredService<ConversationOption>(); }
 
-    public async Task<Guid> SetupAsync(Guid conversationId, string message)
+    public async Task<List<ChatGptMessage>> SetupAsync(Guid conversationId, string message)
     {
         Check.NotNull(message, nameof(message));
 
@@ -32,8 +32,7 @@ public class ConversationManager : IConversationManager,IServiceProviderAccessor
             }
         };
         await historyMessageStore.SetAsync(conversationId, messages, messageExpiration);
-
-        return conversationId;
+        return messages;
     }
     
     public async Task DeleteAsync(Guid conversationId, bool preserveSetup = false)

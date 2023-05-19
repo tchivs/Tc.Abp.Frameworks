@@ -57,10 +57,10 @@ namespace Tc.Abp.ChatGPT
             var messages = await conversation.SetupAsync(conversationId, message);
             //var request = CreateRequest(messages, false, parameters, model);
             var request = CreateRequest(messages, false);
-
-            throw new NotImplementedException();
+           return await this.flurlClient.WithOAuthBearerToken(this.options.ApiKey).Request("v1/chat/completions").PostJsonAsync(request, cancellationToken).ReceiveJson<ChatGptResponse>();
+            
         }
-        private ChatGptRequest CreateRequest(IList<ChatGptMessage> messages, bool stream, ChatGptParameters? parameters = null, string? model = null)
+        private ChatGptRequest CreateRequest( List<ChatGptMessage> messages, bool stream, ChatGptParameters? parameters = null, string? model = null)
         => new()
         {
            Model = model ?? options.DefaultModel,

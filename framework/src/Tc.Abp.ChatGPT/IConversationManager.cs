@@ -21,15 +21,15 @@ public interface IConversationManager
         await UpdateHistory(conversationId, messages, message);
     }
 
-    /// <summary>
-    /// Setups a new conversation with a system message, that is used to influence assistant behavior.
-    /// </summary>
-    /// <param name="message">The system message.</param>
-    /// <returns>The unique identifier of the new conversation.</returns>
-    /// <remarks>This method creates a new conversation with a system message and a random Conversation Id. Then, call  with this Id to start the actual conversation.</remarks>
-    /// <exception cref="ArgumentNullException"><paramref name="message"/> is <see langword="null"/>.</exception>
-    Task<Guid> SetupAsync(string message)
-        => SetupAsync(Guid.NewGuid(), message);
+    ///// <summary>
+    ///// Setups a new conversation with a system message, that is used to influence assistant behavior.
+    ///// </summary>
+    ///// <param name="message">The system message.</param>
+    ///// <returns>The unique identifier of the new conversation.</returns>
+    ///// <remarks>This method creates a new conversation with a system message and a random Conversation Id. Then, call  with this Id to start the actual conversation.</remarks>
+    ///// <exception cref="ArgumentNullException"><paramref name="message"/> is <see langword="null"/>.</exception>
+    //Task<Guid> SetupAsync(string message)
+    //    => SetupAsync(Guid.NewGuid(), message);
 
     /// <summary>
     /// Setups a conversation with a system message, that is used to influence assistant behavior.
@@ -38,7 +38,7 @@ public interface IConversationManager
     /// <param name="message">The system message.</param>
     /// <remarks>This method creates a new conversation, with a system message and the given <paramref name="conversationId"/>. If a conversation with this Id already exists, it will be automatically cleared. Then, call to start the actual conversation.</remarks>
     /// <exception cref="ArgumentNullException"><paramref name="message"/> is <see langword="null"/>.</exception>
-    Task<Guid> SetupAsync(Guid conversationId, string message);
+    Task<List<ChatGptMessage>> SetupAsync(Guid conversationId, string message);
 
     /// <summary>
     /// Retrieves a chat conversation from the cache.
