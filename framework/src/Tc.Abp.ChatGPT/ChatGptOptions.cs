@@ -9,6 +9,14 @@ namespace Tc.Abp.ChatGPT;
 public class ChatGptOptions
 {
     /// <summary>
+    /// email
+    /// </summary>
+    public string? Email { get; set; }
+    /// <summary>
+    /// 密码
+    /// </summary>
+    public string? Password { get; set; }
+    /// <summary>
     /// Gets or sets the API Key to access the service.
     /// </summary>
     /// <remarks>

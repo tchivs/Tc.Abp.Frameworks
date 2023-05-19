@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 using Microsoft.Extensions.Options;
+using Flurl.Http.Configuration;
 
 namespace Tc.Abp.ChatGPT
 {
@@ -38,6 +39,8 @@ namespace Tc.Abp.ChatGPT
                     return handler;
                 });
             context.Services.AddTransient<IHistoryMessageStore,CacheHistoryMessageProvider>();
+            context.Services.AddSingleton<IFlurlClientFactory, PerBaseUrlFlurlClientFactory>();
+
         }
     }
 }

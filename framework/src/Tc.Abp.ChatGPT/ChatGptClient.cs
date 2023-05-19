@@ -12,6 +12,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace Tc.Abp.ChatGPT;
+public class ConversationOption:IScopedDependency
+{
+    public TimeSpan MessageExpiration { get;set;}=TimeSpan.FromHours(1);
+    public int MessageLimit { get; set; }
+}
 public class ChatGptClient : IChatGptClient, IScopedDependency
 {
 
@@ -19,22 +24,22 @@ public class ChatGptClient : IChatGptClient, IScopedDependency
     {
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
     };
-
+    private readonly IConversationManager conversation;
 
     public ICurrentUser CurrentUser { get; }
     public ChatGptOptions options;
-    private IHistoryMessageStore cache { get; }
 
     public HttpClient httpClient
     {
         get;
     }
-    public ChatGptClient(HttpClient httpClient, IHistoryMessageStore historyMessageStore, IChatGptOptionsFactory chatGptOptionsFactory, ICurrentUser CurrentUser)
+    public ChatGptClient(HttpClient httpClient,  IChatGptOptionsFactory chatGptOptionsFactory, ICurrentUser CurrentUser,IConversationManager conversation)
     {
-        this.cache = historyMessageStore;
+       
         this.httpClient = httpClient;
         options = chatGptOptionsFactory.GetOptions();
         this.CurrentUser = CurrentUser;
+        this.conversation = conversation;
         options.User ??= CurrentUser.UserName;
         options.Organization ??= CurrentUser.TenantId?.ToString();
 
@@ -46,29 +51,22 @@ public class ChatGptClient : IChatGptClient, IScopedDependency
         }
     }
 
-    public async Task<Guid> SetupAsync(Guid conversationId, string message)
+    
+    private async Task<IList<ChatGptMessage>> CreateMessageList(Guid conversationId, string message)
     {
-        ArgumentNullException.ThrowIfNull(message);
+        // Checks whether a list of messages for the given conversationId already exists.
+        var conversationHistory = await conversation.GetAsync(conversationId);
 
-        // Ensures that conversationId isn't empty.
-        if (conversationId == Guid.Empty)
+        List<ChatGptMessage> messages = conversationHistory is not null ? new(conversationHistory) : new();
+
+        messages.Add(new()
         {
-            conversationId = Guid.NewGuid();
-        }
+            Role = ChatGptRoles.User,
+            Content = message
+        });
 
-        var messages = new List<ChatGptMessage>
-        {
-            new()
-            {
-                Role = ChatGptRoles.System,
-                Content = message
-            }
-        };
-        await cache.SetAsync(conversationId, messages, options.MessageExpiration);
-
-        return conversationId;
+        return messages;
     }
-
     public async Task<ChatGptResponse> AskAsync(Guid conversationId, string message, ChatGptParameters? parameters = null, string? model = null, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(message);
@@ -89,7 +87,7 @@ public class ChatGptClient : IChatGptClient, IScopedDependency
         if (response.IsSuccessful)
         {
             // Adds the response message to the conversation cache.
-            await UpdateHistory(conversationId, messages, response.Choices[0].Message);
+            await conversation.UpdateHistory(conversationId, messages, response.Choices[0].Message);
         }
         else if (options.ThrowExceptionOnError)
         {
@@ -98,7 +96,7 @@ public class ChatGptClient : IChatGptClient, IScopedDependency
 
         return response;
     }
-
+   
     public async IAsyncEnumerable<ChatGptResponse> AskStreamAsync(Guid conversationId, string message, ChatGptParameters? parameters = null, string? model = null, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(message);
@@ -164,7 +162,7 @@ public class ChatGptClient : IChatGptClient, IScopedDependency
             }
 
             // Adds the response message to the conversation cache.
-            await UpdateHistory(conversationId, messages, new()
+            await conversation.UpdateHistory(conversationId, messages, new()
             {
                 Role = ChatGptRoles.Assistant,
                 Content = contentBuilder.ToString()
@@ -184,73 +182,7 @@ public class ChatGptClient : IChatGptClient, IScopedDependency
         }
     }
 
-    public async Task<IEnumerable<ChatGptMessage>> GetConversationAsync(Guid conversationId)
-    {
-        var messages = await cache.GetAsync(conversationId.ToString()) ?? Enumerable.Empty<ChatGptMessage>();
-
-        return messages;
-    }
-
-    public async Task DeleteConversationAsync(Guid conversationId, bool preserveSetup = false)
-    {
-        if (!preserveSetup)
-        {
-            // We don't want to preserve setup message, so just deletes all the cache history.
-            await cache.DeleteAsync(conversationId);
-        }
-        else
-        {
-            var messages = await cache.GetAsync(conversationId.ToString());
-            if (messages == null) return;
-            messages!.RemoveAll(m => m.Role != ChatGptRoles.System);
-            await cache.SetAsync(conversationId, messages, options.MessageExpiration);
-        }
-    }
-
-    public async Task<Guid> LoadConversationAsync(Guid conversationId, IEnumerable<ChatGptMessage> messages, bool replaceHistory = true)
-    {
-        ArgumentNullException.ThrowIfNull(messages);
-
-        // Ensures that conversationId isn't empty.
-        if (conversationId == Guid.Empty)
-        {
-            conversationId = Guid.NewGuid();
-        }
-
-        if (replaceHistory)
-        {
-            // If messages must replace history, just use the current list, discarding all the previously cached content.
-            // If messages.Count() > ChatGptOptions.MessageLimit, the UpdateCache take care of taking only the last messages.
-            await UpdateCache(conversationId, messages);
-        }
-        else
-        {
-            // Retrieves the current history and adds new messages.
-            var conversationHistory = await cache.GetAsync(conversationId.ToString()) ?? new List<ChatGptMessage>();
-            conversationHistory.AddRange(messages);
-
-            // If messages total length > ChatGptOptions.MessageLimit, the UpdateCache take care of taking only the last messages.
-            await UpdateCache(conversationId, conversationHistory);
-        }
-
-        return conversationId;
-    }
-
-    private async Task<IList<ChatGptMessage>> CreateMessageList(Guid conversationId, string message)
-    {
-        // Checks whether a list of messages for the given conversationId already exists.
-        var conversationHistory = await cache.GetAsync(conversationId.ToString());
-
-        List<ChatGptMessage> messages = conversationHistory is not null ? new(conversationHistory) : new();
-
-        messages.Add(new()
-        {
-            Role = ChatGptRoles.User,
-            Content = message
-        });
-
-        return messages;
-    }
+    
 
     private ChatGptRequest CreateRequest(IList<ChatGptMessage> messages, bool stream, ChatGptParameters? parameters = null, string? model = null)
         => new()
@@ -267,33 +199,5 @@ public class ChatGptClient : IChatGptClient, IScopedDependency
             User = options.User,
         };
 
-    private async Task UpdateHistory(Guid conversationId, IList<ChatGptMessage> messages, ChatGptMessage message)
-    {
-        messages.Add(message);
-        await UpdateCache(conversationId, messages);
-    }
-
-    private async Task UpdateCache(Guid conversationId, IEnumerable<ChatGptMessage> messages)
-    {
-        // If the maximum number of messages has been reached, deletes the oldest ones.
-        // Note: system message does not count for message limit.
-        var conversation = messages.Where(m => m.Role != ChatGptRoles.System);
-
-        if (conversation.Count() > options.MessageLimit)
-        {
-            conversation = conversation.TakeLast(options.MessageLimit);
-
-            // If the first message was of role system, adds it back in.
-            var firstMessage = messages.First();
-            if (firstMessage.Role == ChatGptRoles.System)
-            {
-                conversation = conversation.Prepend(firstMessage);
-            }
-
-            messages = conversation.ToList();
-        }
-
-        await cache.SetAsync(conversationId, messages.ToList(), options.MessageExpiration);
-
-    }
+     
 }

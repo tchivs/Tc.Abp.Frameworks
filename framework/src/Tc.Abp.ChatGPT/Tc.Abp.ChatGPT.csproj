@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Caching" Version="$(AbpVersion)"  />
+    <PackageReference Include="Flurl.Http" Version="3.2.4" />
+    <PackageReference Include="Volo.Abp.Caching" Version="$(AbpVersion)" />
 	  <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.*" />
+	  <!--<PackageReference Include="WebApiClientCore" Version="2.0.4" />-->
   </ItemGroup>
 
 </Project>
