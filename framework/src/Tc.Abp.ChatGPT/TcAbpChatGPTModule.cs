@@ -38,7 +38,7 @@ namespace Tc.Abp.ChatGPT
 
                     return handler;
                 });
-            context.Services.AddTransient<IHistoryMessageStore,CacheHistoryMessageProvider>();
+            //context.Services.AddSingleton<IHistoryMessageStore,CacheHistoryMessageProvider>();
             context.Services.AddSingleton<IFlurlClientFactory, PerBaseUrlFlurlClientFactory>();
 
         }

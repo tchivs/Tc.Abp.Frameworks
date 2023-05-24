@@ -5,14 +5,16 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Tc.Abp.ChatGPT;
 
-public class ConversationManager : IConversationManager,IServiceProviderAccessor, ITransientDependency
+public class ConversationManager : IConversationManager, ITransientDependency
 {
     TimeSpan messageExpiration => this.options.MessageExpiration;
-    public IServiceProvider? ServiceProvider { get; set; }
-    public IAbpLazyServiceProvider AbpLazyServiceProvider { get=> ServiceProvider!.GetRequiredService<IAbpLazyServiceProvider>();   }
-    public IHistoryMessageStore historyMessageStore { get=> ServiceProvider!.GetRequiredService<IHistoryMessageStore>();   }
-    public ConversationOption options { get=> ServiceProvider!.GetRequiredService<ConversationOption>(); }
-
+    public IAbpLazyServiceProvider AbpLazyServiceProvider { get ;   }
+    public IHistoryMessageStore historyMessageStore { get=> AbpLazyServiceProvider!.GetRequiredService<IHistoryMessageStore>();   }
+    public ConversationOption options { get=> AbpLazyServiceProvider!.GetRequiredService<ConversationOption>(); }
+    public ConversationManager(IAbpLazyServiceProvider lazyServiceProvider)
+    {
+        AbpLazyServiceProvider = lazyServiceProvider;
+    }
     public async Task<List<ChatGptMessage>> SetupAsync(Guid conversationId, string message)
     {
         Check.NotNull(message, nameof(message));

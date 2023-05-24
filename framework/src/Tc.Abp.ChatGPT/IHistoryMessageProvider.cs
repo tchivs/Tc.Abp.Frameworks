@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Tc.Abp.ChatGPT.Models;
+using Volo.Abp.DependencyInjection;
 
 namespace Tc.Abp.ChatGPT;
 
