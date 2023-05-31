@@ -12,11 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace Tc.Abp.ChatGPT;
-public class ConversationOption:IScopedDependency
-{
-    public TimeSpan MessageExpiration { get;set;}=TimeSpan.FromHours(1);
-    public int MessageLimit { get; set; }
-}
+[Obsolete("Use ChatGptClient instead")]
 public class ChatGptClient : IChatGptClient, IScopedDependency
 {
 
