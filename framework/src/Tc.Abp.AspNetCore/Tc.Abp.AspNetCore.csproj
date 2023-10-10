@@ -5,8 +5,8 @@
 		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
-		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.5" />
+		<PackageReference Include="Blazored.LocalStorage" Version="4.4.0" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.11" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.Validation" Version="$(AbpVersion)" />
